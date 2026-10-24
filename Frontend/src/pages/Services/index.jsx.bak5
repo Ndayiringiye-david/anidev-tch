@@ -1,0 +1,181 @@
+﻿import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { ChevronDown, ArrowUpRight } from 'lucide-react'
+import heroBg from '../../assets/convetional.jpg'
+
+// Edit this list to change categories, cards and sub-services.
+// `image` is optional: import a picture and set image: myImage to use it as the card background.
+const categories = ['All', 'Talent', 'Training', 'Software', 'Consulting']
+
+const services = [
+  {
+    title: 'Talent Placement',
+    category: 'Talent',
+    items: ['Vetted Developer Sourcing', 'Dedicated Remote Teams', 'Staff Augmentation'],
+  },
+  {
+    title: 'Training Programs',
+    category: 'Training',
+    items: ['Bootcamps', 'Corporate Upskilling', 'Mentorship'],
+  },
+  {
+    title: 'Software Development',
+    category: 'Software',
+    items: ['Web Applications', 'Mobile Applications', 'Custom Platforms', 'Maintenance & Support'],
+  },
+  {
+    title: 'Digital Transformation',
+    category: 'Consulting',
+    items: ['Process Automation', 'Cloud Migration', 'Data & Analytics'],
+  },
+  {
+    title: 'Technical Consultation',
+    category: 'Consulting',
+    items: [],
+    href: '/contact',
+  },
+  {
+    title: 'Managed Services',
+    category: 'Software',
+    items: [],
+    href: '/contact',
+  },
+]
+
+const gradients = [
+  'from-navy to-brand',
+  'from-brand to-navy-mid',
+  'from-navy-mid to-brand',
+]
+
+function ServiceCard({ service, index, isOpen, onToggle }) {
+  const hasItems = service.items.length > 0
+  const bg = service.image
+    ? { backgroundImage: `url(${service.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }
+    : undefined
+
+  const titleInner = (
+    <>
+      <span className="text-lg font-semibold text-left">{service.title}</span>
+      {hasItems ? (
+        <ChevronDown className={`w-5 h-5 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+      ) : (
+        <ArrowUpRight className="w-5 h-5 shrink-0" />
+      )}
+    </>
+  )
+
+  return (
+    <div
+      className={`relative h-80 rounded-2xl overflow-hidden text-white shadow-lg bg-gradient-to-br ${gradients[index % gradients.length]}`}
+      style={bg}
+    >
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end max-h-full">
+        {hasItems && isOpen && (
+          <ul className="mb-3 space-y-1 overflow-y-auto">
+            {service.items.map((item) => (
+              <li key={item}>
+                <Link
+                  to="/contact"
+                  className="flex items-center justify-between gap-3 px-4 py-2.5 rounded-lg bg-white/15 backdrop-blur-sm hover:bg-white/25 transition-colors text-sm"
+                >
+                  <span>{item}</span>
+                  <ArrowUpRight className="w-4 h-4 shrink-0" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+        {hasItems ? (
+          <button
+            type="button"
+            onClick={onToggle}
+            className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors"
+          >
+            {titleInner}
+          </button>
+        ) : (
+          <Link
+            to={service.href || '/contact'}
+            className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors"
+          >
+            {titleInner}
+          </Link>
+        )}
+      </div>
+    </div>
+  )
+}
+
+export default function ServicesPage() {
+  const [active, setActive] = useState('All')
+  const [openTitle, setOpenTitle] = useState(null)
+
+  const visible = active === 'All' ? services : services.filter((s) => s.category === active)
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Banner */}
+      <section className="relative h-64 md:h-72 bg-navy overflow-hidden">
+        <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/80 to-brand/60" />
+      </section>
+
+      {/* Heading */}
+      <section className="px-4 sm:px-6 lg:px-12 pt-14 pb-6">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900">Services</h1>
+          <div className="mt-3 h-1 w-16 rounded-full bg-brand" />
+        </div>
+      </section>
+
+      {/* Categories */}
+      <section className="px-4 sm:px-6 lg:px-12 pb-8">
+        <div className="max-w-7xl mx-auto">
+          <ul className="hidden md:flex flex-wrap gap-3">
+            {categories.map((c) => (
+              <li key={c}>
+                <button
+                  type="button"
+                  onClick={() => { setActive(c); setOpenTitle(null) }}
+                  className={`px-5 py-2 rounded-full text-sm font-medium border transition-colors ${
+                    active === c
+                      ? 'bg-brand text-white border-brand'
+                      : 'bg-white text-gray-700 border-gray-200 hover:border-brand hover:text-brand'
+                  }`}
+                >
+                  {c}
+                </button>
+              </li>
+            ))}
+          </ul>
+          <select
+            value={active}
+            onChange={(e) => { setActive(e.target.value); setOpenTitle(null) }}
+            className="md:hidden w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand"
+          >
+            {categories.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+        </div>
+      </section>
+
+      {/* Cards */}
+      <section className="px-4 sm:px-6 lg:px-12 pb-20">
+        <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {visible.map((s, i) => (
+            <ServiceCard
+              key={s.title}
+              service={s}
+              index={i}
+              isOpen={openTitle === s.title}
+              onToggle={() => setOpenTitle(openTitle === s.title ? null : s.title)}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
+  )
+}
