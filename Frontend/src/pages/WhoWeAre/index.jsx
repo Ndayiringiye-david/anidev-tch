@@ -7,7 +7,7 @@ import techImg from '../../assets/tech-img.png'
 import whyChooseUs from '../../assets/why_choose_us.png'
 import rwandaBuilding from '../../assets/stroke_rwanda_building.svg'
 import lines from '../../assets/about-section-lines.png'
-import ceo from "../../../public/Images/ceo.png"
+const ceo = '/Images/ceo.png'
 
 function LinkedinIcon({ className }) {
   return (
