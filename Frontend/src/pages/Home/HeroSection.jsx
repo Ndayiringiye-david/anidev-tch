@@ -29,7 +29,7 @@ export function HeroSection() {
               We&rsquo;re more than a BPO company. We are your strategic bridge to Africa&rsquo;s vibrant, tech-ready workforce. ANIDEV TECHNOLOGIES connects you with skilled, certified professionals who deliver excellence and drive innovation across borders.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-6 py-3 bg-[#2563eb] text-primary rounded-lg font-semibold hover:bg-primary-50 flex items-center justify-center transition-colors duration-300">
+              <button className="px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-50 hover:text-primary flex items-center justify-center transition-colors duration-300">
                 Hire with Us <ChevronRight className="ml-2 w-5 h-5" />
               </button>
               <button className="px-6 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-primary flex items-center justify-center transition-colors duration-300">
