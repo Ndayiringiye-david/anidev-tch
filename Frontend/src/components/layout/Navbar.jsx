@@ -36,13 +36,10 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 isolate w-full">
       <div className="border-b border-slate-200/80 bg-white/95 shadow-[0_4px_24px_-18px_rgba(15,23,42,0.35)] backdrop-blur-xl">
-        <div className="mx-auto flex h-[76px] max-w-[1380px] items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto flex h-[76px] max-w-[1380px] items-center justify-between gap-4 px-3 sm:px-5 lg:px-6">
           {/* Logo */}
-          <Link to="/" aria-label="AnidevTech home" className="group flex shrink-0 items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 shadow-md shadow-blue-600/20 transition-transform duration-200 group-hover:-rotate-3 group-hover:scale-105">
-              <span className="text-white font-bold text-lg">A</span>
-            </div>
-            <span className="hidden text-[1.05rem] font-bold tracking-tight text-slate-900 sm:inline">Anidev<span className="text-blue-600">Tech</span></span>
+          <Link to="/" aria-label="AnidevTech home" className="group -ml-2 flex shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-4">
+            <span className="hidden text-xl font-bold tracking-tight text-slate-900 sm:inline">Anidev<span className="text-blue-600">Tech</span></span>
           </Link>
 
           {/* Desktop Nav */}
@@ -63,7 +60,7 @@ export default function Navbar() {
                     aria-haspopup="true"
                     aria-expanded={openDropdown === link.label}
                     onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
-                    className={`flex cursor-pointer select-none items-center gap-1.5 rounded-full px-3.5 py-2 text-[13px] font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 ${
+                    className={`flex cursor-pointer select-none items-center gap-1.5 rounded-full px-1.5 py-2 text-base font-semibold uppercase transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 ${
                       isDropdownActive(link.dropdown) || openDropdown === link.label
                         ? 'bg-blue-50 text-blue-700'
                         : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950'
@@ -98,9 +95,9 @@ export default function Navbar() {
                   key={link.href}
                   to={link.href}
                   aria-current={isActive(link.href) ? 'page' : undefined}
-                  className={`relative flex cursor-pointer select-none items-center gap-1 rounded-full px-3.5 py-2 text-[13px] font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2
+                  className={`relative flex cursor-pointer select-none items-center gap-1 rounded-full px-1.5 py-2 text-base font-semibold uppercase transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2
                     ${isActive(link.href)
-                      ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20'
+                      ? 'text-blue-700'
                       : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950'
                     }`}
                 >
@@ -153,11 +150,8 @@ export default function Navbar() {
         className={`fixed right-0 top-0 z-50 flex h-full w-[min(88vw,360px)] flex-col border-l border-slate-200 bg-white shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-blue-700">
-              <span className="text-white font-bold">A</span>
-            </div>
-            <span className="font-bold tracking-tight text-slate-900">Anidev<span className="text-blue-600">Tech</span></span>
+          <div>
+            <span className="text-lg font-bold tracking-tight text-slate-900">Anidev<span className="text-blue-600">Tech</span></span>
           </div>
           <button
             type="button"
