@@ -1,90 +1,109 @@
-import { Award, Network, Shield, Users, ChevronRight } from 'lucide-react'
+import { ArrowRight, Award, Network, Shield, Users } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import teamPhoto from '../../assets/about-left.png'
 
 const features = [
   {
     icon: Award,
-    title: 'Cutting-Edge Tech Stack',
-    desc: 'A driving force for digital product development',
+    title: 'Modern expertise',
+    desc: 'A future-ready mix of skills and technologies for products built to last.',
   },
   {
     icon: Network,
-    title: 'Agile & Scalable Delivery',
-    desc: 'Fast turnaround with modern agile methodologies',
+    title: 'Agile delivery',
+    desc: 'A focused, collaborative process that keeps good work moving forward.',
   },
   {
     icon: Shield,
-    title: 'Full-Stack Development',
-    desc: 'Web, mobile, backend, cloud — all under one roof',
+    title: 'End-to-end capability',
+    desc: 'From web and mobile to backend and cloud, bring the pieces together.',
   },
   {
     icon: Users,
-    title: 'Dedicated Client Support',
-    desc: 'Long-term partnership with transparent communication',
+    title: 'People-first partnership',
+    desc: 'A dedicated team, clear communication, and support beyond launch.',
   },
 ]
 
 export default function WhyUsSection() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 text-white relative overflow-hidden">
-      {/* Right glow */}
-      <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">
-        <div className="absolute inset-0 bg-gradient-to-l from-cyan-500/20 to-transparent" />
-      </div>
-      {/* Decorative bottom-left */}
-      <div className="absolute bottom-0 left-0 w-[40%] hidden lg:block opacity-10">
-        <svg viewBox="0 0 400 400" className="w-full">
-          <rect x="50" y="50" width="300" height="200" rx="10" fill="none" stroke="white" strokeWidth="2" />
-          <rect x="80" y="100" width="80" height="100" rx="5" fill="none" stroke="white" strokeWidth="1.5" />
-          <rect x="180" y="80" width="140" height="120" rx="5" fill="none" stroke="white" strokeWidth="1.5" />
-          <line x1="0" y1="300" x2="400" y2="300" stroke="white" strokeWidth="1" />
-          <line x1="200" y1="250" x2="200" y2="400" stroke="white" strokeWidth="1" />
-        </svg>
-      </div>
+    <section className="relative overflow-hidden bg-slate-50 py-20 md:py-28">
+      <div className="pointer-events-none absolute -right-36 -top-40 h-[28rem] w-[28rem] rounded-full bg-blue-100/70 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-48 -left-40 h-[28rem] w-[28rem] rounded-full bg-indigo-100/50 blur-3xl" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative mt-12">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
-          <div>
-            <p className="text-white text-sm mb-6 bg-white/20 inline-block px-4 py-2 rounded-full font-semibold">
-              Our Value Proposition
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">What Makes Us Different</h2>
-            <p className="text-blue-100 mb-8 leading-relaxed">
-              We combine the best of African talent, modern creative innovation, and proven delivery processes to build exceptional digital products that drive business growth.
-            </p>
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        <div className="mb-12 max-w-2xl md:mb-14">
+          <span className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm">
+            <span className="h-2 w-2 rounded-full bg-blue-600" />
+            The ANIDEV difference
+          </span>
+          <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+            Built around people.
+            <span className="block text-blue-700">Designed for what&apos;s next.</span>
+          </h2>
+          <p className="mt-5 max-w-xl text-base leading-7 text-slate-600 sm:text-lg">
+            We bring skilled African talent, thoughtful technology, and dependable delivery
+            together to help ambitious teams move forward.
+          </p>
+        </div>
 
-            <div className="space-y-6">
-              {features.map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-800 rounded flex items-center justify-center mr-4 flex-shrink-0">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">{title}</h3>
-                    <p className="text-blue-200 text-sm">{desc}</p>
-                  </div>
-                </div>
-              ))}
+        <div className="grid items-stretch gap-6 lg:grid-cols-[0.88fr_1.12fr] lg:gap-8">
+          <div className="group relative min-h-[420px] overflow-hidden rounded-[1.75rem] bg-slate-900 shadow-xl shadow-slate-900/10 sm:min-h-[500px]">
+            <img
+              src={teamPhoto}
+              alt="African technology professionals collaborating in their workspace"
+              className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/15 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-7 sm:p-9">
+              <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm">
+                Talent with purpose
+              </span>
+              <h3 className="mt-4 max-w-md text-2xl font-semibold leading-snug text-white sm:text-3xl">
+                Local expertise.
+                <br />
+                Global perspective.
+              </h3>
+              <p className="mt-3 max-w-md text-sm leading-6 text-slate-200">
+                We create meaningful opportunities while helping organizations access the skills
+                they need to grow.
+              </p>
             </div>
-
-            <Link
-              to="/services"
-              className="mt-8 px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 flex items-center w-fit transition-colors duration-300"
-            >
-              Learn More <ChevronRight className="ml-2 w-5 h-5" />
-            </Link>
           </div>
 
-          {/* Right image */}
-          <div className="hidden lg:block">
-            <div className="bg-white/10 rounded-lg border border-white/20 shadow-lg overflow-hidden aspect-[4/3] flex items-center justify-center">
-              <div className="text-center text-white/60 p-8">
-                <svg className="w-24 h-24 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <p className="text-sm font-medium">Professional Team at Work</p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {features.map(({ icon: Icon, title, desc }, index) => (
+              <article
+                key={title}
+                className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-950/[0.06] sm:p-7"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <span className="text-sm font-semibold tracking-wider text-slate-300">
+                    0{index + 1}
+                  </span>
+                </div>
+                <h3 className="mt-6 text-lg font-semibold text-slate-900">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{desc}</p>
+              </article>
+            ))}
+
+            <div className="flex flex-col justify-center rounded-2xl bg-gradient-to-br from-blue-700 to-blue-900 p-6 text-white shadow-lg shadow-blue-900/15 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-8">
+              <div>
+                <p className="text-lg font-semibold">Let&apos;s make progress together.</p>
+                <p className="mt-1 text-sm text-blue-100">
+                  Discover how our team can support your next step.
+                </p>
               </div>
+              <Link
+                to="/services"
+                className="mt-5 inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-blue-800 transition hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-800 sm:mt-0"
+              >
+                Explore our services
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </div>
