@@ -113,7 +113,7 @@ export default function Navbar() {
               to="/become-a-partner"
               className="rounded-full border border-slate-200 px-4 py-2.5 text-[13px] font-semibold text-slate-700 transition-all duration-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 active:scale-[0.98]"
             >
-              Partner With Us
+              PARTNER WITH US
             </Link>
             <Link
               to="/contact"
@@ -123,7 +123,7 @@ export default function Navbar() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/70"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
               </span>
-              Get a Quote
+              APPLY NOW
             </Link>
           </div>
 
@@ -173,14 +173,14 @@ export default function Navbar() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/70"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
             </span>
-            Get a Quote
+            APPLY NOW
           </Link>
           <Link
             to="/become-a-partner"
             onClick={() => setMobileOpen(false)}
             className="mb-3 flex w-full items-center justify-center rounded-xl border border-blue-200 py-2.5 text-sm font-semibold text-blue-700 transition-all hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
           >
-            Partner with us
+            PARTNER WITH US
           </Link>
 
           {navLinks.map((link) =>

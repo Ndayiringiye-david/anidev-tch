@@ -8,6 +8,7 @@ import ContactPage from './pages/Contact'
 import ServicesPage from './pages/Services'
 import WhoWeAre from './pages/WhoWeAre'
 import InsightsPage from './pages/Insights'
+import PartnershipPage from './pages/Partnership'
 
 function Layout({ children }) {
   return (
@@ -34,12 +35,11 @@ export default function App() {
           <Route path="/products/devbox" element={<PlaceholderPage title="DevBox" />} />
           <Route path="/insights" element={<InsightsPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/become-a-partner" element={<PlaceholderPage title="Partner With Us" />} />
+          <Route path="/become-a-partner" element={<PartnershipPage />} />
           <Route path="*" element={<PlaceholderPage title="Page Not Found" />} />
         </Routes>
       </Layout>
     </BrowserRouter>
   )
 }
-
 
