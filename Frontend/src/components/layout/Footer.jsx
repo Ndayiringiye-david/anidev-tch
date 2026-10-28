@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import { Facebook, Linkedin, Instagram, Youtube } from '../icons/BrandIcons'
+import { useLocale } from '../../i18n/LocaleContext'
 
 const XIcon = () => (
   <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" className="w-4 h-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -17,6 +18,7 @@ const socials = [
 ]
 
 export default function Footer() {
+  const { t } = useLocale()
   return (
     <div className="bg-primary-900 relative py-8 md:py-16 overflow-hidden">
       {/* decorative overlay */}
@@ -31,15 +33,12 @@ export default function Footer() {
             {/* Col 1 — Brand */}
             <div className="col-span-1 sm:col-span-2 lg:col-span-1">
               <div className="flex items-center gap-2 mb-4 md:mb-6">
-                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                  <span className="text-blue-700 font-bold text-xl">A</span>
-                </div>
                 <span className="text-white font-bold text-xl">Anidev<span className="text-blue-300">Tech</span></span>
               </div>
               <p className="text-blue-100 mb-4 md:mb-6 text-sm md:text-base">
-                Building Digital Solutions for Africa &amp; Beyond.
+                {t('Building Digital Solutions for Africa & Beyond.')}
               </p>
-              <h5 className="text-white mb-3 mt-3 text-sm md:text-base font-medium">JOIN US ON</h5>
+              <h5 className="text-white mb-3 mt-3 text-sm md:text-base font-medium">{t('JOIN US ON')}</h5>
               <div className="flex space-x-3 md:space-x-4">
                 {socials.map(({ href, icon: Icon, label }) => (
                   <a
@@ -58,7 +57,7 @@ export default function Footer() {
 
             {/* Col 2 — Company Links */}
             <div>
-              <h4 className="font-bold mb-4 md:mb-6 text-sm md:text-base">About Company</h4>
+              <h4 className="font-bold mb-4 md:mb-6 text-sm md:text-base">{t('About Company')}</h4>
               <ul className="space-y-3 md:space-y-4 text-blue-100 text-sm md:text-base">
                 {[
                   { label: 'Who We Are', href: '/who-we-are' },
@@ -70,8 +69,8 @@ export default function Footer() {
                 ].map(({ label, href, badge }) => (
                   <li key={href}>
                     <Link to={href} className="hover:text-blue-200 transition-colors flex items-center gap-2">
-                      {label}
-                      {badge && <span className="px-1.5 py-0.5 text-[10px] font-bold bg-green-500 text-white rounded-full">{badge}</span>}
+                      {t(label)}
+                      {badge && <span className="px-1.5 py-0.5 text-[10px] font-bold bg-green-500 text-white rounded-full">{t(badge)}</span>}
                     </Link>
                   </li>
                 ))}
@@ -80,7 +79,7 @@ export default function Footer() {
 
             {/* Col 3 — Contact */}
             <div>
-              <h4 className="font-bold mb-4 md:mb-6 text-sm md:text-base">Contact Us</h4>
+              <h4 className="font-bold mb-4 md:mb-6 text-sm md:text-base">{t('Contact Us')}</h4>
               <ul className="space-y-3 md:space-y-4 text-blue-100 mt-2 md:mt-4">
                 <li className="flex items-center text-sm md:text-base">
                   <Phone className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 text-white flex-shrink-0" />
@@ -92,19 +91,19 @@ export default function Footer() {
                 </li>
                 <li className="flex items-start text-sm md:text-base">
                   <MapPin className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 text-white flex-shrink-0 mt-0.5" />
-                  <span>123 Tech Avenue, Innovation Hub, Kigali, Rwanda</span>
+                  <span>{t('123 Tech Avenue, Innovation Hub, Kigali, Rwanda')}</span>
                 </li>
               </ul>
             </div>
 
             {/* Col 4 — Newsletter */}
             <div>
-              <h4 className="font-bold mb-4 md:mb-6 text-sm md:text-base">Stay Connected</h4>
-              <p className="text-blue-300 mb-4 font-thin text-sm md:text-base">Subscribe for latest update</p>
+              <h4 className="font-bold mb-4 md:mb-6 text-sm md:text-base">{t('Stay Connected')}</h4>
+              <p className="text-blue-300 mb-4 font-thin text-sm md:text-base">{t('Subscribe for latest update')}</p>
               <form className="flex bg-white/10 border border-none rounded-[30px] overflow-hidden backdrop-blur-sm p-1">
                 <input
                   type="email"
-                  placeholder="Your email...."
+                  placeholder={t('Your email....')}
                   required
                   className="flex-1 px-3 md:px-4 py-2 bg-transparent text-white placeholder-blue-300 focus:outline-none text-sm md:text-base"
                 />
@@ -120,9 +119,9 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/20 pt-6 md:pt-8 text-center text-blue-100">
-          <p className="text-sm md:text-base">© {new Date().getFullYear()} Anidev Technologies Ltd. All rights reserved.</p>
+          <p className="text-sm md:text-base">© {new Date().getFullYear()} Anidev Technologies Ltd. {t('All rights reserved.')}</p>
           <p className="mt-2 text-xs text-blue-300/70 max-w-3xl mx-auto">
-            Empowering Africa through technology — web, mobile, cloud, and digital transformation solutions.
+            {t('Empowering Africa through technology: web, mobile, cloud, and digital transformation solutions.')}
           </p>
         </div>
       </footer>

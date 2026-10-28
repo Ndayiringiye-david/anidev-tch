@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ChevronDown, Menu, X, Zap } from 'lucide-react'
+import { useLocale } from '../../i18n/LocaleContext'
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -25,6 +26,7 @@ const navLinks = [
 ]
 
 export default function Navbar() {
+  const { t } = useLocale()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null)
   const location = useLocation()
@@ -38,12 +40,12 @@ export default function Navbar() {
       <div className="border-b border-slate-200/80 bg-white/95 shadow-[0_4px_24px_-18px_rgba(15,23,42,0.35)] backdrop-blur-xl">
         <div className="mx-auto flex h-[76px] max-w-[1380px] items-center justify-between gap-4 px-3 sm:px-5 lg:px-6">
           {/* Logo */}
-          <Link to="/" aria-label="AnidevTech home" className="group -ml-2 flex shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-4">
+          <Link to="/" aria-label={t('AnidevTech home')} className="group -ml-2 flex shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-4">
             <span className="hidden text-xl font-bold tracking-tight text-slate-900 sm:inline">Anidev<span className="text-blue-600">Tech</span></span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav aria-label="Main navigation" className="hidden flex-1 items-center justify-center gap-1 lg:flex">
+          <nav aria-label={t('Main navigation')} className="hidden flex-1 items-center justify-center gap-1 lg:flex">
             {navLinks.map((link) =>
               link.dropdown ? (
                 <div
@@ -66,7 +68,7 @@ export default function Navbar() {
                         : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950'
                     }`}
                   >
-                    {link.label}
+                    {t(link.label)}
                     <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${openDropdown === link.label ? 'rotate-180' : ''}`} />
                   </button>
                   {openDropdown === link.label && (
@@ -83,7 +85,7 @@ export default function Navbar() {
                                 : 'text-slate-700 hover:bg-slate-50 hover:text-blue-700'
                             }`}
                           >
-                            {item.label}
+                            {t(item.label)}
                           </Link>
                         ))}
                       </div>
@@ -101,7 +103,7 @@ export default function Navbar() {
                       : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950'
                     }`}
                 >
-                  {link.label}
+                  {t(link.label)}
                 </Link>
               )
             )}
@@ -113,7 +115,7 @@ export default function Navbar() {
               to="/become-a-partner"
               className="rounded-full border border-slate-200 px-4 py-2.5 text-[13px] font-semibold text-slate-700 transition-all duration-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 active:scale-[0.98]"
             >
-              PARTNER WITH US
+              {t('PARTNER WITH US')}
             </Link>
             <Link
               to="/apply-now"
@@ -123,7 +125,7 @@ export default function Navbar() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/70"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
               </span>
-              APPLY NOW
+              {t('APPLY NOW')}
             </Link>
           </div>
 
@@ -131,7 +133,7 @@ export default function Navbar() {
           <button
             type="button"
             className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 transition-all duration-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 lg:hidden"
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-label={mobileOpen ? t('Close menu') : t('Open menu')}
             aria-expanded={mobileOpen}
             aria-controls="mobile-navigation"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -144,7 +146,7 @@ export default function Navbar() {
       {/* Mobile Drawer */}
       <nav
         id="mobile-navigation"
-        aria-label="Mobile navigation"
+        aria-label={t('Mobile navigation')}
         aria-hidden={!mobileOpen}
         inert={!mobileOpen}
         className={`fixed right-0 top-0 z-50 flex h-full w-[min(88vw,360px)] flex-col border-l border-slate-200 bg-white shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}
@@ -155,7 +157,7 @@ export default function Navbar() {
           </div>
           <button
             type="button"
-            aria-label="Close menu"
+            aria-label={t('Close menu')}
             className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 text-slate-500 transition-all hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
             onClick={() => setMobileOpen(false)}
           >
@@ -173,21 +175,21 @@ export default function Navbar() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/70"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
             </span>
-            APPLY NOW
+            {t('APPLY NOW')}
           </Link>
           <Link
             to="/become-a-partner"
             onClick={() => setMobileOpen(false)}
             className="mb-3 flex w-full items-center justify-center rounded-xl border border-blue-200 py-2.5 text-sm font-semibold text-blue-700 transition-all hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
           >
-            PARTNER WITH US
+            {t('PARTNER WITH US')}
           </Link>
 
           {navLinks.map((link) =>
             link.dropdown ? (
               <div key={link.label}>
                 <p className="px-4 pb-1 pt-4 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400">
-                  {link.label}
+                  {t(link.label)}
                 </p>
                 {link.dropdown.map((item) => (
                   <Link
@@ -201,7 +203,7 @@ export default function Navbar() {
                         : 'text-slate-700 hover:bg-slate-50 hover:text-blue-700'
                     }`}
                   >
-                    {item.label}
+                    {t(item.label)}
                   </Link>
                 ))}
               </div>
@@ -217,7 +219,7 @@ export default function Navbar() {
                     : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950'
                   }`}
               >
-                {link.label}
+                {t(link.label)}
                 {isActive(link.href) && <Zap className="w-3.5 h-3.5 text-blue-600" />}
               </Link>
             )

@@ -1,4 +1,5 @@
 import { Globe, DollarSign, Users, CircleCheckBig } from 'lucide-react'
+import { useLocale } from '../../i18n/LocaleContext'
 
 const cards = [
   {
@@ -22,15 +23,17 @@ const cards = [
 ]
 
 export default function ChooseUsSection() {
+  const { t } = useLocale()
+
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-            Why CHOOSE ANIDEV TECHNOLOGIES?
+            {t('Why CHOOSE ANIDEV TECHNOLOGIES?')}
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            We're more than a development agency. We're your end-to-end partner for building and scaling world-class digital products across Africa and beyond.
+            {t("We're more than a development agency. We're your end-to-end partner for building and scaling world-class digital products across Africa and beyond.")}
           </p>
         </div>
 
@@ -43,13 +46,13 @@ export default function ChooseUsSection() {
               <div className="w-14 h-14 bg-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-700 transition-colors">
                 <Icon className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{title}</h3>
-              <p className="text-gray-600 mb-6">{desc}</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t(title)}</h3>
+              <p className="text-gray-600 mb-6">{t(desc)}</p>
               <ul className="space-y-3">
                 {bullets.map((b) => (
                   <li key={b} className="flex items-start">
                     <CircleCheckBig className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{b}</span>
+                    <span className="text-gray-700">{t(b)}</span>
                   </li>
                 ))}
               </ul>

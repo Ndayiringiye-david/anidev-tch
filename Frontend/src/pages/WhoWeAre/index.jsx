@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useLocale } from '../../i18n/LocaleContext'
 import { Award, Users, Globe, CheckCircle2, TrendingUp } from 'lucide-react'
 import aboutLeft from '../../assets/about-left.png'
 import medals from '../../assets/medals.png'
@@ -71,6 +72,8 @@ const team = [
 ]
 
 export default function WhoWeArePage() {
+  const { t } = useLocale()
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
@@ -78,9 +81,9 @@ export default function WhoWeArePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">Who We are?</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('Who We are?')}</h1>
               <p className="text-lg md:text-xl leading-relaxed text-white">
-                Anidev Technologies connects global businesses with Africa’s young, skilled, and multilingual workforce delivering reliable, innovative BPO solutions that drive growth and transformation. Together, we’re shaping Rwanda into a global hub for quality outsourcing.
+                {t('Anidev Technologies connects global businesses with Africa’s young, skilled, and multilingual workforce delivering reliable, innovative BPO solutions that drive growth and transformation. Together, we’re shaping Rwanda into a global hub for quality outsourcing.')}
               </p>
             </div>
             <div className="relative h-72 overflow-hidden rounded-2xl shadow-2xl md:h-80">
@@ -105,7 +108,7 @@ export default function WhoWeArePage() {
                 <div className="text-center">
                   <img src={medals} alt="" className="mx-auto mb-2 h-10 w-10" />
                   <div className="text-2xl font-bold">10+</div>
-                  <div className="text-xs opacity-90">Working Experience</div>
+                  <div className="text-xs opacity-90">{t('Working Experience')}</div>
                 </div>
               </div>
               <div className="absolute bottom-0 left-2 z-10 h-[180px] w-[280px] overflow-hidden rounded-tl-[100px] rounded-br-[100px] rounded-bl-[100px] border-8 border-white bg-white shadow-lg">
@@ -114,14 +117,14 @@ export default function WhoWeArePage() {
             </div>
 
             <div className="md:col-span-4 md:ml-8">
-              <div className="inline-block bg-primary-100 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">OUR STORY</div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">ANIDEV TECHNOLOGIES Story</h2>
+              <div className="inline-block bg-primary-100 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">{t('OUR STORY')}</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{t('ANIDEV TECHNOLOGIES Story')}</h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
-                   ANIDEV TECHNOLOGIES was co-founded by visionary entrepreneur <b>David Ndayiringiye</b> to bridge the gap between Africa’s untapped talent potential and the global demand for skilled professionals. Built on the belief that Africa’s youthful energy can power the world’s digital future, Anidev Technologies is redefining how outsourcing is done on the continent.
+                  {t('ANIDEV TECHNOLOGIES was co-founded by visionary entrepreneur David Ndayiringiye to bridge the gap between Africa’s untapped talent potential and the global demand for skilled professionals. Built on the belief that Africa’s youthful energy can power the world’s digital future, Anidev Technologies is redefining how outsourcing is done on the continent.')}
                 </p>
                 <p>
-                  With over <b>a billion people, 60% under the age of 25</b>, Africa holds an immense reservoir of capable, ambitious talent. Yet, many remain disconnected from global opportunities. Anidev Technologies changes that by equipping young professionals with <b>industry-relevant skills</b> and linking them directly to international companies in need of reliable, cost-effective expertise. From its base in <b>Rwanda</b>, one of Africa’s fastest-growing and most connected economies, Anidev Technologies is pioneering a new era of <b>smart outsourcing</b>, one that delivers high-quality results for businesses while creating meaningful careers for Africa’s youth.
+                  {t('With over a billion people, 60% under the age of 25, Africa holds an immense reservoir of capable, ambitious talent. Yet, many remain disconnected from global opportunities. Anidev Technologies changes that by equipping young professionals with industry-relevant skills and linking them directly to international companies in need of reliable, cost-effective expertise. From its base in Rwanda, one of Africa’s fastest-growing and most connected economies, Anidev Technologies is pioneering a new era of smart outsourcing, one that delivers high-quality results for businesses while creating meaningful careers for Africa’s youth.')}
                 </p>
               </div>
             </div>
@@ -137,15 +140,15 @@ export default function WhoWeArePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <div className="inline-block bg-primary-50 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4 border border-gray-50">
-              MILESTONES &amp; ACHIEVEMENTS
+              {t('MILESTONES & ACHIEVEMENTS')}
             </div>
-            <p className="text-gray-700 max-w-2xl mx-auto">These numbers represent real lives transformed and careers launched across Africa.</p>
+            <p className="text-gray-700 max-w-2xl mx-auto">{t('These numbers represent real lives transformed and careers launched across Africa.')}</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 bg-white">
             {stats.map((s, i) => (
               <div key={i} className="text-center border border-blue-400 rounded-md py-3">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{s.value}</div>
-                <div className="text-primary-600 font-medium">{s.label}</div>
+                <div className="text-primary-600 font-medium">{t(s.label)}</div>
               </div>
             ))}
           </div>
@@ -163,11 +166,11 @@ export default function WhoWeArePage() {
                   <div aria-hidden="true" className="absolute top-0 right-0 h-[120px] w-[230px]" style={{ backgroundImage: `url(${visionVector})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }} />
                 <div className="flex items-center mb-6 relative z-10">
                   <div className="bg-primary-200/20 px-4 py-2 rounded-[50px]">
-                    <span className="text-sm font-semibold text-white">OUR MISSION</span>
+                    <span className="text-sm font-semibold text-white">{t('OUR MISSION')}</span>
                   </div>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight z-10 relative">
-                  We create pathways for Africa’s youth to thrive in the global digital economy while helping companies scale efficiently and responsibly.
+                  {t('We create pathways for Africa’s youth to thrive in the global digital economy while helping companies scale efficiently and responsibly.')}
                 </h3>
                 <div className="h-2 bg-gradient-to-r w-20 from-blue-400 to-primary-600 rounded-full" />
               </div>
@@ -180,11 +183,11 @@ export default function WhoWeArePage() {
                 <div aria-hidden="true" className="absolute top-0 right-0 h-[120px] w-[230px]" style={{ backgroundImage: `url(${visionVector})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }} />
                 <div className="flex items-center mb-6 relative z-10">
                   <div className="bg-primary-200/20 px-4 py-2 rounded-[50px] border border-primary-900">
-                    <span className="text-sm font-semibold text-primary">OUR VISION</span>
+                    <span className="text-sm font-semibold text-primary">{t('OUR VISION')}</span>
                   </div>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight text-primary relative z-10">
-                  To transform Africa’s potential into global progress through inclusive, future-ready outsourcing.
+                  {t('To transform Africa’s potential into global progress through inclusive, future-ready outsourcing.')}
                 </h3>
                 <div className="h-2 bg-gradient-to-r w-20 from-blue-400 to-primary-600 rounded-full" />
               </div>
@@ -197,9 +200,9 @@ export default function WhoWeArePage() {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="font-semibold text-primary bg-primary-200/20 px-4 py-2 rounded-[50px] w-fit mx-auto mb-6">Our Core Pillars</div>
+            <div className="font-semibold text-primary bg-primary-200/20 px-4 py-2 rounded-[50px] w-fit mx-auto mb-6">{t('Our Core Pillars')}</div>
             <p className="text-gray-600 mb-4 max-w-md mx-auto">
-              Our approach is grounded in three key pillars that drive excellence and innovation across all our operations
+              {t('Our approach is grounded in three key pillars that drive excellence and innovation across all our operations')}
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -209,13 +212,13 @@ export default function WhoWeArePage() {
                   <div className="bg-primary text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <Icon className="w-7 h-7" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{title}</h3>
-                  <p className="text-gray-600 mb-6">{text}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{t(title)}</h3>
+                  <p className="text-gray-600 mb-6">{t(text)}</p>
                   <ul className="space-y-3">
                     {points.map((p) => (
                       <li key={p} className="flex items-start">
                         <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700 text-sm">{p}</span>
+                        <span className="text-gray-700 text-sm">{t(p)}</span>
                       </li>
                     ))}
                   </ul>
@@ -235,7 +238,7 @@ export default function WhoWeArePage() {
         <div aria-hidden="true" className="absolute -bottom-24 -right-20 h-80 w-80 rounded-full border border-blue-300/10" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <blockquote className="text-2xl md:text-3xl font-bold mb-8 leading-relaxed">
-            “Africa’s young workforce is the continent’s greatest asset—equipped with the right skills, they can meet global business demand and transform the labor market.”
+            {t('Africa’s young workforce is the continent’s greatest asset—equipped with the right skills, they can meet global business demand and transform the labor market.')}
           </blockquote>
           <div className="flex items-center justify-center space-x-4">
             <div className="h-[80px] w-[80px] overflow-hidden rounded-full border-2 border-white/30 shadow-lg">
@@ -243,7 +246,7 @@ export default function WhoWeArePage() {
             </div>
             <div className="text-left">
               <p className="font-bold text-lg">David Ndayiringiye</p>
-              <p className="text-primary-200 text-sm">CEO &amp; Founder, ANIDEV TECHNOLOGIES</p>
+              <p className="text-primary-200 text-sm">{t('CEO & Founder, ANIDEV TECHNOLOGIES')}</p>
             </div>
           </div>
         </div>
@@ -253,11 +256,11 @@ export default function WhoWeArePage() {
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-4">
-            <span className="inline-block text-primary text-sm font-semibold bg-primary-200/20 px-4 py-2 rounded-[50px] mb-6">MEET OUR TEAM</span>
+            <span className="inline-block text-primary text-sm font-semibold bg-primary-200/20 px-4 py-2 rounded-[50px] mb-6">{t('MEET OUR TEAM')}</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">Meet The People Behind</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">{t('Meet The People Behind')} ANIDEV</h2>
           <p className="text-gray-600 text-center max-w-2xl mx-auto mb-16">
-            Our team is made up of global talent innovators and dedicated professionals shaping Africa's BPO future.
+            {t("Our team is made up of global talent innovators and dedicated professionals shaping Africa's BPO future.")}
           </p>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
             {team.map((m) => (
@@ -270,7 +273,7 @@ export default function WhoWeArePage() {
                     <div className="absolute bottom-0 h-[130px] bg-primary w-full" style={{ clipPath: 'polygon(0px 18%, 100% 0px, 100% 100%, 0% 100%)' }} />
                     <div className="p-6 relative">
                       <h3 className="text-xl font-bold mb-1">{m.name}</h3>
-                      <p className="text-primary-100 text-sm">{m.role}</p>
+                      <p className="text-primary-100 text-sm">{t(m.role)}</p>
                       <a
                         href={m.link}
                         target="_blank"
@@ -294,7 +297,7 @@ export default function WhoWeArePage() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="md:w-2/3">
               <div className="md:text-xl font-normal mb-4">
-                By equipping young Africans with in-demand skills, Anidev Technologies transforms the continent’s workforce into a reliable, skilled talent pool. We connect this top talent to global markets, offering businesses scalable outsourcing solutions.
+                {t('By equipping young Africans with in-demand skills, Anidev Technologies transforms the continent’s workforce into a reliable, skilled talent pool. We connect this top talent to global markets, offering businesses scalable outsourcing solutions.')}
               </div>
             </div>
             <div className="md:w-1/3 flex md:justify-end">
@@ -302,7 +305,7 @@ export default function WhoWeArePage() {
                 to="/contact"
                 className="text-white px-8 py-4 rounded-[40px] font-semibold transition-colors whitespace-nowrap flex items-center space-x-2 border border-white hover:bg-white/10"
               >
-                <span>Book Consultation</span>
+                <span>{t('Book Consultation')}</span>
                 <TrendingUp className="w-5 h-5" />
               </Link>
             </div>

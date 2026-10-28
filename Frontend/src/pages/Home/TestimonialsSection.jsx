@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Star, Quote, ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useLocale } from '../../i18n/LocaleContext'
 
 const testimonials = [
   {
@@ -27,12 +28,13 @@ const testimonials = [
 ]
 
 export default function TestimonialsSection() {
+  const { t: translate } = useLocale()
   const [current, setCurrent] = useState(0)
 
   const prev = () => setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1))
   const next = () => setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1))
 
-  const t = testimonials[current]
+  const testimonial = testimonials[current]
 
   return (
     <section aria-labelledby="testimonials-heading" className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 py-20 text-white md:py-28">
@@ -51,12 +53,12 @@ export default function TestimonialsSection() {
         {/* Header */}
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <p className="font-semibold uppercase tracking-wider text-blue-200">Testimonials</p>
+            <p className="font-semibold uppercase tracking-wider text-blue-200">{translate('Testimonials')}</p>
             <h2 id="testimonials-heading" className="mt-3 text-3xl font-bold leading-tight md:text-4xl lg:text-[2.75rem]">
-              What Our Partners Say About Us
+              {translate('What Our Partners Say About Us')}
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-blue-100">
-              Discover how Anidev Technologies empowers developers to thrive and helps businesses build the products they envision.
+              {translate('Discover how Anidev Technologies empowers developers to thrive and helps businesses build the products they envision.')}
             </p>
           </div>
 
@@ -65,21 +67,21 @@ export default function TestimonialsSection() {
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-4 py-2.5 text-sm backdrop-blur-sm">
               <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
               <span className="font-bold tabular-nums">5.0</span>
-              <span className="text-blue-200">· {testimonials.length} stories</span>
+              <span className="text-blue-200">· {testimonials.length} {translate('stories')}</span>
             </span>
 
             {/* Nav arrows */}
             <div className="flex items-center gap-2">
               <button
                 onClick={prev}
-                aria-label="Previous testimonial"
+                aria-label={translate('Previous testimonial')}
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-white transition-colors hover:bg-white hover:text-blue-600 focus-visible:outline-none active:scale-95"
               >
                 <ArrowLeft className="h-5 w-5" />
               </button>
               <button
                 onClick={next}
-                aria-label="Next testimonial"
+                aria-label={translate('Next testimonial')}
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-white transition-colors hover:bg-white hover:text-blue-600 focus-visible:outline-none active:scale-95"
               >
                 <ArrowRight className="h-5 w-5" />
@@ -90,7 +92,7 @@ export default function TestimonialsSection() {
               to="/testimonials"
               className="group inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 font-semibold text-blue-600 shadow-lg transition-colors hover:bg-blue-50"
             >
-              Read all stories
+              {translate('Read all stories')}
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </div>
@@ -101,8 +103,8 @@ export default function TestimonialsSection() {
           <figure className="flex h-full flex-col rounded-3xl bg-white p-7 text-gray-900 shadow-xl shadow-blue-900/20 sm:p-8 max-w-2xl">
             {/* Stars + quote icon */}
             <div className="flex items-center gap-3">
-              <div className="flex items-center gap-0.5" role="img" aria-label={`Rating: ${t.rating}/5`}>
-                {Array.from({ length: t.rating }).map((_, i) => (
+              <div className="flex items-center gap-0.5" role="img" aria-label={`${translate('Rating')}: ${testimonial.rating}/5`}>
+                {Array.from({ length: testimonial.rating }).map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
                 ))}
               </div>
@@ -112,28 +114,28 @@ export default function TestimonialsSection() {
             {/* Quote */}
             <blockquote className="mt-5 flex-1">
               <p className="line-clamp-6 whitespace-pre-line leading-relaxed text-gray-700">
-                {t.quote}
+                {translate(testimonial.quote)}
               </p>
               <Link
                 to="/testimonials"
                 className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:underline"
               >
-                Read the full story <ArrowRight className="h-4 w-4" />
+                {translate('Read the full story')} <ArrowRight className="h-4 w-4" />
               </Link>
             </blockquote>
 
             {/* Author */}
             <figcaption className="mt-6 flex items-center gap-3 border-t border-gray-100 pt-5">
               <span className="relative inline-flex h-12 w-12 flex-shrink-0 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-blue-50 to-blue-100 text-sm font-semibold text-blue-700 ring-4 ring-blue-50">
-                {t.avatar
-                  ? <img alt={t.author} className="h-full w-full object-cover" src={t.avatar} />
-                  : <span aria-hidden="true">{t.author.split(' ').map(n => n[0]).join('')}</span>
+                {testimonial.avatar
+                  ? <img alt={testimonial.author} className="h-full w-full object-cover" src={testimonial.avatar} />
+                  : <span aria-hidden="true">{testimonial.author.split(' ').map(n => n[0]).join('')}</span>
                 }
-                {!t.avatar && <span className="sr-only">{t.author}</span>}
+                {!testimonial.avatar && <span className="sr-only">{testimonial.author}</span>}
               </span>
               <div className="min-w-0">
-                <p className="truncate font-semibold text-gray-900">{t.author}</p>
-                <p className="truncate text-sm text-gray-500">{t.role}</p>
+                <p className="truncate font-semibold text-gray-900">{testimonial.author}</p>
+                <p className="truncate text-sm text-gray-500">{translate(testimonial.role)}</p>
               </div>
             </figcaption>
           </figure>
@@ -144,7 +146,7 @@ export default function TestimonialsSection() {
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                aria-label={`Testimonial ${i + 1}`}
+                aria-label={`${translate('Testimonial')} ${i + 1}`}
                 className={`inline-block h-2 cursor-pointer rounded-full bg-white/35 transition-all duration-300 hover:bg-white/60
                   ${i === current ? 'w-8 bg-white' : 'w-2'}`}
               />

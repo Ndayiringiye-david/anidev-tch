@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { ChevronDown, ArrowUpRight } from 'lucide-react'
+import { useLocale } from '../../i18n/LocaleContext'
 
 const photoModules = import.meta.glob('../../assets/*.{jpg,jpeg,webp}', { eager: true, import: 'default' })
 const photos = Object.keys(photoModules).sort().map((key) => photoModules[key])
@@ -21,7 +22,7 @@ const services = [
 
 const gradients = ['from-navy to-brand', 'from-brand to-navy-mid', 'from-navy-mid to-brand']
 
-function ServiceCard({ service, index, isOpen, onToggle }) {
+function ServiceCard({ service, index, isOpen, onToggle, t }) {
   const hasItems = service.items.length > 0
   const photo = service.image || (photos.length ? photos[index % photos.length] : null)
   const backgroundStyle = photo
@@ -30,7 +31,7 @@ function ServiceCard({ service, index, isOpen, onToggle }) {
 
   const titleInner = (
     <>
-      <span className="text-base md:text-lg font-semibold text-left text-navy">{service.title}</span>
+      <span className="text-base md:text-lg font-semibold text-left text-navy">{t(service.title)}</span>
       {hasItems ? (
         <ChevronDown className={`w-5 h-5 shrink-0 text-brand transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
       ) : (
@@ -57,7 +58,7 @@ function ServiceCard({ service, index, isOpen, onToggle }) {
                   to="/contact"
                   className="flex items-center justify-between gap-3 px-5 py-3 text-sm text-gray-800 hover:text-brand transition-colors"
                 >
-                  <span>{item}</span>
+                  <span>{t(item)}</span>
                   <ArrowUpRight className="w-4 h-4 shrink-0" />
                 </Link>
               </li>
@@ -79,6 +80,7 @@ function ServiceCard({ service, index, isOpen, onToggle }) {
 }
 
 export default function ServicesPage() {
+  const { t } = useLocale()
   const [searchParams, setSearchParams] = useSearchParams()
   const [openTitle, setOpenTitle] = useState(null)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -101,7 +103,7 @@ export default function ServicesPage() {
       {/* Heading */}
       <section className="px-4 sm:px-6 lg:px-12 pt-14 pb-6">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 capitalize">Services</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 capitalize">{t('Services')}</h1>
           <div className="mt-3 h-1 w-16 rounded-full bg-brand" />
         </div>
       </section>
@@ -121,7 +123,7 @@ export default function ServicesPage() {
                       : 'text-gray-600 border-transparent hover:text-brand'
                   }`}
                 >
-                  {c}
+                  {t(c)}
                 </button>
               </li>
             ))}
@@ -133,7 +135,7 @@ export default function ServicesPage() {
               onClick={() => setMenuOpen(!menuOpen)}
               className="w-full flex items-center justify-between px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 font-medium"
             >
-              <span>{active}</span>
+              <span>{t(active)}</span>
               <ChevronDown className={`w-5 h-5 text-brand transition-transform ${menuOpen ? 'rotate-180' : ''}`} />
             </button>
             {menuOpen && (
@@ -147,7 +149,7 @@ export default function ServicesPage() {
                       active === c ? 'text-brand font-semibold bg-gray-50' : 'text-gray-700 hover:bg-gray-50'
                     }`}
                   >
-                    {c}
+                    {t(c)}
                   </button>
                 ))}
               </div>
@@ -166,6 +168,7 @@ export default function ServicesPage() {
               index={i}
               isOpen={openTitle === s.title}
               onToggle={() => setOpenTitle(openTitle === s.title ? null : s.title)}
+              t={t}
             />
           ))}
         </div>

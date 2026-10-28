@@ -11,6 +11,7 @@ import {
   UsersRound,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useLocale } from '../../i18n/LocaleContext'
 
 const partnershipTypes = [
   {
@@ -68,6 +69,8 @@ const steps = [
 ]
 
 export default function PartnershipPage() {
+  const { t } = useLocale()
+
   return (
     <div className="overflow-hidden bg-white">
       <section className="relative isolate bg-slate-950 text-white">
@@ -79,41 +82,40 @@ export default function PartnershipPage() {
           <div className="max-w-2xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-300/20 bg-blue-400/10 px-4 py-2 text-sm font-medium text-blue-100">
               <Handshake className="h-4 w-4" aria-hidden="true" />
-              Let&apos;s build something meaningful
+              {t("Let's build something meaningful")}
             </div>
             <h1 className="text-4xl font-semibold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
-              Better outcomes
-              <span className="block text-blue-300">start with</span>
-              the right partnership.
+              {t('Better outcomes')}
+              <span className="block text-blue-300">{t('start with')}</span>
+              {t('the right partnership.')}
             </h1>
             <p className="mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-              We work with organizations that want to grow talent, deliver technology, and create
-              more opportunity. Bring us your goals; we&apos;ll explore the best way to work together.
+              {t('We work with organizations that want to grow talent, deliver technology, and create more opportunity. Bring us your goals; we’ll explore the best way to work together.')}
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-500 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-950/30 transition hover:-translate-y-0.5 hover:bg-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               >
-                Start a conversation
+                {t('Start a conversation')}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               <a
                 href="#partnership-paths"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
-                Explore partnership paths
+                {t('Explore partnership paths')}
                 <ArrowDown className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
             <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-300">
               <span className="inline-flex items-center gap-2">
                 <Check className="h-4 w-4 text-emerald-300" aria-hidden="true" />
-                Collaborative by design
+                {t('Collaborative by design')}
               </span>
               <span className="inline-flex items-center gap-2">
                 <Check className="h-4 w-4 text-emerald-300" aria-hidden="true" />
-                Built around your goals
+                {t('Built around your goals')}
               </span>
             </div>
           </div>
@@ -123,16 +125,15 @@ export default function PartnershipPage() {
             <div className="relative rounded-[1.75rem] border border-white/10 bg-white/[0.07] p-6 shadow-2xl shadow-slate-950/30 backdrop-blur-xl sm:p-8">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-sm font-medium text-blue-200">A shared starting point</p>
-                  <h2 className="mt-2 text-2xl font-semibold tracking-tight">What can we do together?</h2>
+                  <p className="text-sm font-medium text-blue-200">{t('A shared starting point')}</p>
+                  <h2 className="mt-2 text-2xl font-semibold tracking-tight">{t('What can we do together?')}</h2>
                 </div>
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-400/15 text-blue-200">
                   <Building2 className="h-6 w-6" aria-hidden="true" />
                 </div>
               </div>
               <p className="mt-4 text-sm leading-6 text-slate-300">
-                Every organization brings a different challenge. We start by understanding yours,
-                then find a practical way to combine our strengths.
+                {t('Every organization brings a different challenge. We start by understanding yours, then find a practical way to combine our strengths.')}
               </p>
               <div className="mt-7 space-y-3">
                 {[
@@ -148,13 +149,13 @@ export default function PartnershipPage() {
                     <span className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-400/10 text-emerald-300">
                       <Check className="h-3.5 w-3.5" aria-hidden="true" />
                     </span>
-                    {item}
+                    {t(item)}
                   </div>
                 ))}
               </div>
               <div className="mt-7 border-t border-white/10 pt-5">
                 <p className="text-sm leading-6 text-slate-300">
-                  Not sure where to begin? That&apos;s a good place to start the conversation.
+                  {t("Not sure where to begin? That's a good place to start the conversation.")}
                 </p>
               </div>
             </div>
@@ -166,14 +167,13 @@ export default function PartnershipPage() {
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-blue-600">
-              Ways to work together
+              {t('Ways to work together')}
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-              A partnership that fits your ambition
+              {t('A partnership that fits your ambition')}
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-600">
-              Whether you are looking to develop people, deliver a product, or explore a new
-              initiative, we can shape the collaboration around what you want to achieve.
+              {t('Whether you are looking to develop people, deliver a product, or explore a new initiative, we can shape the collaboration around what you want to achieve.')}
             </p>
           </div>
 
@@ -186,10 +186,10 @@ export default function PartnershipPage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-700 transition-colors group-hover:bg-blue-600 group-hover:text-white">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
-                <h3 className="mt-5 text-lg font-semibold text-slate-900">{title}</h3>
-                <p className="mt-3 min-h-[5.5rem] text-sm leading-6 text-slate-600">{description}</p>
+                <h3 className="mt-5 text-lg font-semibold text-slate-900">{t(title)}</h3>
+                <p className="mt-3 min-h-[5.5rem] text-sm leading-6 text-slate-600">{t(description)}</p>
                 <p className="mt-5 border-t border-slate-100 pt-4 text-xs font-medium leading-5 text-slate-500">
-                  {detail}
+                  {t(detail)}
                 </p>
               </article>
             ))}
@@ -201,32 +201,31 @@ export default function PartnershipPage() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-blue-600">
-              A thoughtful approach
+              {t('A thoughtful approach')}
             </p>
             <h2 className="mt-4 max-w-lg text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-              Good partnerships are built on clarity and trust.
+              {t('Good partnerships are built on clarity and trust.')}
             </h2>
             <p className="mt-5 max-w-lg text-base leading-7 text-slate-600">
-              We believe the best collaborations begin with listening. Together, we can define a
-              focused approach, set expectations, and keep the work moving with purpose.
+              {t('We believe the best collaborations begin with listening. Together, we can define a focused approach, set expectations, and keep the work moving with purpose.')}
             </p>
             <Link
               to="/contact"
               className="mt-8 inline-flex items-center gap-2 font-semibold text-blue-700 transition hover:gap-3 hover:text-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-4"
             >
-              Talk with our team
+              {t('Talk with our team')}
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-9">
-            <p className="text-sm font-semibold text-slate-900">What you can expect</p>
+            <p className="text-sm font-semibold text-slate-900">{t('What you can expect')}</p>
             <div className="mt-6 space-y-5">
               {principles.map((principle, index) => (
                 <div key={principle} className="flex gap-4">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-50 text-sm font-semibold text-blue-700">
                     0{index + 1}
                   </span>
-                  <p className="pt-1 text-sm leading-6 text-slate-600">{principle}</p>
+                  <p className="pt-1 text-sm leading-6 text-slate-600">{t(principle)}</p>
                 </div>
               ))}
             </div>
@@ -238,18 +237,18 @@ export default function PartnershipPage() {
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-blue-600">
-              The process
+              {t('The process')}
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-              From first conversation to shared momentum
+              {t('From first conversation to shared momentum')}
             </h2>
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {steps.map(({ number, title, description }) => (
               <div key={number} className="relative border-t border-slate-200 pt-6">
                 <span className="text-sm font-semibold tracking-wide text-blue-600">{number}</span>
-                <h3 className="mt-3 text-lg font-semibold text-slate-900">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{description}</p>
+                <h3 className="mt-3 text-lg font-semibold text-slate-900">{t(title)}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{t(description)}</p>
               </div>
             ))}
           </div>
@@ -261,21 +260,20 @@ export default function PartnershipPage() {
           <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-blue-200">
-                Your next step
+                {t('Your next step')}
               </p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-                Have an idea for working together?
+                {t('Have an idea for working together?')}
               </h2>
               <p className="mt-4 text-base leading-7 text-blue-100">
-                Tell us a little about your organization and what you hope to achieve. We&apos;ll take
-                it from there.
+                {t("Tell us a little about your organization and what you hope to achieve. We'll take it from there.")}
               </p>
             </div>
             <Link
               to="/contact"
               className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-blue-800 shadow-lg transition hover:-translate-y-0.5 hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-800"
             >
-              Get in touch
+              {t('Get in touch')}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>

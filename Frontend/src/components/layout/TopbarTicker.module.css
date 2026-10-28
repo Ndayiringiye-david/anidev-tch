@@ -1,0 +1,40 @@
+.ticker {
+  min-width: 0;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+}
+
+.tickerTrack {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 38s linear infinite;
+}
+
+.ticker:hover .tickerTrack,
+.ticker:focus-within .tickerTrack {
+  animation-play-state: paused;
+}
+
+.tickerGroup {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 25rem;
+  padding-right: 6rem;
+  white-space: nowrap;
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tickerTrack {
+    animation: none;
+  }
+}

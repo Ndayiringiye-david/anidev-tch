@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Users, Building2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useLocale } from '../../i18n/LocaleContext'
 
 const tabs = {
   talents: {
@@ -50,6 +51,7 @@ const tabs = {
 }
 
 export default function HowItWorksSection() {
+  const { t } = useLocale()
   const [activeTab, setActiveTab] = useState('talents')
   const tab = tabs[activeTab]
 
@@ -59,9 +61,9 @@ export default function HowItWorksSection() {
         {/* Heading */}
         <div className="text-center mb-12">
           <span className="inline-block px-6 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4">
-            Work With Us
+            {t('Work With Us')}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">How It Works?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{t('How It Works?')}</h2>
         </div>
 
         {/* Tab switcher */}
@@ -75,7 +77,7 @@ export default function HowItWorksSection() {
                   : 'text-gray-700 hover:text-blue-600'
               }`}
             >
-              <Users className="mr-2 w-5 h-5" /> For Talents
+              <Users className="mr-2 w-5 h-5" /> {t('For Talents')}
             </button>
             <button
               onClick={() => setActiveTab('business')}
@@ -85,7 +87,7 @@ export default function HowItWorksSection() {
                   : 'text-gray-700 hover:text-blue-600'
               }`}
             >
-              <Building2 className="mr-2 w-5 h-5" /> For Business
+              <Building2 className="mr-2 w-5 h-5" /> {t('For Business')}
             </button>
           </div>
         </div>
@@ -109,8 +111,8 @@ export default function HowItWorksSection() {
           </div>
 
           <div className="max-w-4xl mx-auto relative z-10">
-            <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">{tab.title}</h3>
-            <p className="text-lg text-blue-100 mb-8 text-center">{tab.subtitle}</p>
+            <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">{t(tab.title)}</h3>
+            <p className="text-lg text-blue-100 mb-8 text-center">{t(tab.subtitle)}</p>
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               {tab.steps.map(({ num, title, desc }) => (
@@ -118,8 +120,8 @@ export default function HowItWorksSection() {
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4">
                     <span className="text-2xl font-bold">{num}</span>
                   </div>
-                  <h4 className="font-bold text-lg mb-2">{title}</h4>
-                  <p className="text-blue-100 text-sm">{desc}</p>
+                  <h4 className="font-bold text-lg mb-2">{t(title)}</h4>
+                  <p className="text-blue-100 text-sm">{t(desc)}</p>
                 </div>
               ))}
             </div>
@@ -129,7 +131,7 @@ export default function HowItWorksSection() {
                 to={tab.cta.href}
                 className="px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition inline-block"
               >
-                {tab.cta.label}
+                {t(tab.cta.label)}
               </Link>
             </div>
           </div>

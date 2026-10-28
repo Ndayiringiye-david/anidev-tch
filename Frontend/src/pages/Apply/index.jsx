@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useLocale } from '../../i18n/LocaleContext'
 import {
   ArrowLeft,
   ArrowRight,
@@ -59,47 +60,47 @@ const initialForm = {
   relevantExperience: '',
 }
 
-function getApplicationMailto(form) {
-  const subject = `Application: ${form.fullName} - ${stacks.find(({ id }) => id === form.stack)?.title}`
+function getApplicationMailto(form, t) {
+  const subject = `${t('Application')}: ${form.fullName} - ${t(stacks.find(({ id }) => id === form.stack)?.title)}`
   const body = [
-    'APPLICATION',
+    t('APPLICATION'),
     '',
-    `Name: ${form.fullName}`,
-    `Email: ${form.email}`,
-    `Phone: ${form.phone}`,
-    `Location: ${form.location}`,
-    `Cohort preference: ${cohorts.find(({ id }) => id === form.cohort)?.title}`,
-    `Learning path: ${stacks.find(({ id }) => id === form.stack)?.title}`,
-    `Experience rating (1-5): ${form.experienceRating}`,
+    `${t('Name')}: ${form.fullName}`,
+    `${t('Email')}: ${form.email}`,
+    `${t('Phone')}: ${form.phone}`,
+    `${t('Location')}: ${form.location}`,
+    `${t('Cohort preference')}: ${t(cohorts.find(({ id }) => id === form.cohort)?.title)}`,
+    `${t('Learning path')}: ${t(stacks.find(({ id }) => id === form.stack)?.title)}`,
+    `${t('Experience rating (1-5)')}: ${form.experienceRating}`,
     '',
-    'Why I chose this learning path:',
+    `${t('Why I chose this learning path')}:`,
     form.stackReason,
     '',
-    'Professional profiles',
+    t('Professional profiles'),
     `LinkedIn: ${form.linkedIn}`,
-    `GitHub username: ${form.github || 'Not provided'}`,
-    `Portfolio: ${form.portfolio}`,
-    `CV to attach: ${form.cvFile?.name}`,
+    `${t('GitHub username')}: ${form.github || t('Not provided')}`,
+    `${t('Portfolio')}: ${form.portfolio}`,
+    `${t('CV to attach')}: ${form.cvFile?.name}`,
     '',
-    'Education background',
-    `Level: ${form.educationLevel}`,
-    `Status: ${form.educationStatus}`,
-    `Institution: ${form.educationInstitution}`,
-    `Field of study: ${form.educationField}`,
-    `Graduation / expected graduation year: ${form.educationYear || 'Not provided'}`,
+    t('Education background'),
+    `${t('Level')}: ${t(form.educationLevel)}`,
+    `${t('Status')}: ${t(form.educationStatus)}`,
+    `${t('Institution')}: ${form.educationInstitution}`,
+    `${t('Field of study')}: ${form.educationField}`,
+    `${t('Graduation / expected graduation year')}: ${form.educationYear || t('Not provided')}`,
     '',
-    'Relevant skills, projects, and experience:',
+    `${t('Relevant skills, projects, and experience')}:`,
     form.relevantExperience,
     '',
-    'Please attach the CV file named above before sending this email.',
+    t('Please attach the CV file named above before sending this email.'),
   ].join('\n')
 
   return `mailto:Info@anidev.africa?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 }
 
-function StepIndicator({ currentStep }) {
+function StepIndicator({ currentStep, t }) {
   return (
-    <ol aria-label="Application progress" className="flex items-start">
+    <ol aria-label={t('Application progress')} className="flex items-start">
       {steps.map((step, index) => {
         const complete = index < currentStep
         const active = index === currentStep
@@ -124,7 +125,7 @@ function StepIndicator({ currentStep }) {
                   active || complete ? 'text-slate-800' : 'text-slate-400'
                 }`}
               >
-                {step}
+                {t(step)}
               </span>
             </div>
             {index < steps.length - 1 && (
@@ -143,6 +144,7 @@ function StepIndicator({ currentStep }) {
 }
 
 export default function ApplyPage() {
+  const { t } = useLocale()
   const [step, setStep] = useState(0)
   const [form, setForm] = useState(initialForm)
   const [cvError, setCvError] = useState('')
@@ -198,7 +200,7 @@ export default function ApplyPage() {
 
   const submitApplication = (event) => {
     event.preventDefault()
-    window.location.href = getApplicationMailto(form)
+    window.location.href = getApplicationMailto(form, t)
     setStep(3)
   }
 
@@ -221,10 +223,10 @@ export default function ApplyPage() {
         <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              Cohort Application
+              {t('Cohort Application')}
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
-              Please complete the form below to register for the cohort.
+              {t('Please complete the form below to register for the cohort.')}
             </p>
           </div>
         </div>
@@ -233,7 +235,7 @@ export default function ApplyPage() {
       <section className="px-4 pb-20 sm:px-6 lg:px-8">
         <div className="mx-auto -mt-7 grid max-w-7xl items-start gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
           <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-xl shadow-slate-900/[0.06] sm:p-8 lg:p-10">
-            <StepIndicator currentStep={step} />
+            <StepIndicator currentStep={step} t={t} />
 
             {step < 3 ? (
               <form className="mt-9" onSubmit={step === 2 ? submitApplication : (event) => {
@@ -242,13 +244,12 @@ export default function ApplyPage() {
               }}>
                 {step === 0 && (
                   <div>
-                    <p className="text-sm font-semibold text-blue-700">STEP 1 OF 3</p>
+                    <p className="text-sm font-semibold text-blue-700">{t('STEP 1 OF 3')}</p>
                     <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-                      Select your cohort
+                      {t('Select your cohort')}
                     </h2>
                     <p className="mt-2 text-sm leading-6 text-slate-600">
-                      Choose when you would like to join. We&apos;ll follow up with details about
-                      upcoming intake dates.
+                      {t("Choose when you would like to join. We'll follow up with details about upcoming intake dates.")}
                     </p>
                     <div className="mt-7 grid gap-4 sm:grid-cols-2">
                       {cohorts.map(({ id, eyebrow, title, description }) => (
@@ -269,10 +270,10 @@ export default function ApplyPage() {
                             className="sr-only"
                           />
                           <span className="text-xs font-semibold uppercase tracking-wider text-blue-700">
-                            {eyebrow}
+                            {t(eyebrow)}
                           </span>
-                          <span className="mt-3 text-base font-semibold text-slate-900">{title}</span>
-                          <span className="mt-2 text-sm leading-6 text-slate-600">{description}</span>
+                          <span className="mt-3 text-base font-semibold text-slate-900">{t(title)}</span>
+                          <span className="mt-2 text-sm leading-6 text-slate-600">{t(description)}</span>
                           <span
                             className={`absolute right-4 top-4 flex h-5 w-5 items-center justify-center rounded-full border ${
                               form.cohort === id
@@ -290,13 +291,12 @@ export default function ApplyPage() {
 
                 {step === 1 && (
                   <div>
-                    <p className="text-sm font-semibold text-blue-700">STEP 2 OF 3</p>
+                    <p className="text-sm font-semibold text-blue-700">{t('STEP 2 OF 3')}</p>
                     <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-                      Choose your stack
+                      {t('Choose your stack')}
                     </h2>
                     <p className="mt-2 text-sm leading-6 text-slate-600">
-                      Select the area you&apos;re most excited to learn. Choose one to help us
-                      understand your interests.
+                      {t("Select the area you're most excited to learn. Choose one to help us understand your interests.")}
                     </p>
                     <div className="mt-7 grid gap-3 sm:grid-cols-2">
                       {stacks.map(({ id, title, detail }) => (
@@ -326,8 +326,8 @@ export default function ApplyPage() {
                             <Code2 className="h-5 w-5" aria-hidden="true" />
                           </span>
                           <span className="flex-1">
-                            <span className="block text-sm font-semibold text-slate-900">{title}</span>
-                            <span className="mt-1 block text-xs leading-5 text-slate-600">{detail}</span>
+                            <span className="block text-sm font-semibold text-slate-900">{t(title)}</span>
+                            <span className="mt-1 block text-xs leading-5 text-slate-600">{t(detail)}</span>
                           </span>
                           <span
                             className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
@@ -346,23 +346,22 @@ export default function ApplyPage() {
 
                 {step === 2 && (
                   <div>
-                    <p className="text-sm font-semibold text-blue-700">STEP 3 OF 3</p>
+                    <p className="text-sm font-semibold text-blue-700">{t('STEP 3 OF 3')}</p>
                     <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-                      A little about you
+                      {t('A little about you')}
                     </h2>
                     <p className="mt-2 text-sm leading-6 text-slate-600">
-                      Add your contact details, education, experience, and profile links so we can
-                      get to know you and your goals.
+                      {t('Add your contact details, education, experience, and profile links so we can get to know you and your goals.')}
                     </p>
                     <div className="mt-8 border-b border-slate-100 pb-7">
-                      <h3 className="text-base font-semibold text-slate-900">Your interest and experience</h3>
+                      <h3 className="text-base font-semibold text-slate-900">{t('Your interest and experience')}</h3>
                       <p className="mt-1 text-sm leading-6 text-slate-600">
-                        Tell us why you chose this stack and how familiar you are with it.
+                        {t('Tell us why you chose this stack and how familiar you are with it.')}
                       </p>
                       <div className="mt-5 grid gap-5">
                         <div>
                           <label htmlFor="stackReason" className="mb-2 block text-sm font-medium text-slate-700">
-                            Why did you choose this learning path? <span className="text-rose-600">*</span>
+                            {t('Why did you choose this learning path?')} <span className="text-rose-600">*</span>
                           </label>
                           <textarea
                             id="stackReason"
@@ -372,16 +371,16 @@ export default function ApplyPage() {
                             rows={3}
                             value={form.stackReason}
                             onChange={updateForm}
-                            placeholder="What interests you about this stack, and what would you like to build?"
+                            placeholder={t('What interests you about this stack, and what would you like to build?')}
                             className="w-full resize-y rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                           />
                         </div>
                         <fieldset>
                           <legend className="text-sm font-medium text-slate-700">
-                            Rate your current experience with this stack <span className="text-rose-600">*</span>
+                            {t('Rate your current experience with this stack')} <span className="text-rose-600">*</span>
                           </legend>
                           <p className="mt-1 text-xs text-slate-500">
-                            1 means new to it; 5 means highly experienced.
+                            {t('1 means new to it; 5 means highly experienced.')}
                           </p>
                           <div className="mt-3 grid grid-cols-5 gap-2 sm:max-w-sm">
                             {[1, 2, 3, 4, 5].map((rating) => (
@@ -403,8 +402,8 @@ export default function ApplyPage() {
                                   className="sr-only"
                                 />
                                 <span className="font-semibold">{rating}</span>
-                                {rating === 1 && <span className="text-[10px]">New</span>}
-                                {rating === 5 && <span className="text-[10px]">Expert</span>}
+                                {rating === 1 && <span className="text-[10px]">{t('New')}</span>}
+                                {rating === 5 && <span className="text-[10px]">{t('Expert')}</span>}
                                 {rating > 1 && rating < 5 && <span className="text-[10px]">&nbsp;</span>}
                               </label>
                             ))}
@@ -414,11 +413,11 @@ export default function ApplyPage() {
                     </div>
 
                     <div className="mt-7 border-b border-slate-100 pb-7">
-                      <h3 className="text-base font-semibold text-slate-900">Personal information</h3>
+                      <h3 className="text-base font-semibold text-slate-900">{t('Personal information')}</h3>
                       <div className="mt-5 grid gap-5 sm:grid-cols-2">
                       <div className="sm:col-span-2">
                         <label htmlFor="fullName" className="mb-2 block text-sm font-medium text-slate-700">
-                          Full name <span className="text-rose-600">*</span>
+                          {t('Full name')} <span className="text-rose-600">*</span>
                         </label>
                         <input
                           id="fullName"
@@ -428,13 +427,13 @@ export default function ApplyPage() {
                           required
                           value={form.fullName}
                           onChange={updateForm}
-                          placeholder="Your full name"
+                          placeholder={t('Your full name')}
                           className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                         />
                       </div>
                       <div>
                         <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-700">
-                          Email address <span className="text-rose-600">*</span>
+                          {t('Email address')} <span className="text-rose-600">*</span>
                         </label>
                         <input
                           id="email"
@@ -444,13 +443,13 @@ export default function ApplyPage() {
                           required
                           value={form.email}
                           onChange={updateForm}
-                          placeholder="you@example.com"
+                          placeholder={t('you@example.com')}
                           className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                         />
                       </div>
                       <div>
                         <label htmlFor="phone" className="mb-2 block text-sm font-medium text-slate-700">
-                          Phone number <span className="text-rose-600">*</span>
+                          {t('Phone number')} <span className="text-rose-600">*</span>
                         </label>
                         <input
                           id="phone"
@@ -460,13 +459,13 @@ export default function ApplyPage() {
                           required
                           value={form.phone}
                           onChange={updateForm}
-                          placeholder="+250 7XX XXX XXX"
+                          placeholder={t('+250 7XX XXX XXX')}
                           className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                         />
                       </div>
                       <div className="sm:col-span-2">
                         <label htmlFor="location" className="mb-2 block text-sm font-medium text-slate-700">
-                          City and country <span className="text-rose-600">*</span>
+                          {t('City and country')} <span className="text-rose-600">*</span>
                         </label>
                         <input
                           id="location"
@@ -476,7 +475,7 @@ export default function ApplyPage() {
                           required
                           value={form.location}
                           onChange={updateForm}
-                          placeholder="e.g. Kigali, Rwanda"
+                          placeholder={t('e.g. Kigali, Rwanda')}
                           className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                         />
                       </div>
@@ -484,14 +483,14 @@ export default function ApplyPage() {
                     </div>
 
                     <div className="mt-7 border-b border-slate-100 pb-7">
-                      <h3 className="text-base font-semibold text-slate-900">Education background</h3>
+                      <h3 className="text-base font-semibold text-slate-900">{t('Education background')}</h3>
                       <p className="mt-1 text-sm leading-6 text-slate-600">
-                        Share your highest or current level of education.
+                        {t('Share your highest or current level of education.')}
                       </p>
                       <div className="mt-5 grid gap-5 sm:grid-cols-2">
                         <div>
                           <label htmlFor="educationLevel" className="mb-2 block text-sm font-medium text-slate-700">
-                            Level of education <span className="text-rose-600">*</span>
+                            {t('Level of education')} <span className="text-rose-600">*</span>
                           </label>
                           <select
                             id="educationLevel"
@@ -501,19 +500,19 @@ export default function ApplyPage() {
                             onChange={updateForm}
                             className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                           >
-                            <option value="">Select your level</option>
-                            <option value="Secondary">Secondary school</option>
-                            <option value="TVET / vocational">TVET / vocational</option>
-                            <option value="Diploma">Diploma</option>
-                            <option value="Bachelor's degree">Bachelor&apos;s degree</option>
-                            <option value="Master's degree">Master&apos;s degree</option>
-                            <option value="Doctorate">Doctorate</option>
-                            <option value="Other">Other</option>
+                            <option value="">{t('Select your level')}</option>
+                            <option value="Secondary">{t('Secondary school')}</option>
+                            <option value="TVET / vocational">{t('TVET / vocational')}</option>
+                            <option value="Diploma">{t('Diploma')}</option>
+                            <option value="Bachelor's degree">{t("Bachelor's degree")}</option>
+                            <option value="Master's degree">{t("Master's degree")}</option>
+                            <option value="Doctorate">{t('Doctorate')}</option>
+                            <option value="Other">{t('Other')}</option>
                           </select>
                         </div>
                         <div>
                           <label htmlFor="educationStatus" className="mb-2 block text-sm font-medium text-slate-700">
-                            Education status <span className="text-rose-600">*</span>
+                            {t('Education status')} <span className="text-rose-600">*</span>
                           </label>
                           <select
                             id="educationStatus"
@@ -523,14 +522,14 @@ export default function ApplyPage() {
                             onChange={updateForm}
                             className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                           >
-                            <option value="">Select status</option>
-                            <option value="Completed">Completed</option>
-                            <option value="In progress">In progress</option>
+                            <option value="">{t('Select status')}</option>
+                            <option value="Completed">{t('Completed')}</option>
+                            <option value="In progress">{t('In progress')}</option>
                           </select>
                         </div>
                         <div>
                           <label htmlFor="educationInstitution" className="mb-2 block text-sm font-medium text-slate-700">
-                            School or institution <span className="text-rose-600">*</span>
+                            {t('School or institution')} <span className="text-rose-600">*</span>
                           </label>
                           <input
                             id="educationInstitution"
@@ -539,13 +538,13 @@ export default function ApplyPage() {
                             required
                             value={form.educationInstitution}
                             onChange={updateForm}
-                            placeholder="Institution name"
+                            placeholder={t('Institution name')}
                             className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                           />
                         </div>
                         <div>
                           <label htmlFor="educationField" className="mb-2 block text-sm font-medium text-slate-700">
-                            Field of study <span className="text-rose-600">*</span>
+                            {t('Field of study')} <span className="text-rose-600">*</span>
                           </label>
                           <input
                             id="educationField"
@@ -554,13 +553,13 @@ export default function ApplyPage() {
                             required
                             value={form.educationField}
                             onChange={updateForm}
-                            placeholder="e.g. Information Technology"
+                            placeholder={t('e.g. Information Technology')}
                             className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                           />
                         </div>
                         <div>
                           <label htmlFor="educationYear" className="mb-2 block text-sm font-medium text-slate-700">
-                            Graduation / expected year <span className="text-rose-600">*</span>
+                            {t('Graduation / expected year')} <span className="text-rose-600">*</span>
                           </label>
                           <input
                             id="educationYear"
@@ -571,7 +570,7 @@ export default function ApplyPage() {
                             max="2100"
                             value={form.educationYear}
                             onChange={updateForm}
-                            placeholder="e.g. 2026"
+                            placeholder={t('e.g. 2026')}
                             className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                           />
                         </div>
@@ -579,14 +578,14 @@ export default function ApplyPage() {
                     </div>
 
                     <div className="mt-7 border-b border-slate-100 pb-7">
-                      <h3 className="text-base font-semibold text-slate-900">Professional profiles</h3>
+                      <h3 className="text-base font-semibold text-slate-900">{t('Professional profiles')}</h3>
                       <p className="mt-1 text-sm leading-6 text-slate-600">
-                        Add links where we can learn more about your work. A GitHub username is optional.
+                        {t('Add links where we can learn more about your work. A GitHub username is optional.')}
                       </p>
                       <div className="mt-5 grid gap-5 sm:grid-cols-2">
                         <div>
                           <label htmlFor="linkedIn" className="mb-2 block text-sm font-medium text-slate-700">
-                          LinkedIn profile <span className="text-rose-600">*</span>
+                          {t('LinkedIn profile')} <span className="text-rose-600">*</span>
                           </label>
                           <input
                           id="linkedIn"
@@ -601,7 +600,7 @@ export default function ApplyPage() {
                         </div>
                         <div>
                           <label htmlFor="github" className="mb-2 block text-sm font-medium text-slate-700">
-                          GitHub username <span className="font-normal text-slate-400">(optional)</span>
+                          {t('GitHub username')} <span className="font-normal text-slate-400">({t('optional')})</span>
                           </label>
                           <div className="flex overflow-hidden rounded-xl border border-slate-200 bg-white focus-within:border-blue-500 focus-within:ring-4 focus-within:ring-blue-100">
                           <span className="flex items-center border-r border-slate-200 bg-slate-50 px-3 text-sm text-slate-500">
@@ -613,7 +612,7 @@ export default function ApplyPage() {
                             type="text"
                             autoComplete="off"
                             pattern="[A-Za-z0-9](?:[A-Za-z0-9-]{0,37})"
-                            title="Enter your GitHub username, not a URL."
+                            title={t('Enter your GitHub username, not a URL.')}
                             value={form.github}
                             onChange={updateForm}
                             placeholder="username"
@@ -623,7 +622,7 @@ export default function ApplyPage() {
                         </div>
                         <div className="sm:col-span-2">
                           <label htmlFor="portfolio" className="mb-2 block text-sm font-medium text-slate-700">
-                          Portfolio or project link <span className="text-rose-600">*</span>
+                          {t('Portfolio or project link')} <span className="text-rose-600">*</span>
                           </label>
                           <input
                           id="portfolio"
@@ -640,14 +639,14 @@ export default function ApplyPage() {
                     </div>
 
                     <div className="mt-7">
-                      <h3 className="text-base font-semibold text-slate-900">CV and relevant experience</h3>
+                      <h3 className="text-base font-semibold text-slate-900">{t('CV and relevant experience')}</h3>
                       <p className="mt-1 text-sm leading-6 text-slate-600">
-                        Help us understand the skills, projects, or experience you bring.
+                        {t('Help us understand the skills, projects, or experience you bring.')}
                       </p>
                       <div className="mt-5 grid gap-5">
                         <div>
                           <label htmlFor="cvFile" className="mb-2 block text-sm font-medium text-slate-700">
-                          Upload your CV <span className="text-rose-600">*</span>
+                          {t('Upload your CV')} <span className="text-rose-600">*</span>
                           </label>
                           <input
                           id="cvFile"
@@ -659,18 +658,18 @@ export default function ApplyPage() {
                           className="block w-full cursor-pointer rounded-xl border border-slate-200 bg-white text-sm text-slate-600 file:mr-4 file:cursor-pointer file:border-0 file:bg-blue-50 file:px-4 file:py-3 file:text-sm file:font-semibold file:text-blue-700 hover:file:bg-blue-100 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100"
                           />
                           <p className="mt-2 text-xs leading-5 text-slate-500">
-                          PDF, DOC, or DOCX · 10 MB maximum. Your email app cannot attach files automatically; you will attach this CV to the draft email.
+                          {t('PDF, DOC, or DOCX · 10 MB maximum. Your email app cannot attach files automatically; you will attach this CV to the draft email.')}
                           </p>
-                          {cvError && <p role="alert" className="mt-2 text-sm text-rose-600">{cvError}</p>}
+                          {cvError && <p role="alert" className="mt-2 text-sm text-rose-600">{t(cvError)}</p>}
                           {form.cvFile && (
                           <p className="mt-2 text-sm font-medium text-emerald-700">
-                            Selected: {form.cvFile.name}
+                            {t('Selected')}: {form.cvFile.name}
                           </p>
                           )}
                         </div>
                         <div>
                           <label htmlFor="relevantExperience" className="mb-2 block text-sm font-medium text-slate-700">
-                          Relevant skills, projects, or experience <span className="text-rose-600">*</span>
+                          {t('Relevant skills, projects, or experience')} <span className="text-rose-600">*</span>
                           </label>
                           <textarea
                           id="relevantExperience"
@@ -680,7 +679,7 @@ export default function ApplyPage() {
                           rows={4}
                           value={form.relevantExperience}
                           onChange={updateForm}
-                          placeholder="Mention relevant skills, projects, work experience, certifications, or anything else you would like us to know."
+                          placeholder={t('Mention relevant skills, projects, work experience, certifications, or anything else you would like us to know.')}
                           className="w-full resize-y rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                           />
                         </div>
@@ -697,20 +696,20 @@ export default function ApplyPage() {
                     className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 disabled:invisible focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                   >
                     <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-                    Back
+                    {t('Back')}
                   </button>
                   <button
                     type="submit"
                     disabled={!canContinue}
                     className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-700/20 transition hover:-translate-y-0.5 hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
                   >
-                    {step === 2 ? 'Continue to complete' : 'Continue'}
+                    {step === 2 ? t('Continue to complete') : t('Continue')}
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </button>
                 </div>
                 {step === 2 && (
                   <p className="mt-4 text-center text-xs leading-5 text-slate-500">
-                    Your email app will open with your application details. Remember to attach your CV before sending.
+                    {t('Your email app will open with your application details. Remember to attach your CV before sending.')}
                   </p>
                 )}
               </form>
@@ -720,28 +719,27 @@ export default function ApplyPage() {
                   <CheckCircle2 className="h-8 w-8" aria-hidden="true" />
                 </div>
                 <p className="mt-7 text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">
-                  Step 4 · Complete
+                  {t('Step 4 · Complete')}
                 </p>
                 <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900">
-                  Your application is ready
+                  {t('Your application is ready')}
                 </h2>
                 <p className="mt-4 text-sm leading-6 text-slate-600">
-                  Select Send application to open a prefilled email. Attach your CV and send the
-                  message from your email app to complete your application.
+                  {t('Select Send application to open a prefilled email. Attach your CV and send the message from your email app to complete your application.')}
                 </p>
                 <div className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-left text-sm text-amber-900">
-                  <p className="font-semibold">Remember to attach your CV</p>
+                  <p className="font-semibold">{t('Remember to attach your CV')}</p>
                   <p className="mt-1 break-all text-amber-800">{form.cvFile?.name}</p>
                   <p className="mt-1 text-xs leading-5 text-amber-800">
-                    Email drafts cannot include file attachments automatically. Add this file to the draft before sending.
+                    {t('Email drafts cannot include file attachments automatically. Add this file to the draft before sending.')}
                   </p>
                 </div>
                 <a
-                  href={getApplicationMailto(form)}
+                  href={getApplicationMailto(form, t)}
                   className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
                 >
                   <Mail className="h-4 w-4" aria-hidden="true" />
-                  Send application
+                  {t('Send application')}
                 </a>
                 <button
                   type="button"
@@ -751,7 +749,7 @@ export default function ApplyPage() {
                   }}
                   className="mx-auto mt-4 block rounded-md px-3 py-2 text-sm font-medium text-slate-500 transition hover:text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                 >
-                  Start a new application
+                  {t('Start a new application')}
                 </button>
               </div>
             )}
@@ -762,27 +760,26 @@ export default function ApplyPage() {
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
                 <UserRound className="h-5 w-5" aria-hidden="true" />
               </div>
-              <h2 className="mt-4 text-base font-semibold text-slate-900">Your application</h2>
+              <h2 className="mt-4 text-base font-semibold text-slate-900">{t('Your application')}</h2>
               <p className="mt-2 text-sm leading-6 text-slate-600">
-                A few details help us understand your interests and connect you with the right
-                learning path.
+                {t('A few details help us understand your interests and connect you with the right learning path.')}
               </p>
               <div className="mt-5 space-y-3 border-t border-slate-100 pt-5">
                 <div className="flex items-center justify-between gap-3 text-sm">
-                  <span className="text-slate-500">Cohort</span>
+                  <span className="text-slate-500">{t('Cohort')}</span>
                   <span className="font-medium text-slate-800">
-                    {cohorts.find(({ id }) => id === form.cohort)?.title || 'Not selected'}
+                    {t(cohorts.find(({ id }) => id === form.cohort)?.title || 'Not selected')}
                   </span>
                 </div>
                 <div className="flex items-center justify-between gap-3 text-sm">
-                  <span className="text-slate-500">Learning path</span>
+                  <span className="text-slate-500">{t('Learning path')}</span>
                   <span className="text-right font-medium text-slate-800">
-                    {stacks.find(({ id }) => id === form.stack)?.title || 'Not selected'}
+                    {t(stacks.find(({ id }) => id === form.stack)?.title || 'Not selected')}
                   </span>
                 </div>
                 {form.experienceRating && (
                   <div className="flex items-center justify-between gap-3 text-sm">
-                    <span className="text-slate-500">Experience</span>
+                    <span className="text-slate-500">{t('Experience')}</span>
                     <span className="font-medium text-slate-800">{form.experienceRating} / 5</span>
                   </div>
                 )}
@@ -790,9 +787,9 @@ export default function ApplyPage() {
             </div>
 
             <div className="rounded-2xl border border-blue-100 bg-blue-50/70 p-6">
-              <h2 className="text-sm font-semibold text-slate-900">Need a hand?</h2>
+              <h2 className="text-sm font-semibold text-slate-900">{t('Need a hand?')}</h2>
               <p className="mt-2 text-sm leading-6 text-slate-600">
-                Questions about the application? Our team is happy to help.
+                {t('Questions about the application? Our team is happy to help.')}
               </p>
               <a
                 href="mailto:Info@anidev.africa"
@@ -804,7 +801,7 @@ export default function ApplyPage() {
               </a>
               <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-slate-500">
                 <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
-                Kigali, Rwanda
+                {t('Kigali, Rwanda')}
               </p>
             </div>
           </aside>

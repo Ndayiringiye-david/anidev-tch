@@ -1,4 +1,5 @@
 import styles from './PartnersSection.module.css'
+import { useLocale } from '../../i18n/LocaleContext'
 
 const partners = [
   { name: 'Microsoft', abbr: 'MS' },
@@ -10,13 +11,13 @@ const partners = [
 ]
 
 export default function PartnersSection() {
+  const { t } = useLocale()
+
   return (
     <section className="overflow-hidden bg-white py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p className="mb-8 text-center text-gray-600">
-          Trusted global partners working together with{' '}
-          <span className="font-bold text-blue-600">ANIDEV TECHNOLOGIES</span>{' '}
-          every day.
+          {t('Trusted global partners working together with ANIDEV TECHNOLOGIES every day.')}
         </p>
         <div className={styles.viewport}>
           <div className={styles.track}>

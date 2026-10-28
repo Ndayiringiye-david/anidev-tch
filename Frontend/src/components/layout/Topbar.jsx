@@ -1,4 +1,6 @@
 import { Mail, Phone, Globe } from 'lucide-react'
+import { useLocale } from '../../i18n/LocaleContext'
+import styles from './TopbarTicker.module.css'
 
 const svgProps = {
   className: 'w-4 h-4',
@@ -43,40 +45,65 @@ const FacebookIcon = () => (
 const linkClass = 'hover:text-blue-200 transition-colors'
 
 export default function Topbar() {
+  const { language, setLanguage, t } = useLocale()
+
+  const tickerContent = (
+    <>
+      <span className="flex items-center gap-3">
+        <a href="mailto:info@anidev.tech" className={linkClass}>
+          <Mail className="inline w-4 h-4 mr-2" aria-hidden="true" />
+          info@anidev.tech
+        </a>
+        <span aria-hidden="true">|</span>
+        <a href="tel:+250791631891" className={linkClass}>
+          <Phone className="inline w-4 h-4 mr-2" aria-hidden="true" />
+          +250 7916 318 91
+        </a>
+      </span>
+      <span className="flex items-center gap-4">
+        <span className="text-xs">{t('Follow Us:')}</span>
+        <a href="https://linkedin.com/company/anidev-technologies" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className={linkClass}><LinkedinIcon /></a>
+        <a href="https://x.com/anidevtech" target="_blank" rel="noopener noreferrer" aria-label="X" className={linkClass}><XIcon /></a>
+        <a href="https://instagram.com/anidevtech" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className={linkClass}><InstagramIcon /></a>
+        <a href="https://youtube.com/@anidevtech" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className={linkClass}><YoutubeIcon /></a>
+        <a href="https://facebook.com/anidevtech" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className={linkClass}><FacebookIcon /></a>
+      </span>
+    </>
+  )
+
   return (
     <div className="w-full bg-primary-600 text-white z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-10 text-sm">
-          {/* Left: contact */}
-          <div className="flex items-center space-x-6">
-            <a href="mailto:info@anidev.tech" className="flex items-center space-x-2 hover:text-blue-200 transition-colors">
-              <Mail className="w-4 h-4" aria-hidden="true" />
-              <span className="hidden sm:inline">info@anidev.tech</span>
-            </a>
-            <a href="tel:+1234567890" className="flex items-center space-x-2 hover:text-blue-200 transition-colors">
-              <Phone className="w-4 h-4" aria-hidden="true" />
-              <span className="hidden sm:inline">+250 7916 318 91</span>
-            </a>
-          </div>
-
-          {/* Right: language + socials */}
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
-              <Globe className="w-4 h-4" aria-hidden="true" />
-              <select className="bg-transparent border-none text-white text-sm focus:outline-none cursor-pointer">
-                <option value="en" className="bg-white text-black">???? English</option>
-                <option value="fr" className="bg-white text-black">???? Fran�ais</option>
-              </select>
-            </div>
-            <span className="hidden md:inline text-xs">Follow Us:</span>
-            <div className="flex items-center space-x-3">
-              <a href="https://linkedin.com/company/anidev-technologies" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className={linkClass}><LinkedinIcon /></a>
-              <a href="https://x.com/anidevtech" target="_blank" rel="noopener noreferrer" aria-label="X" className={linkClass}><XIcon /></a>
-              <a href="https://instagram.com/anidevtech" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className={linkClass}><InstagramIcon /></a>
-              <a href="https://youtube.com/@anidevtech" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className={linkClass}><YoutubeIcon /></a>
-              <a href="https://facebook.com/anidevtech" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className={linkClass}><FacebookIcon /></a>
+        <div className="flex items-center gap-4 h-10 text-sm">
+          <div className={`${styles.ticker} flex-1`}>
+            <div className={styles.tickerTrack}>
+              <div className={styles.tickerGroup}>{tickerContent}</div>
+              <div className={styles.tickerGroup} aria-hidden="true">
+                <span className="flex items-center gap-3">
+                  <a tabIndex={-1} href="mailto:info@anidev.tech" className={linkClass}><Mail className="inline w-4 h-4 mr-2" aria-hidden="true" />info@anidev.tech</a>
+                  <span aria-hidden="true">|</span>
+                  <a tabIndex={-1} href="tel:+250791631891" className={linkClass}><Phone className="inline w-4 h-4 mr-2" aria-hidden="true" />+250 7916 318 91</a>
+                </span>
+                <span className="flex items-center gap-4">
+                  <span className="text-xs">{t('Follow Us:')}</span>
+                  <LinkedinIcon /><XIcon /><InstagramIcon /><YoutubeIcon /><FacebookIcon />
+                </span>
+              </div>
             </div>
           </div>
+          <label className="flex shrink-0 items-center gap-2">
+            <Globe className="w-4 h-4" aria-hidden="true" />
+            <span className="sr-only">Choose language</span>
+            <select
+              aria-label="Choose language"
+              value={language}
+              onChange={(event) => setLanguage(event.target.value)}
+              className="bg-transparent border-none text-white text-sm focus:outline-none cursor-pointer"
+            >
+              <option value="en" className="bg-white text-black">English</option>
+              <option value="fr" className="bg-white text-black">Français</option>
+            </select>
+          </label>
         </div>
       </div>
     </div>

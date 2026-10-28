@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Menu, ChevronDown } from 'lucide-react'
+import { useLocale } from '../../i18n/LocaleContext'
 import heroBg from '../../assets/hero.png'
 import imgA from '../../assets/HerosectionImage.png'
 import imgB from '../../assets/convetional.jpg'
@@ -27,6 +28,7 @@ const posts = [
 ]
 
 export default function InsightsPage() {
+  const { t } = useLocale()
   const [active, setActive] = useState('All')
   const [page, setPage] = useState(1)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -55,8 +57,8 @@ export default function InsightsPage() {
         <img src={heroBg} alt="" className="absolute inset-0 h-full w-full object-cover opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-r from-gray-950/80 via-primary-900/70 to-primary/50" />
         <div className="max-w-7xl mx-auto relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">Insights &amp; News</h1>
-          <p className="text-xl text-gray-300 max-w-2xl">Stories, tips, and insights from the Anidev Technologies community</p>
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">{t('Insights & News')}</h1>
+          <p className="text-xl text-gray-300 max-w-2xl">{t('Stories, tips, and insights from the Anidev Technologies community')}</p>
         </div>
       </section>
 
@@ -71,7 +73,7 @@ export default function InsightsPage() {
             >
               <span className="flex items-center gap-3">
                 <Menu className="w-5 h-5" />
-                {active}
+                {t(active)}
               </span>
               <ChevronDown className={'w-[18px] h-[18px] transition-transform ' + (menuOpen ? 'rotate-180' : '')} />
             </button>
@@ -83,7 +85,7 @@ export default function InsightsPage() {
                     onClick={() => chooseCategory(c)}
                     className={'block w-full text-left px-4 py-2 text-sm ' + (active === c ? 'bg-primary text-white' : 'text-gray-700 hover:bg-gray-100')}
                   >
-                    {c}
+                    {t(c)}
                   </button>
                 ))}
               </div>
@@ -97,7 +99,7 @@ export default function InsightsPage() {
                 onClick={() => chooseCategory(c)}
                 className={'px-4 py-2 rounded-full whitespace-nowrap transition-all ' + (active === c ? 'bg-primary text-white scale-105' : 'bg-gray-100 text-gray-700 hover:bg-gray-200')}
               >
-                {c}
+                {t(c)}
               </button>
             ))}
           </div>
@@ -109,20 +111,20 @@ export default function InsightsPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-1 h-8 bg-primary" />
-            <h2 className="text-2xl font-bold text-gray-800">Featured</h2>
+            <h2 className="text-2xl font-bold text-gray-800">{t('Featured')}</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {featured.map((p) => (
               <article key={p.id} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
                 <div className="relative h-56 overflow-hidden">
-                  <img src={p.img} alt={p.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img src={p.img} alt={t(p.title)} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white text-primary text-xs font-bold rounded-full">{p.category}</span>
+                    <span className="px-3 py-1 bg-white text-primary text-xs font-bold rounded-full">{t(p.category)}</span>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors">{p.title}</h3>
-                  <p className="text-gray-600 mb-4 line-clamp-2">{p.excerpt}</p>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors">{t(p.title)}</h3>
+                  <p className="text-gray-600 mb-4 line-clamp-2">{t(p.excerpt)}</p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold">
@@ -130,10 +132,10 @@ export default function InsightsPage() {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-gray-800">{p.author}</p>
-                        <p className="text-xs text-gray-500">{p.date}</p>
+                        <p className="text-xs text-gray-500">{t(p.date)}</p>
                       </div>
                     </div>
-                    <span className="text-xs text-gray-500">{p.readTime}</span>
+                    <span className="text-xs text-gray-500">{t(p.readTime)}</span>
                   </div>
                 </div>
               </article>
@@ -148,13 +150,13 @@ export default function InsightsPage() {
           <div className="flex items-center justify-between gap-3 mb-6">
             <div className="flex items-center gap-3">
               <div className="w-1 h-8 bg-primary" />
-              <h2 className="text-2xl font-bold text-gray-800">Latest Posts</h2>
+              <h2 className="text-2xl font-bold text-gray-800">{t('Latest Posts')}</h2>
             </div>
-            <span className="text-sm text-gray-500 whitespace-nowrap">{latest.length} posts</span>
+            <span className="text-sm text-gray-500 whitespace-nowrap">{latest.length} {t('posts')}</span>
           </div>
 
           {visible.length === 0 ? (
-            <p className="text-center text-gray-500 py-16">No posts in this category yet.</p>
+            <p className="text-center text-gray-500 py-16">{t('No posts in this category yet.')}</p>
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {visible.map((p) => (
@@ -163,23 +165,23 @@ export default function InsightsPage() {
                   className="group h-full flex flex-col bg-white border-2 border-gray-100 rounded-xl overflow-hidden hover:border-primary hover:shadow-lg transition-all duration-300"
                 >
                   <div className="relative h-48 overflow-hidden">
-                    <img src={p.img} alt={p.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img src={p.img} alt={t(p.title)} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="p-5 flex flex-col flex-1">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs font-bold text-primary uppercase">{p.category}</span>
+                      <span className="text-xs font-bold text-primary uppercase">{t(p.category)}</span>
                       <span className="text-xs text-gray-400">&bull;</span>
-                      <span className="text-xs text-gray-500">{p.readTime}</span>
+                      <span className="text-xs text-gray-500">{t(p.readTime)}</span>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2 group-hover:text-primary transition-colors">{p.title}</h3>
-                    <p className="text-sm text-gray-600 mb-4 line-clamp-2">{p.excerpt}</p>
+                    <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2 group-hover:text-primary transition-colors">{t(p.title)}</h3>
+                    <p className="text-sm text-gray-600 mb-4 line-clamp-2">{t(p.excerpt)}</p>
                     <div className="mt-auto flex items-center gap-2">
                       <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center text-xs font-bold text-gray-600">
                         {p.author.charAt(0)}
                       </div>
                       <span className="text-xs text-gray-600">{p.author}</span>
                       <span className="text-xs text-gray-400">&bull;</span>
-                      <span className="text-xs text-gray-500">{p.date}</span>
+                      <span className="text-xs text-gray-500">{t(p.date)}</span>
                     </div>
                   </div>
                 </article>
@@ -188,13 +190,13 @@ export default function InsightsPage() {
           )}
 
           {pages > 1 && (
-            <nav className="flex items-center justify-center gap-2 mt-12" aria-label="Insights pagination">
+            <nav className="flex items-center justify-center gap-2 mt-12" aria-label={t('Insights pagination')}>
               <button
                 disabled={page === 1}
                 onClick={() => goToPage(page - 1)}
                 className="px-4 py-2 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:border-primary hover:text-primary disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
-                Previous
+                {t('Previous')}
               </button>
               {Array.from({ length: pages }, (_, i) => i + 1).map((n) => (
                 <button
@@ -211,7 +213,7 @@ export default function InsightsPage() {
                 onClick={() => goToPage(page + 1)}
                 className="px-4 py-2 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:border-primary hover:text-primary disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
-                Next
+                {t('Next')}
               </button>
             </nav>
           )}

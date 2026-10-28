@@ -1,4 +1,5 @@
 ﻿import { ArrowUpRight, Clock3, Mail, MapPin, Phone, Send } from 'lucide-react'
+import { useLocale } from '../../i18n/LocaleContext'
 import heroBg from '../../assets/convetional.jpg'
 
 const contactDetails = [
@@ -16,15 +17,15 @@ const inputClass =
   'w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-100'
 const labelClass = 'mb-2 block text-sm font-medium text-slate-700'
 
-function handleSubmit(event) {
+function handleSubmit(event, t) {
   event.preventDefault()
 
   const formData = new FormData(event.currentTarget)
   const body = [
-    `Name: ${formData.get('fullName')}`,
-    `Email: ${formData.get('email')}`,
-    `Phone: ${formData.get('phone')}`,
-    `Inquiry type: ${formData.get('inquiryType')}`,
+    `${t('Full name')}: ${formData.get('fullName')}`,
+    `${t('Work email')}: ${formData.get('email')}`,
+    `${t('Phone number')}: ${formData.get('phone')}`,
+    `${t('I am interested in')}: ${t(formData.get('inquiryType'))}`,
     '',
     formData.get('message'),
   ].join('\n')
@@ -33,6 +34,8 @@ function handleSubmit(event) {
 }
 
 export default function ContactPage() {
+  const { t } = useLocale()
+
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
       <section className="relative isolate overflow-hidden bg-primary-950 text-white">
@@ -45,14 +48,14 @@ export default function ContactPage() {
           <div className="max-w-3xl">
             <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-100 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-blue-300" />
-              Let&apos;s start a conversation
+              {t("Let's start a conversation")}
             </p>
             <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
-              Great partnerships
-              <span className="block text-blue-200">start with a hello.</span>
+              {t('Great partnerships')}
+              <span className="block text-blue-200">{t('start with a hello.')}</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-blue-50/85 sm:text-lg sm:leading-8">
-              Tell us what you&apos;re working toward. Whether you need exceptional talent, training, or a technology partner, our team is ready to listen.
+              {t("Tell us what you're working toward. Whether you need exceptional talent, training, or a technology partner, our team is ready to listen.")}
             </p>
           </div>
         </div>
@@ -63,10 +66,10 @@ export default function ContactPage() {
           <aside className="relative overflow-hidden bg-gradient-to-br from-primary-900 to-primary-950 p-7 text-white sm:p-9 lg:col-span-2 lg:p-10">
             <div aria-hidden="true" className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-blue-400/10 blur-2xl" />
             <div className="relative">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-200">Contact information</p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight">We&apos;re here to help.</h2>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-200">{t('Contact information')}</p>
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight">{t("We're here to help.")}</h2>
               <p className="mt-3 text-sm leading-6 text-blue-100/75">
-                Reach out directly or leave us a note. We usually respond within one business day.
+                {t('Reach out directly or leave us a note. We usually respond within one business day.')}
               </p>
 
               <div className="mt-9 space-y-6">
@@ -82,7 +85,7 @@ export default function ContactPage() {
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <span className="min-w-0 pt-0.5">
-                      <span className="block text-xs font-medium uppercase tracking-wide text-blue-200/80">{title}</span>
+                      <span className="block text-xs font-medium uppercase tracking-wide text-blue-200/80">{t(title)}</span>
                       <span className="mt-1 block text-sm font-medium leading-6 text-white">{detail}</span>
                     </span>
                     {title === 'Visit our office' && <ArrowUpRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-blue-200/70" aria-hidden="true" />}
@@ -94,8 +97,8 @@ export default function ContactPage() {
                 <div className="flex items-start gap-3">
                   <Clock3 className="mt-0.5 h-5 w-5 shrink-0 text-blue-200" aria-hidden="true" />
                   <div>
-                    <p className="text-sm font-semibold">Business hours</p>
-                    <p className="mt-1 text-sm leading-6 text-blue-100/75">Monday – Friday<br />8:00 AM – 5:00 PM (CAT)</p>
+                    <p className="text-sm font-semibold">{t('Business hours')}</p>
+                    <p className="mt-1 text-sm leading-6 text-blue-100/75">{t('Monday – Friday')}<br />8:00 – 17:00 (CAT)</p>
                   </div>
                 </div>
               </div>
@@ -104,50 +107,50 @@ export default function ContactPage() {
 
           <div className="p-6 sm:p-9 lg:col-span-3 lg:p-10">
             <div className="mb-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-700">Send us a message</p>
-              <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">How can we work together?</h2>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-700">{t('Send us a message')}</p>
+              <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">{t('How can we work together?')}</h2>
               <p className="mt-3 text-sm leading-6 text-slate-500">
-                Share a few details and we&apos;ll connect you with the right person on our team.
+                {t("Share a few details and we'll connect you with the right person on our team.")}
               </p>
             </div>
 
-            <form className="space-y-5" onSubmit={handleSubmit}>
+            <form className="space-y-5" onSubmit={(event) => handleSubmit(event, t)}>
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="fullName" className={labelClass}>Full name <span className="text-blue-700">*</span></label>
-                  <input id="fullName" name="fullName" type="text" autoComplete="name" required placeholder="Your name" className={inputClass} />
+                  <label htmlFor="fullName" className={labelClass}>{t('Full name')} <span className="text-blue-700">*</span></label>
+                  <input id="fullName" name="fullName" type="text" autoComplete="name" required placeholder={t('Your name')} className={inputClass} />
                 </div>
                 <div>
-                  <label htmlFor="email" className={labelClass}>Work email <span className="text-blue-700">*</span></label>
-                  <input id="email" name="email" type="email" autoComplete="email" required placeholder="you@company.com" className={inputClass} />
+                  <label htmlFor="email" className={labelClass}>{t('Work email')} <span className="text-blue-700">*</span></label>
+                  <input id="email" name="email" type="email" autoComplete="email" required placeholder={t('you@company.com')} className={inputClass} />
                 </div>
               </div>
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="phone" className={labelClass}>Phone number <span className="text-blue-700">*</span></label>
-                  <input id="phone" name="phone" type="tel" autoComplete="tel" required placeholder="+250 ..." className={inputClass} />
+                  <label htmlFor="phone" className={labelClass}>{t('Phone number')} <span className="text-blue-700">*</span></label>
+                  <input id="phone" name="phone" type="tel" autoComplete="tel" required placeholder={t('+250 ...')} className={inputClass} />
                 </div>
                 <div>
-                  <label htmlFor="inquiryType" className={labelClass}>I&apos;m interested in <span className="text-blue-700">*</span></label>
+                  <label htmlFor="inquiryType" className={labelClass}>{t('I am interested in')} <span className="text-blue-700">*</span></label>
                   <select id="inquiryType" name="inquiryType" required defaultValue="general" className={inputClass}>
-                    <option value="general">General inquiry</option>
-                    <option value="hiring">Hiring talent</option>
-                    <option value="training">Training programs</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="support">Support</option>
+                    <option value="general">{t('General inquiry')}</option>
+                    <option value="hiring">{t('Hiring talent')}</option>
+                    <option value="training">{t('Training programs')}</option>
+                    <option value="partnership">{t('Partnership')}</option>
+                    <option value="support">{t('Support')}</option>
                   </select>
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className={labelClass}>Subject <span className="text-blue-700">*</span></label>
-                <input id="subject" name="subject" type="text" required placeholder="What would you like to discuss?" className={inputClass} />
+                <label htmlFor="subject" className={labelClass}>{t('Subject')} <span className="text-blue-700">*</span></label>
+                <input id="subject" name="subject" type="text" required placeholder={t('What would you like to discuss?')} className={inputClass} />
               </div>
 
               <div>
-                <label htmlFor="message" className={labelClass}>How can we help? <span className="text-blue-700">*</span></label>
-                <textarea id="message" name="message" rows={5} required placeholder="Tell us a little about your goals or project..." className={`${inputClass} resize-y`} />
+                <label htmlFor="message" className={labelClass}>{t('How can we help?')} <span className="text-blue-700">*</span></label>
+                <textarea id="message" name="message" rows={5} required placeholder={t('Tell us a little about your goals or project...')} className={`${inputClass} resize-y`} />
               </div>
 
               <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center">
@@ -155,11 +158,11 @@ export default function ContactPage() {
                   type="submit"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-700 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-900/15 transition hover:bg-blue-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
                 >
-                  Send message
+                  {t('Send message')}
                   <Send className="h-4 w-4" aria-hidden="true" />
                 </button>
                 <p className="text-xs leading-5 text-slate-500">
-                  Your email app will open with your message ready to send.
+                  {t('Your email app will open with your message ready to send.')}
                 </p>
               </div>
             </form>
@@ -171,7 +174,7 @@ export default function ContactPage() {
         <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
           <div className="flex flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">Find us in Kigali</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">{t('Find us in Kigali')}</p>
               <h2 className="mt-1 text-lg font-semibold text-slate-900">Inind House, KN 3 Road, Kigali, Rwanda</h2>
             </div>
             <a
@@ -180,7 +183,7 @@ export default function ContactPage() {
               rel="noreferrer"
               className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 transition hover:text-blue-900"
             >
-              Get directions
+              {t('Get directions')}
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>

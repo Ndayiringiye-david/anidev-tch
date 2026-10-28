@@ -1,5 +1,6 @@
 import { ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useLocale } from '../../i18n/LocaleContext'
 
 const articles = [
   {
@@ -29,21 +30,23 @@ const articles = [
 ]
 
 export default function NewsSection() {
+  const { t } = useLocale()
+
   return (
     <section className="py-16 md:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center mb-12">
           <div>
-            <p className="text-blue-600 font-semibold mb-2">LATEST NEWS</p>
+            <p className="text-blue-600 font-semibold mb-2">{t('LATEST NEWS')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Checkout Our Latest News &amp;<br />Resources
+              {t('Checkout Our Latest News &') }<br />{t('Resources')}
             </h2>
           </div>
           <Link
             to="/insights"
             className="hidden md:flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
           >
-            View All Articles <ChevronRight className="ml-2 w-5 h-5" />
+            {t('View All Articles')} <ChevronRight className="ml-2 w-5 h-5" />
           </Link>
         </div>
 
@@ -52,16 +55,16 @@ export default function NewsSection() {
             <article key={id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
               <div className="relative">
                 <div className="relative overflow-hidden w-full" style={{ height: '250px' }}>
-                  <img src={image} alt={title} className="h-full w-full object-cover transition-transform duration-300 hover:scale-105" />
+                  <img src={image} alt={t(title)} className="h-full w-full object-cover transition-transform duration-300 hover:scale-105" />
                 </div>
                 <span className="absolute top-4 left-4 px-3 py-1 bg-blue-600 text-white text-xs rounded-full">
-                  {tag}
+                  {t(tag)}
                 </span>
               </div>
               <div className="px-6 py-4">
-                <h3 className="font-bold text-lg mb-3 text-gray-900 line-clamp-2">{title}</h3>
+                <h3 className="font-bold text-lg mb-3 text-gray-900 line-clamp-2">{t(title)}</h3>
                 <div className="flex items-center text-sm text-gray-600 mb-4">
-                  <span>By {author}</span>
+                  <span>{t('By')} {author}</span>
                   <span className="mx-2">•</span>
                   <span>{date}</span>
                 </div>
@@ -69,7 +72,7 @@ export default function NewsSection() {
                   to="/insights"
                   className="flex items-center text-blue-600 font-semibold hover:text-blue-800 transition"
                 >
-                  Read More <ChevronRight className="ml-2 w-5 h-5" />
+                  {t('Read More')} <ChevronRight className="ml-2 w-5 h-5" />
                 </Link>
               </div>
             </article>
@@ -79,7 +82,7 @@ export default function NewsSection() {
         {/* Mobile button */}
         <div className="mt-8 text-center md:hidden">
           <Link to="/insights" className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
-            View All Articles <ChevronRight className="ml-2 w-5 h-5" />
+            {t('View All Articles')} <ChevronRight className="ml-2 w-5 h-5" />
           </Link>
         </div>
       </div>
