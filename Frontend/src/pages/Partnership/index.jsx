@@ -71,7 +71,7 @@ export default function PartnershipPage() {
   return (
     <div className="overflow-hidden bg-white">
       <section className="relative isolate bg-slate-950 text-white">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_75%_35%,rgba(37,99,235,0.28),transparent_42%),linear-gradient(120deg,#071426_0%,#0b1c34_55%,#102b54_100%)]" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800" />
         <div className="absolute -right-36 top-12 -z-10 h-96 w-96 rounded-full border border-white/10" />
         <div className="absolute -right-20 top-28 -z-10 h-64 w-64 rounded-full border border-white/10" />
 

@@ -11,7 +11,7 @@ export default function ValueProposition() {
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-primary-900 via-primary-800 to-primary text-white relative overflow-hidden">
       <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">
-        <div className="absolute inset-0 bg-gradient-to-l from-cyan-500 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-l from-blue-500 to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative mt-12">

@@ -63,7 +63,7 @@ export function AboutSection() {
                 {points.map((p) => (
                   <div key={p} className="flex items-start">
                     <Check className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-[#445375]">{p}</span>
+                    <span className="text-slate-600">{p}</span>
                   </div>
                 ))}
               </div>

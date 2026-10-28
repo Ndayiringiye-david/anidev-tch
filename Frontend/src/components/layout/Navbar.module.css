@@ -14,7 +14,7 @@
 .brand {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #6366f1;
+  color: #2563eb;
   text-decoration: none;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .link:hover {
-  color: #6366f1;
+  color: #2563eb;
 }
 
 .greeting {

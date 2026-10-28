@@ -29,7 +29,7 @@ export default function WhyUsSection() {
   return (
     <section className="relative overflow-hidden bg-slate-50 py-20 md:py-28">
       <div className="pointer-events-none absolute -right-36 -top-40 h-[28rem] w-[28rem] rounded-full bg-blue-100/70 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-48 -left-40 h-[28rem] w-[28rem] rounded-full bg-indigo-100/50 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-48 -left-40 h-[28rem] w-[28rem] rounded-full bg-blue-100/50 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="mb-12 max-w-2xl md:mb-14">

@@ -209,14 +209,14 @@ export default function ApplyPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-blue-950/55 to-slate-950/45" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_5%,rgba(59,130,246,0.36),transparent_60%)]" />
         <div className="pointer-events-none absolute -right-12 top-1/2 hidden h-[25rem] w-[25rem] -translate-y-1/2 items-center justify-center lg:flex">
-          <div className="absolute h-full w-full animate-[spin_48s_linear_infinite] rounded-full border border-cyan-200/20">
-            <span className="absolute left-[18%] top-[12%] h-2.5 w-2.5 rounded-full bg-cyan-200 shadow-[0_0_18px_rgba(103,232,249,0.9)]" />
+          <div className="absolute h-full w-full animate-[spin_48s_linear_infinite] rounded-full border border-blue-200/20">
+            <span className="absolute left-[18%] top-[12%] h-2.5 w-2.5 rounded-full bg-blue-200 shadow-[0_0_18px_rgba(147,197,253,0.9)]" />
             <span className="absolute bottom-[16%] right-[8%] h-2 w-2 rounded-full bg-blue-200 shadow-[0_0_16px_rgba(147,197,253,0.9)]" />
           </div>
           <div className="absolute h-[18rem] w-[18rem] animate-[spin_36s_linear_infinite_reverse] rounded-full border border-blue-100/20">
             <span className="absolute right-[10%] top-[28%] h-3 w-3 rounded-full bg-blue-300/90 shadow-[0_0_20px_rgba(96,165,250,0.9)]" />
           </div>
-          <div className="absolute h-32 w-32 rounded-full bg-cyan-400/10 blur-2xl transition-colors duration-500 group-hover:bg-cyan-300/25" />
+          <div className="absolute h-32 w-32 rounded-full bg-blue-400/10 blur-2xl transition-colors duration-500 group-hover:bg-blue-300/25" />
         </div>
         <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
           <div className="mx-auto max-w-3xl text-center">

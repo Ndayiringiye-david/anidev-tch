@@ -45,7 +45,7 @@ export default function TestimonialsSection() {
         </svg>
       </div>
       {/* Left blur */}
-      <div aria-hidden="true" className="pointer-events-none absolute -left-40 bottom-0 h-96 w-96 rounded-full bg-sky-400/20 blur-3xl" />
+      <div aria-hidden="true" className="pointer-events-none absolute -left-40 bottom-0 h-96 w-96 rounded-full bg-blue-400/20 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}

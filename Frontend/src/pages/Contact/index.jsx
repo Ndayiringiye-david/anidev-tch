@@ -35,16 +35,16 @@ function handleSubmit(event) {
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
-      <section className="relative isolate overflow-hidden bg-[#062c48] text-white">
+      <section className="relative isolate overflow-hidden bg-primary-950 text-white">
         <img src={heroBg} alt="" className="absolute inset-0 -z-20 h-full w-full object-cover object-center opacity-40" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#062c48] via-[#062c48]/90 to-[#062c48]/55" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary-950 via-primary-950/90 to-primary-900/55" />
         <div aria-hidden="true" className="absolute -right-24 -top-40 -z-10 h-[28rem] w-[28rem] rounded-full border border-white/10" />
         <div aria-hidden="true" className="absolute -right-8 -top-24 -z-10 h-[22rem] w-[22rem] rounded-full border border-white/10" />
 
         <div className="mx-auto max-w-5xl px-4 pb-28 pt-16 sm:px-6 md:pb-32 md:pt-24 lg:px-8">
           <div className="max-w-3xl">
             <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-100 backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-sky-300" />
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-300" />
               Let&apos;s start a conversation
             </p>
             <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
@@ -60,7 +60,7 @@ export default function ContactPage() {
 
       <section className="relative z-10 mx-auto -mt-16 max-w-5xl px-4 pb-16 sm:px-6 lg:px-8">
         <div className="grid overflow-hidden rounded-3xl bg-white shadow-[0_28px_80px_-36px_rgba(15,23,42,0.28)] ring-1 ring-slate-200/70 lg:grid-cols-5">
-          <aside className="relative overflow-hidden bg-gradient-to-br from-[#073655] to-[#05263f] p-7 text-white sm:p-9 lg:col-span-2 lg:p-10">
+          <aside className="relative overflow-hidden bg-gradient-to-br from-primary-900 to-primary-950 p-7 text-white sm:p-9 lg:col-span-2 lg:p-10">
             <div aria-hidden="true" className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-blue-400/10 blur-2xl" />
             <div className="relative">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-200">Contact information</p>

@@ -159,10 +159,10 @@ export default function WhoWeArePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <div className="relative group">
-              <div className="bg-[#01206E] rounded-2xl p-8 md:p-10 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl min-h-[380px] flex flex-col items-start justify-between relative overflow-hidden">
+              <div className="bg-primary-950 rounded-2xl p-8 md:p-10 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl min-h-[380px] flex flex-col items-start justify-between relative overflow-hidden">
                   <div aria-hidden="true" className="absolute top-0 right-0 h-[120px] w-[230px]" style={{ backgroundImage: `url(${visionVector})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }} />
                 <div className="flex items-center mb-6 relative z-10">
-                  <div className="bg-[#BFD0FC]/20 px-4 py-2 rounded-[50px]">
+                  <div className="bg-primary-200/20 px-4 py-2 rounded-[50px]">
                     <span className="text-sm font-semibold text-white">OUR MISSION</span>
                   </div>
                 </div>
@@ -179,7 +179,7 @@ export default function WhoWeArePage() {
               <div className="bg-white border border-white/20 rounded-2xl p-8 md:p-10 transition-all duration-300 hover:shadow-2xl min-h-[380px] flex flex-col items-start justify-between relative overflow-hidden">
                 <div aria-hidden="true" className="absolute top-0 right-0 h-[120px] w-[230px]" style={{ backgroundImage: `url(${visionVector})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }} />
                 <div className="flex items-center mb-6 relative z-10">
-                  <div className="bg-[#BFD0FC]/20 px-4 py-2 rounded-[50px] border border-primary-900">
+                  <div className="bg-primary-200/20 px-4 py-2 rounded-[50px] border border-primary-900">
                     <span className="text-sm font-semibold text-primary">OUR VISION</span>
                   </div>
                 </div>
@@ -197,7 +197,7 @@ export default function WhoWeArePage() {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="font-semibold text-primary bg-[#BFD0FC]/20 px-4 py-2 rounded-[50px] w-fit mx-auto mb-6">Our Core Pillars</div>
+            <div className="font-semibold text-primary bg-primary-200/20 px-4 py-2 rounded-[50px] w-fit mx-auto mb-6">Our Core Pillars</div>
             <p className="text-gray-600 mb-4 max-w-md mx-auto">
               Our approach is grounded in three key pillars that drive excellence and innovation across all our operations
             </p>
@@ -227,12 +227,12 @@ export default function WhoWeArePage() {
       </section>
 
       {/* CEO quote */}
-      <section className="py-16 md:py-24 bg-[#03174B] text-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-primary-950 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0px)', backgroundSize: '40px 40px' }} />
         <div className="absolute top-0 left-0 h-[300px] w-[500px] opacity-90" style={{ backgroundImage: `url(${techImg})`, backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'left top' }} />
         <div className="absolute bottom-0 right-0 h-[300px] w-[500px] rotate-180 opacity-90" style={{ backgroundImage: `url(${techImg})`, backgroundRepeat: 'no-repeat', backgroundSize: 'contain' }} />
-        <div aria-hidden="true" className="absolute -left-20 -top-24 h-80 w-80 rounded-full border border-cyan-300/10" />
-        <div aria-hidden="true" className="absolute -bottom-24 -right-20 h-80 w-80 rounded-full border border-cyan-300/10" />
+        <div aria-hidden="true" className="absolute -left-20 -top-24 h-80 w-80 rounded-full border border-blue-300/10" />
+        <div aria-hidden="true" className="absolute -bottom-24 -right-20 h-80 w-80 rounded-full border border-blue-300/10" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <blockquote className="text-2xl md:text-3xl font-bold mb-8 leading-relaxed">
             “Africa’s young workforce is the continent’s greatest asset—equipped with the right skills, they can meet global business demand and transform the labor market.”
@@ -253,7 +253,7 @@ export default function WhoWeArePage() {
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-4">
-            <span className="inline-block text-primary text-sm font-semibold bg-[#BFD0FC]/20 px-4 py-2 rounded-[50px] mb-6">MEET OUR TEAM</span>
+            <span className="inline-block text-primary text-sm font-semibold bg-primary-200/20 px-4 py-2 rounded-[50px] mb-6">MEET OUR TEAM</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">Meet The People Behind</h2>
           <p className="text-gray-600 text-center max-w-2xl mx-auto mb-16">
@@ -289,7 +289,7 @@ export default function WhoWeArePage() {
       </section>
 
       {/* Closing banner */}
-      <section className="py-16 md:py-24 bg-[#03174B] text-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-primary-950 text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="md:w-2/3">

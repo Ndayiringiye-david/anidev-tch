@@ -18,7 +18,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <div className="bg-[#0f2b6b] relative py-8 md:py-16 overflow-hidden">
+    <div className="bg-primary-900 relative py-8 md:py-16 overflow-hidden">
       {/* decorative overlay */}
       <div className="absolute inset-0 opacity-5 pointer-events-none"
         style={{ backgroundImage: 'repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%)', backgroundSize: '20px 20px' }}
