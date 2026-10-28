@@ -116,7 +116,7 @@ export default function Navbar() {
               PARTNER WITH US
             </Link>
             <Link
-              to="/contact"
+              to="/apply-now"
               className="relative flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-2.5 text-[13px] font-semibold text-white shadow-md shadow-blue-600/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-600/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 active:translate-y-0"
             >
               <span className="relative flex h-2 w-2">
@@ -165,7 +165,7 @@ export default function Navbar() {
 
         <div className="flex-1 space-y-1 overflow-y-auto px-4 py-5">
           <Link
-            to="/contact"
+            to="/apply-now"
             onClick={() => setMobileOpen(false)}
             className="mb-2 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 py-3 text-sm font-bold text-white shadow-md shadow-blue-600/20 transition-all hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
           >

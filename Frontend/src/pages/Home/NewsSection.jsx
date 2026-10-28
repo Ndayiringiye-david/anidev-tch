@@ -52,11 +52,7 @@ export default function NewsSection() {
             <article key={id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
               <div className="relative">
                 <div className="relative overflow-hidden w-full" style={{ height: '250px' }}>
-                  <img
-                    alt={title}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                    src={image}
-                  />
+                  <img src={image} alt={title} className="h-full w-full object-cover transition-transform duration-300 hover:scale-105" />
                 </div>
                 <span className="absolute top-4 left-4 px-3 py-1 bg-blue-600 text-white text-xs rounded-full">
                   {tag}

@@ -52,8 +52,8 @@ export default function InsightsPage() {
     <main className="min-h-screen bg-white">
       {/* Hero */}
       <section className="relative bg-gray-900 py-20 px-4 sm:px-6 lg:px-12 overflow-hidden">
-        <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" />
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary transform skew-x-12 origin-top-right opacity-80" />
+        <img src={heroBg} alt="" className="absolute inset-0 h-full w-full object-cover opacity-25" />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-950/80 via-primary-900/70 to-primary/50" />
         <div className="max-w-7xl mx-auto relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">Insights &amp; News</h1>
           <p className="text-xl text-gray-300 max-w-2xl">Stories, tips, and insights from the Anidev Technologies community</p>
@@ -115,7 +115,7 @@ export default function InsightsPage() {
             {featured.map((p) => (
               <article key={p.id} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
                 <div className="relative h-56 overflow-hidden">
-                  <img src={p.img} alt={p.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <img src={p.img} alt={p.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 bg-white text-primary text-xs font-bold rounded-full">{p.category}</span>
                   </div>
@@ -163,7 +163,7 @@ export default function InsightsPage() {
                   className="group h-full flex flex-col bg-white border-2 border-gray-100 rounded-xl overflow-hidden hover:border-primary hover:shadow-lg transition-all duration-300"
                 >
                   <div className="relative h-48 overflow-hidden">
-                    <img src={p.img} alt={p.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={p.img} alt={p.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="p-5 flex flex-col flex-1">
                     <div className="flex items-center gap-2 mb-2">

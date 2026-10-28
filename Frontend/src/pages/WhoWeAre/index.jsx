@@ -7,7 +7,9 @@ import techImg from '../../assets/tech-img.png'
 import whyChooseUs from '../../assets/why_choose_us.png'
 import rwandaBuilding from '../../assets/stroke_rwanda_building.svg'
 import lines from '../../assets/about-section-lines.png'
+
 const ceo = '/Images/ceo.png'
+const T = 'https://storage.solvit.africa/solvit/solvit/legacy/team/'
 
 function LinkedinIcon({ className }) {
   return (
@@ -30,8 +32,6 @@ function LinkedinIcon({ className }) {
     </svg>
   )
 }
-const T = 'https://storage.solvit.africa/solvit/solvit/legacy/team/'
-
 const stats = [
   { value: '10+', label: 'Years Experience' },
   { value: '2000+', label: 'Students Trained' },
@@ -83,8 +83,9 @@ export default function WhoWeArePage() {
                 Anidev Technologies connects global businesses with Africa’s young, skilled, and multilingual workforce delivering reliable, innovative BPO solutions that drive growth and transformation. Together, we’re shaping Rwanda into a global hub for quality outsourcing.
               </p>
             </div>
-            <div className="relative rounded-lg overflow-hidden shadow-2xl">
-              <img src={whyChooseUs} alt="Presentation" className="w-full h-full object-cover" style={{ objectPosition: 'center top' }} />
+            <div className="relative h-72 overflow-hidden rounded-2xl shadow-2xl md:h-80">
+              <img src={whyChooseUs} alt="Anidev team presentation" className="absolute inset-0 h-full w-full object-cover object-top" />
+              <img src={rwandaBuilding} alt="" className="absolute bottom-0 left-4 h-20 w-40 object-contain opacity-25" />
             </div>
           </div>
         </div>
@@ -96,24 +97,19 @@ export default function WhoWeArePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-7 gap-12 items-center">
             <div className="relative md:col-span-3 h-[500px] overflow-hidden">
-              <div className="rounded-tr-[100px] rounded-br-[100px] rounded-bl-[120px] overflow-hidden h-[500px]">
-                <img src={aboutLeft} alt="Team collaboration" className="object-cover ml-8 z-10 relative h-full w-full" />
+              <div className="ml-8 h-[500px] overflow-hidden rounded-tr-[100px] rounded-br-[100px] rounded-bl-[120px]">
+                <img src={aboutLeft} alt="Students learning and working together" className="h-full w-full object-cover" />
               </div>
               <div className="absolute top-[11rem] -left-[40px] w-[100px] h-14 bg-primary" style={{ clipPath: 'polygon(1% 0px, 100% 0px, 100% 100%)' }} />
               <div className="absolute top-[3rem] left-0 bg-primary text-white p-4 z-20">
                 <div className="text-center">
-                  <img src={medals} alt="Medals" className="w-10 h-10 mx-auto mb-2" />
+                  <img src={medals} alt="" className="mx-auto mb-2 h-10 w-10" />
                   <div className="text-2xl font-bold">10+</div>
                   <div className="text-xs opacity-90">Working Experience</div>
                 </div>
               </div>
-              <div className="absolute bottom-0 left-2 w-[280px] h-[180px] z-10 bg-white border-8 border-white overflow-hidden rounded-tl-[100px] rounded-br-[100px] rounded-bl-[100px]">
-                <img
-                  src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Workspace"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/70 to-transparent" />
+              <div className="absolute bottom-0 left-2 z-10 h-[180px] w-[280px] overflow-hidden rounded-tl-[100px] rounded-br-[100px] rounded-bl-[100px] border-8 border-white bg-white shadow-lg">
+                <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Collaborative workspace" className="h-full w-full object-cover" />
               </div>
             </div>
 
@@ -131,12 +127,13 @@ export default function WhoWeArePage() {
             </div>
           </div>
         </div>
-        <img src={rwandaBuilding} alt="" className="absolute bottom-0 left-20 opacity-15 h-20 w-40 object-cover" />
+        <div aria-hidden="true" className="absolute bottom-0 left-20 h-px w-40 bg-gradient-to-r from-transparent via-blue-300 to-transparent opacity-50" />
       </section>
 
       {/* Milestones */}
       <section className="py-16 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: `url(${lines})`, backgroundPosition: 'center' }} />
+        <div aria-hidden="true" className="absolute inset-0 opacity-5" style={{ backgroundImage: `url(${lines})`, backgroundPosition: 'center' }} />
+        <div aria-hidden="true" className="absolute inset-0 opacity-30 [background-image:radial-gradient(#93c5fd_1px,transparent_1px)] [background-size:28px_28px]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <div className="inline-block bg-primary-50 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4 border border-gray-50">
@@ -163,7 +160,7 @@ export default function WhoWeArePage() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <div className="relative group">
               <div className="bg-[#01206E] rounded-2xl p-8 md:p-10 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl min-h-[380px] flex flex-col items-start justify-between relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-[230px] h-[120px]" style={{ backgroundImage: `url(${visionVector})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }} />
+                  <div aria-hidden="true" className="absolute top-0 right-0 h-[120px] w-[230px]" style={{ backgroundImage: `url(${visionVector})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }} />
                 <div className="flex items-center mb-6 relative z-10">
                   <div className="bg-[#BFD0FC]/20 px-4 py-2 rounded-[50px]">
                     <span className="text-sm font-semibold text-white">OUR MISSION</span>
@@ -180,7 +177,7 @@ export default function WhoWeArePage() {
               <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-400 rounded-full opacity-60" />
               <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-blue-400 rounded-full opacity-40" />
               <div className="bg-white border border-white/20 rounded-2xl p-8 md:p-10 transition-all duration-300 hover:shadow-2xl min-h-[380px] flex flex-col items-start justify-between relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-[230px] h-[120px]" style={{ backgroundImage: `url(${visionVector})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }} />
+                <div aria-hidden="true" className="absolute top-0 right-0 h-[120px] w-[230px]" style={{ backgroundImage: `url(${visionVector})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }} />
                 <div className="flex items-center mb-6 relative z-10">
                   <div className="bg-[#BFD0FC]/20 px-4 py-2 rounded-[50px] border border-primary-900">
                     <span className="text-sm font-semibold text-primary">OUR VISION</span>
@@ -232,15 +229,17 @@ export default function WhoWeArePage() {
       {/* CEO quote */}
       <section className="py-16 md:py-24 bg-[#03174B] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0px)', backgroundSize: '40px 40px' }} />
-        <div className="absolute top-0 left-0 w-[500px] h-[300px] opacity-90" style={{ backgroundImage: `url(${techImg})`, backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'left top' }} />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[300px] opacity-90 rotate-180" style={{ backgroundImage: `url(${techImg})`, backgroundRepeat: 'no-repeat', backgroundSize: 'contain' }} />
+        <div className="absolute top-0 left-0 h-[300px] w-[500px] opacity-90" style={{ backgroundImage: `url(${techImg})`, backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'left top' }} />
+        <div className="absolute bottom-0 right-0 h-[300px] w-[500px] rotate-180 opacity-90" style={{ backgroundImage: `url(${techImg})`, backgroundRepeat: 'no-repeat', backgroundSize: 'contain' }} />
+        <div aria-hidden="true" className="absolute -left-20 -top-24 h-80 w-80 rounded-full border border-cyan-300/10" />
+        <div aria-hidden="true" className="absolute -bottom-24 -right-20 h-80 w-80 rounded-full border border-cyan-300/10" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <blockquote className="text-2xl md:text-3xl font-bold mb-8 leading-relaxed">
             “Africa’s young workforce is the continent’s greatest asset—equipped with the right skills, they can meet global business demand and transform the labor market.”
           </blockquote>
           <div className="flex items-center justify-center space-x-4">
-            <div className="w-[80px] h-[80px] rounded-full overflow-hidden">
-              <img src={ceo} alt="David Ndayiringiye" className="w-full h-full object-cover" />
+            <div className="h-[80px] w-[80px] overflow-hidden rounded-full border-2 border-white/30 shadow-lg">
+              <img src={ceo} alt="David Ndayiringiye" className="h-full w-full object-cover" />
             </div>
             <div className="text-left">
               <p className="font-bold text-lg">David Ndayiringiye</p>
@@ -264,9 +263,8 @@ export default function WhoWeArePage() {
             {team.map((m) => (
               <div key={m.name} className="group relative">
                 <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-                  <div className="relative overflow-hidden h-[380px]">
-                    <img src={ceo} alt={m.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="relative h-[280px] overflow-hidden">
+                    <img src={m.img} alt={m.name} className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105" />
                   </div>
                   <div className="text-white relative">
                     <div className="absolute bottom-0 h-[130px] bg-primary w-full" style={{ clipPath: 'polygon(0px 18%, 100% 0px, 100% 100%, 0% 100%)' }} />

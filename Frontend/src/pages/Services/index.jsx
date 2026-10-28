@@ -1,11 +1,9 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { ChevronDown, ArrowUpRight } from 'lucide-react'
 
-// Card photos: every .jpg/.jpeg/.webp in src/assets is used in rotation.
-// To pick a specific photo for a card, import it and add `image: myPhoto` to that service.
 const photoModules = import.meta.glob('../../assets/*.{jpg,jpeg,webp}', { eager: true, import: 'default' })
-const photos = Object.keys(photoModules).sort().map((k) => photoModules[k])
+const photos = Object.keys(photoModules).sort().map((key) => photoModules[key])
 
 const categories = ['All', 'Talent', 'Training', 'Software', 'Consulting']
 
@@ -26,7 +24,7 @@ const gradients = ['from-navy to-brand', 'from-brand to-navy-mid', 'from-navy-mi
 function ServiceCard({ service, index, isOpen, onToggle }) {
   const hasItems = service.items.length > 0
   const photo = service.image || (photos.length ? photos[index % photos.length] : null)
-  const bg = photo
+  const backgroundStyle = photo
     ? { backgroundImage: `url(${photo})`, backgroundSize: 'cover', backgroundPosition: 'center' }
     : undefined
 
@@ -47,9 +45,9 @@ function ServiceCard({ service, index, isOpen, onToggle }) {
   return (
     <div
       className={`relative h-[360px] rounded-2xl overflow-hidden bg-gradient-to-br ${gradients[index % gradients.length]}`}
-      style={bg}
+      style={backgroundStyle}
     >
-      <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/10 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col justify-end max-h-full">
         {hasItems && isOpen && (
           <ul className="mb-2 max-h-[240px] overflow-y-auto rounded-xl bg-white/95 divide-y divide-gray-100 shadow-md">

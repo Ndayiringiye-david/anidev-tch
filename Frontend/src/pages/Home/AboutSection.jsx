@@ -1,8 +1,8 @@
-﻿import { Check, ChevronRight } from 'lucide-react'
+import { Check, ChevronRight, UsersRound } from 'lucide-react'
 import aboutLeft from '../../assets/about-left.png'
-import medals from '../../assets/medals.png'
-import bothHands from '../../assets/both-hands.svg'
 import aboutLines from '../../assets/about-section-lines.png'
+import bothHands from '../../assets/both-hands.svg'
+import medals from '../../assets/medals.png'
 
 const points = [
   "Bridging global businesses with Africa's talent",
@@ -14,36 +14,34 @@ const points = [
 export function AboutSection() {
   return (
     <section className="py-16 md:py-24 bg-white relative">
-      <div
-        className="absolute top-0 right-0 w-64 h-64 md:w-80 md:h-80 bg-contain bg-right-top bg-no-repeat"
-        style={{ backgroundImage: `url(${aboutLines})` }}
-      />
+      <div aria-hidden="true" className="absolute right-0 top-0 h-72 w-72 bg-contain bg-right-top bg-no-repeat opacity-50" style={{ backgroundImage: `url(${aboutLines})` }} />
       <div className="max-w-7xl mx-auto px-0">
         <div className="grid md:grid-cols-7 gap-16 md:gap-20 items-center">
-          <div className="md:col-span-3 relative h-[500px] overflow-hidden">
-            <img src={aboutLeft} alt="Team collaboration" className="w-[80%] h-full object-cover ml-8 z-10 relative" />
+          <div className="md:col-span-3 relative min-h-[500px] overflow-hidden">
+            <div className="ml-8 h-[420px] overflow-hidden rounded-[2rem] shadow-xl shadow-blue-950/10">
+              <img src={aboutLeft} alt="Students learning and working together at laptops" className="h-full w-full object-cover" />
+            </div>
             <div
               className="absolute top-[17rem] -left-[40px] w-[100px] h-14 bg-primary"
               style={{ clipPath: 'polygon(1% 0, 100% 0, 100% 100%)' }}
             />
-            <div className="absolute top-40 left-0 bg-primary text-white p-4 z-20">
+            <div className="absolute left-0 top-32 z-20 rounded-xl bg-primary p-4 text-white shadow-lg">
               <div className="text-center">
-                <img src={medals} alt="Medals" className="w-10 h-10 mx-auto mb-2" />
+                <img src={medals} alt="" className="mx-auto mb-2 h-9 w-9" />
                 <div className="text-2xl font-bold">10+</div>
                 <div className="text-xs opacity-90">Working Experience</div>
               </div>
             </div>
-            <div className="absolute bottom-4 right-2 w-[280px] h-[180px] z-10 bg-white border-8 border-white shadow-lg overflow-hidden">
+            <div className="absolute bottom-0 right-0 z-10 flex h-28 w-56 items-center gap-3 overflow-hidden rounded-2xl border-4 border-white bg-white p-4 shadow-lg">
               <img
                 src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Workspace"
-                className="w-full h-full object-cover"
+                alt="Team collaborating around a laptop"
+                className="absolute inset-0 h-full w-full object-cover opacity-20"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <button className="bg-primary rounded-full p-3 relative group cursor-pointer" aria-label="Play video">
-                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                  <div className="absolute inset-0 rounded-full bg-primary animate-pulse opacity-50 group-hover:opacity-75" />
-                </button>
+              <img src={bothHands} alt="" className="relative z-10 h-12 w-12 shrink-0 object-contain" />
+              <div className="relative z-10 text-sm font-semibold leading-5 text-slate-800">
+                People-first
+                <span className="block font-normal text-slate-500">digital solutions</span>
               </div>
             </div>
           </div>
@@ -72,7 +70,7 @@ export function AboutSection() {
               <div className="bg-white shadow-md shadow-gray-200 mb-6 flex justify-center relative rounded-lg w-[40%] md:w-[250px]">
                 <div className="absolute left-0 bg-primary-900 h-full w-[5px] rounded-l-lg" />
                 <div className="p-2 flex items-center w-full">
-                  <img src={bothHands} alt="Both Hands" className="w-10 h-20 mr-2" />
+                  <UsersRound className="mr-3 h-10 w-10 shrink-0 text-primary" aria-hidden="true" />
                   <div className="text-primary mb-1 text-center">
                     <span className="text-3xl text-gray-900 font-bold">1660 +</span>
                     <div className="text-gray-600 text-[14px] font-normal mt-4">Talents Outsourced</div>

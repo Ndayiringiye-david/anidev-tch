@@ -36,8 +36,8 @@ export default function ContactPage() {
                 Have questions about our services? We&apos;re here to help. Reach out to us and let&apos;s discuss how we can empower your business.
               </p>
             </div>
-            <div className="relative h-48 md:h-56 rounded-2xl overflow-hidden shadow-2xl">
-              <img src={heroBg} alt="Contact Us" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="relative h-48 overflow-hidden rounded-2xl shadow-2xl md:h-56">
+              <img src={heroBg} alt="Kigali city at dusk" className="absolute inset-0 h-full w-full object-cover" />
             </div>
           </div>
         </div>

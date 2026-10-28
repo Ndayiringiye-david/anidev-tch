@@ -1,19 +1,17 @@
-﻿import { ChevronRight } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import heroBg from '../../assets/HerosectionImage.png'
 import shapeImg from '../../assets/shape-img.png'
 
 export function HeroSection() {
   return (
     <section className="relative pt-20 pb-16 md:pt-36 md:pb-24 bg-gradient-to-br from-primary-900 via-primary-800 to-primary text-white overflow-hidden">
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 overflow-hidden">
         <div
-          className="absolute inset-0"
-          style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{ backgroundImage: `url(${heroBg})` }}
         />
-        <div className="absolute inset-0 w-1/3 mt-0 right-0 hidden lg:block">
-          <img src={shapeImg} alt="" />
-        </div>
-        <div className="absolute inset-0 w-2/3 bg-gradient-to-r from-primary-800/50 via-primary-900/90 to-transparent" />
+        <img src={shapeImg} alt="" className="absolute inset-y-0 right-0 hidden h-full w-1/3 object-contain object-right lg:block" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-900 via-primary-900/90 to-primary-900/35" />
       </div>
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
