@@ -7,11 +7,11 @@ export function HeroSection() {
     <section className="relative pt-20 pb-16 md:pt-36 md:pb-24 bg-gradient-to-br from-primary-900 via-primary-800 to-primary text-white overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
+          className="absolute inset-0 bg-cover bg-center opacity-50"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
         <img src={shapeImg} alt="" className="absolute inset-y-0 right-0 hidden h-full w-1/3 object-contain object-right lg:block" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-900 via-primary-900/90 to-primary-900/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-900 via-primary-900/75 to-primary-900/20" />
       </div>
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8">

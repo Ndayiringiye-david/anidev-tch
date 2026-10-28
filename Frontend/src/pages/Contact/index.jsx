@@ -1,157 +1,198 @@
-﻿import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react'
+﻿import { ArrowUpRight, Clock3, Mail, MapPin, Phone, Send } from 'lucide-react'
 import heroBg from '../../assets/convetional.jpg'
 
+const contactDetails = [
+  { icon: Mail, title: 'Email', detail: 'Info@anidev.africa', href: 'mailto:Info@anidev.africa' },
+  { icon: Phone, title: 'Call us', detail: '+250 788 399 423', href: 'tel:+250788399423' },
+  {
+    icon: MapPin,
+    title: 'Visit our office',
+    detail: 'Inind House, KN 3 Rd, Kigali, Rwanda',
+    href: 'https://maps.google.com/?q=Inind+House,+KN+3+Rd,+Kigali,+Rwanda',
+  },
+]
+
 const inputClass =
-  'w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563eb] focus:border-transparent transition-all'
-const labelClass = 'block text-sm font-semibold text-[#2563eb] mb-2'
+  'w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-100'
+const labelClass = 'mb-2 block text-sm font-medium text-slate-700'
 
-const infoRows = [
-  { icon: Mail, title: 'Email', lines: ['Info@anidev.africa'] },
-  { icon: Phone, title: 'Phone', lines: ['+250 788 399 423'] },
-  { icon: MapPin, title: 'Office', lines: ['Inind House, KN 3 Rd, Kigali', 'Kicukiro District', 'Kigali, Rwanda'] },
-  { icon: Clock, title: 'Business Hours', lines: ['Monday - Friday: 8:00 AM - 5:00 PM', 'Saturday-Sunday: Closed'] },
-]
+function handleSubmit(event) {
+  event.preventDefault()
 
-const reasons = [
-  'Access to vetted African talent',
-  'Comprehensive training programs',
-  'Dedicated support team',
-]
+  const formData = new FormData(event.currentTarget)
+  const body = [
+    `Name: ${formData.get('fullName')}`,
+    `Email: ${formData.get('email')}`,
+    `Phone: ${formData.get('phone')}`,
+    `Inquiry type: ${formData.get('inquiryType')}`,
+    '',
+    formData.get('message'),
+  ].join('\n')
+
+  window.location.href = `mailto:Info@anidev.africa?subject=${encodeURIComponent(formData.get('subject'))}&body=${encodeURIComponent(body)}`
+}
 
 export default function ContactPage() {
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
-
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="relative bg-gray-900 pt-32 pb-16 md:pt-28 px-4 sm:px-6 lg:px-12 overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[#2563eb] transform skew-x-12 origin-top-right" />
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">Get in Touch</h1>
-              <p className="text-lg text-gray-300">
-                Have questions about our services? We&apos;re here to help. Reach out to us and let&apos;s discuss how we can empower your business.
-              </p>
-            </div>
-            <div className="relative h-48 overflow-hidden rounded-2xl shadow-2xl md:h-56">
-              <img src={heroBg} alt="Kigali city at dusk" className="absolute inset-0 h-full w-full object-cover" />
-            </div>
+    <div className="min-h-screen bg-slate-50 font-sans">
+      <section className="relative isolate overflow-hidden bg-[#062c48] text-white">
+        <img src={heroBg} alt="" className="absolute inset-0 -z-20 h-full w-full object-cover object-center opacity-40" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#062c48] via-[#062c48]/90 to-[#062c48]/55" />
+        <div aria-hidden="true" className="absolute -right-24 -top-40 -z-10 h-[28rem] w-[28rem] rounded-full border border-white/10" />
+        <div aria-hidden="true" className="absolute -right-8 -top-24 -z-10 h-[22rem] w-[22rem] rounded-full border border-white/10" />
+
+        <div className="mx-auto max-w-5xl px-4 pb-28 pt-16 sm:px-6 md:pb-32 md:pt-24 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-100 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-sky-300" />
+              Let&apos;s start a conversation
+            </p>
+            <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
+              Great partnerships
+              <span className="block text-blue-200">start with a hello.</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-7 text-blue-50/85 sm:text-lg sm:leading-8">
+              Tell us what you&apos;re working toward. Whether you need exceptional talent, training, or a technology partner, our team is ready to listen.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Info + form */}
-      <section className="py-16 px-4 sm:px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-12 gap-0 rounded-3xl overflow-hidden shadow-lg">
-            {/* Left info panel */}
-            <div className="lg:col-span-4 bg-[#2563eb] text-white p-8 lg:p-12">
-              <div className="mb-12">
-                <h2 className="text-3xl font-bold mb-2">ANIDEV TECHNOLOGIES</h2>
-                <p className="text-white/80 text-sm">Contact Information</p>
+      <section className="relative z-10 mx-auto -mt-16 max-w-5xl px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="grid overflow-hidden rounded-3xl bg-white shadow-[0_28px_80px_-36px_rgba(15,23,42,0.28)] ring-1 ring-slate-200/70 lg:grid-cols-5">
+          <aside className="relative overflow-hidden bg-gradient-to-br from-[#073655] to-[#05263f] p-7 text-white sm:p-9 lg:col-span-2 lg:p-10">
+            <div aria-hidden="true" className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-blue-400/10 blur-2xl" />
+            <div className="relative">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-200">Contact information</p>
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight">We&apos;re here to help.</h2>
+              <p className="mt-3 text-sm leading-6 text-blue-100/75">
+                Reach out directly or leave us a note. We usually respond within one business day.
+              </p>
+
+              <div className="mt-9 space-y-6">
+                {contactDetails.map(({ icon: Icon, title, detail, href }) => (
+                  <a
+                    key={title}
+                    href={href}
+                    target={title === 'Visit our office' ? '_blank' : undefined}
+                    rel={title === 'Visit our office' ? 'noreferrer' : undefined}
+                    className="group flex items-start gap-4 rounded-2xl transition-colors hover:text-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200"
+                  >
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/10 text-blue-200 transition-colors group-hover:bg-white/15">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <span className="min-w-0 pt-0.5">
+                      <span className="block text-xs font-medium uppercase tracking-wide text-blue-200/80">{title}</span>
+                      <span className="mt-1 block text-sm font-medium leading-6 text-white">{detail}</span>
+                    </span>
+                    {title === 'Visit our office' && <ArrowUpRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-blue-200/70" aria-hidden="true" />}
+                  </a>
+                ))}
               </div>
-              {infoRows.map(({ icon: Icon, title, lines }) => (
-                <div key={title} className="mb-10 last:mb-0">
-                  <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                    <Icon className="w-5 h-5" />
-                    {title}
-                  </h3>
-                  <div className="space-y-1 text-sm text-white/80">
-                    {lines.map((l) => (
-                      <p key={l}>{l}</p>
-                    ))}
+
+              <div className="mt-9 border-t border-white/15 pt-6">
+                <div className="flex items-start gap-3">
+                  <Clock3 className="mt-0.5 h-5 w-5 shrink-0 text-blue-200" aria-hidden="true" />
+                  <div>
+                    <p className="text-sm font-semibold">Business hours</p>
+                    <p className="mt-1 text-sm leading-6 text-blue-100/75">Monday – Friday<br />8:00 AM – 5:00 PM (CAT)</p>
                   </div>
                 </div>
-              ))}
+              </div>
+            </div>
+          </aside>
+
+          <div className="p-6 sm:p-9 lg:col-span-3 lg:p-10">
+            <div className="mb-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-700">Send us a message</p>
+              <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">How can we work together?</h2>
+              <p className="mt-3 text-sm leading-6 text-slate-500">
+                Share a few details and we&apos;ll connect you with the right person on our team.
+              </p>
             </div>
 
-            {/* Form */}
-            <div className="lg:col-span-8 p-8 lg:p-12 bg-white">
-              <div className="mb-10">
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-                  Send Us A <span className="text-[#2563eb]">Message</span>
-                </h2>
-                <p className="text-gray-600">
-                  Fill Out The Form Below And Our Team Will Get Back To You Within 24 Hours.
-                </p>
+            <form className="space-y-5" onSubmit={handleSubmit}>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="fullName" className={labelClass}>Full name <span className="text-blue-700">*</span></label>
+                  <input id="fullName" name="fullName" type="text" autoComplete="name" required placeholder="Your name" className={inputClass} />
+                </div>
+                <div>
+                  <label htmlFor="email" className={labelClass}>Work email <span className="text-blue-700">*</span></label>
+                  <input id="email" name="email" type="email" autoComplete="email" required placeholder="you@company.com" className={inputClass} />
+                </div>
               </div>
-              <form className="space-y-6" onSubmit={handleSubmit}>
+
+              <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="fullName" className={labelClass}>Full Name *</label>
-                  <input id="fullName" name="full_name" type="text" required placeholder="Enter Your Full Name" className={inputClass} />
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="phoneNumber" className={labelClass}>Phone Number *</label>
-                    <input id="phoneNumber" name="phone" type="tel" required placeholder="Enter Your Phone Number" className={inputClass} />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className={labelClass}>Email *</label>
-                    <input id="email" name="email" type="email" required placeholder="Enter Your Email" className={inputClass} />
-                  </div>
+                  <label htmlFor="phone" className={labelClass}>Phone number <span className="text-blue-700">*</span></label>
+                  <input id="phone" name="phone" type="tel" autoComplete="tel" required placeholder="+250 ..." className={inputClass} />
                 </div>
                 <div>
-                  <label htmlFor="inquiryType" className={labelClass}>Inquiry Type *</label>
-                  <select id="inquiryType" name="inquiryType" required className={inputClass}>
-                    <option value="general">General Inquiry</option>
-                    <option value="hiring">Hiring Talent</option>
-                    <option value="training">Training Programs</option>
+                  <label htmlFor="inquiryType" className={labelClass}>I&apos;m interested in <span className="text-blue-700">*</span></label>
+                  <select id="inquiryType" name="inquiryType" required defaultValue="general" className={inputClass}>
+                    <option value="general">General inquiry</option>
+                    <option value="hiring">Hiring talent</option>
+                    <option value="training">Training programs</option>
                     <option value="partnership">Partnership</option>
                     <option value="support">Support</option>
                   </select>
                 </div>
-                <div>
-                  <label htmlFor="subject" className={labelClass}>Subject *</label>
-                  <input id="subject" name="subject" type="text" required placeholder="How Can We Help You?" className={inputClass} />
-                </div>
-                <div>
-                  <label htmlFor="message" className={labelClass}>Message *</label>
-                  <textarea id="message" name="message" rows={5} required placeholder="How Can We Help You?" className={`${inputClass} resize-none`} />
-                </div>
+              </div>
+
+              <div>
+                <label htmlFor="subject" className={labelClass}>Subject <span className="text-blue-700">*</span></label>
+                <input id="subject" name="subject" type="text" required placeholder="What would you like to discuss?" className={inputClass} />
+              </div>
+
+              <div>
+                <label htmlFor="message" className={labelClass}>How can we help? <span className="text-blue-700">*</span></label>
+                <textarea id="message" name="message" rows={5} required placeholder="Tell us a little about your goals or project..." className={`${inputClass} resize-y`} />
+              </div>
+
+              <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center">
                 <button
                   type="submit"
-                  className="w-full md:w-auto px-8 py-4 bg-[#2563eb] text-white font-semibold rounded-xl hover:bg-[#1e3a8a] focus:outline-none focus:ring-2 focus:ring-[#2563eb] focus:ring-offset-2 transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-[#2563eb]/25"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-700 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-900/15 transition hover:bg-blue-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
                 >
-                  <span>Send Message</span>
-                  <Send className="w-5 h-5" />
+                  Send message
+                  <Send className="h-4 w-4" aria-hidden="true" />
                 </button>
-              </form>
-            </div>
-          </div>
-
-          {/* Why choose bar */}
-          <div className="mt-8 bg-[#2563eb] text-white rounded-2xl p-6 shadow-lg">
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
-              {reasons.map((r, i) => (
-                <div key={r} className="contents">
-                  {i > 0 && <div className="hidden sm:block w-px h-6 bg-white/30" />}
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5" />
-                    <span>{r}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+                <p className="text-xs leading-5 text-slate-500">
+                  Your email app will open with your message ready to send.
+                </p>
+              </div>
+            </form>
           </div>
         </div>
       </section>
 
-      {/* Map */}
-      <section className="h-96 md:h-[500px] bg-gray-200 relative">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d63799.50383361362!2d30.062152086056166!3d-1.9663212100429146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x19dca7985e753a99%3A0x69db8cd5b853fb3!2sSOLVIT%20AFRICA%20Headquarters%2C%20Inind%20House%2C%20KN%203%20Road%2C%20Kigali!3m2!1d-1.9664074999999999!2d30.103351699999997!4m5!1s0x19dca7985e753a99%3A0x69db8cd5b853fb3!2sInind%20House%2C%20KN%203%20Rd%2C%20Kigali!3m2!1d-1.9664074999999999!2d30.103351699999997!5e0!3m2!1sen!2srw!4v1752594056846!5m2!1sen!2srw"
-          width="100%"
-          height="100%"
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="ANIDEV TECHNOLOGIES Location"
-          className="w-full"
-          style={{ border: 0 }}
-        />
+      <section className="mx-auto max-w-5xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+          <div className="flex flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">Find us in Kigali</p>
+              <h2 className="mt-1 text-lg font-semibold text-slate-900">Inind House, KN 3 Road, Kigali, Rwanda</h2>
+            </div>
+            <a
+              href="https://maps.google.com/?q=Inind+House,+KN+3+Rd,+Kigali,+Rwanda"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 transition hover:text-blue-900"
+            >
+              Get directions
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d63799.50383361362!2d30.062152086056166!3d-1.9663212100429146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x19dca7985e753a99%3A0x69db8cd5b853fb3!2sSOLVIT%20AFRICA%20Headquarters%2C%20Inind%20House%2C%20KN%203%20Road%2C%20Kigali!3m2!1d-1.9664074999999999!2d30.103351699999997!4m5!1s0x19dca7985e753a99%3A0x69db8cd5b853fb3!2sInind%20House%2C%20KN%203%20Rd%2C%20Kigali!3m2!1d-1.9664074999999999!2d30.103351699999997!5e0!3m2!1sen!2srw!4v1752594056846!5m2!1sen!2srw"
+            title="ANIDEV TECHNOLOGIES office location in Kigali"
+            className="h-72 w-full border-0 sm:h-96"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
       </section>
     </div>
   )
