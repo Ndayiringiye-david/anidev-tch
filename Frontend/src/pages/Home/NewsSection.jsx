@@ -44,7 +44,7 @@ export default function NewsSection() {
           </div>
           <Link
             to="/insights"
-            className="hidden md:flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
+            className="hidden md:flex items-center px-6 py-3 bg-blue-400 text-slate-950 rounded-lg font-semibold hover:bg-blue-400 transition"
           >
             {t('View All Articles')} <ChevronRight className="ml-2 w-5 h-5" />
           </Link>
@@ -81,7 +81,7 @@ export default function NewsSection() {
 
         {/* Mobile button */}
         <div className="mt-8 text-center md:hidden">
-          <Link to="/insights" className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+          <Link to="/insights" className="inline-flex items-center px-6 py-3 bg-blue-400 text-slate-950 rounded-lg font-semibold hover:bg-blue-400 transition">
             {t('View All Articles')} <ChevronRight className="ml-2 w-5 h-5" />
           </Link>
         </div>

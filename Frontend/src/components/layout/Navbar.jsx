@@ -37,11 +37,11 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 isolate w-full">
-      <div className="border-b border-slate-200/80 bg-white/95 shadow-[0_4px_24px_-18px_rgba(15,23,42,0.35)] backdrop-blur-xl">
+      <div className="border-b border-white/10 bg-slate-950/95 shadow-[0_4px_24px_-18px_rgba(15,23,42,0.55)] backdrop-blur-xl">
         <div className="mx-auto flex h-[76px] max-w-[1380px] items-center justify-between gap-4 px-3 sm:px-5 lg:px-6">
           {/* Logo */}
-          <Link to="/" aria-label={t('AnidevTech home')} className="group -ml-2 flex shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-4">
-            <span className="hidden text-xl font-bold tracking-tight text-slate-900 sm:inline">Anidev<span className="text-blue-600">Tech</span></span>
+          <Link to="/" aria-label={t('AnidevTech home')} className="group -ml-2 flex shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-950">
+            <span className="hidden text-xl font-bold tracking-tight text-white sm:inline">Anidev<span className="text-blue-400">Tech</span></span>
           </Link>
 
           {/* Desktop Nav */}
@@ -64,8 +64,8 @@ export default function Navbar() {
                     onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
                     className={`flex cursor-pointer select-none items-center gap-1.5 rounded-full px-1.5 py-2 text-base font-semibold uppercase transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 ${
                       isDropdownActive(link.dropdown) || openDropdown === link.label
-                        ? 'bg-blue-50 text-blue-700'
-                        : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950'
+                        ? 'bg-blue-500/15 text-blue-300'
+                          : 'text-slate-300 hover:bg-white/10 hover:text-white'
                     }`}
                   >
                     {t(link.label)}
@@ -73,7 +73,7 @@ export default function Navbar() {
                   </button>
                   {openDropdown === link.label && (
                     <div className="absolute left-0 top-full z-50 w-56 pt-2">
-                      <div className="rounded-2xl border border-slate-200/80 bg-white p-2 shadow-[0_16px_40px_-16px_rgba(15,23,42,0.25)]">
+                      <div className="rounded-2xl border border-white/10 bg-slate-900 p-2 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.65)]">
                         {link.dropdown.map((item) => (
                           <Link
                             key={item.href}
@@ -81,8 +81,8 @@ export default function Navbar() {
                             aria-current={isActive(item.href) ? 'page' : undefined}
                             className={`flex items-center rounded-xl px-3.5 py-2.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-600 ${
                               isActive(item.href)
-                                ? 'bg-blue-50 text-blue-700'
-                                : 'text-slate-700 hover:bg-slate-50 hover:text-blue-700'
+                                ? 'bg-blue-500/15 text-blue-300'
+                                : 'text-slate-200 hover:bg-white/5 hover:text-blue-300'
                             }`}
                           >
                             {t(item.label)}
@@ -99,8 +99,8 @@ export default function Navbar() {
                   aria-current={isActive(link.href) ? 'page' : undefined}
                   className={`relative flex cursor-pointer select-none items-center gap-1 rounded-full px-1.5 py-2 text-base font-semibold uppercase transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2
                     ${isActive(link.href)
-                      ? 'text-blue-700'
-                      : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950'
+                      ? 'text-blue-300'
+                      : 'text-slate-300 hover:bg-white/10 hover:text-white'
                     }`}
                 >
                   {t(link.label)}
@@ -113,13 +113,13 @@ export default function Navbar() {
           <div className="hidden shrink-0 items-center gap-2 lg:flex">
             <Link
               to="/become-a-partner"
-              className="rounded-full border border-slate-200 px-4 py-2.5 text-[13px] font-semibold text-slate-700 transition-all duration-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 active:scale-[0.98]"
+              className="rounded-full border border-white/15 px-4 py-2.5 text-[13px] font-semibold text-slate-200 transition-all duration-200 hover:border-blue-400/40 hover:bg-blue-500/10 hover:text-blue-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:scale-[0.98]"
             >
               {t('PARTNER WITH US')}
             </Link>
             <Link
               to="/apply-now"
-              className="relative flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-2.5 text-[13px] font-semibold text-white shadow-md shadow-blue-600/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-600/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 active:translate-y-0"
+              className="relative flex items-center gap-2 rounded-full bg-blue-400 px-5 py-2.5 text-[13px] font-semibold text-slate-950 shadow-md shadow-blue-600/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-600/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 active:translate-y-0"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/70"></span>
@@ -132,7 +132,7 @@ export default function Navbar() {
           {/* Mobile toggle */}
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 transition-all duration-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 text-slate-200 transition-all duration-200 hover:border-blue-400/40 hover:bg-white/10 hover:text-blue-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 lg:hidden"
             aria-label={mobileOpen ? t('Close menu') : t('Open menu')}
             aria-expanded={mobileOpen}
             aria-controls="mobile-navigation"
@@ -149,16 +149,16 @@ export default function Navbar() {
         aria-label={t('Mobile navigation')}
         aria-hidden={!mobileOpen}
         inert={!mobileOpen}
-        className={`fixed right-0 top-0 z-50 flex h-full w-[min(88vw,360px)] flex-col border-l border-slate-200 bg-white shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed right-0 top-0 z-50 flex h-full w-[min(88vw,360px)] flex-col border-l border-white/10 bg-slate-950 shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
-        <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+        <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
           <div>
-            <span className="text-lg font-bold tracking-tight text-slate-900">Anidev<span className="text-blue-600">Tech</span></span>
+            <span className="text-lg font-bold tracking-tight text-white">Anidev<span className="text-blue-400">Tech</span></span>
           </div>
           <button
             type="button"
             aria-label={t('Close menu')}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 text-slate-500 transition-all hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+            className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 text-slate-300 transition-all hover:border-blue-400/40 hover:bg-white/10 hover:text-blue-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
             onClick={() => setMobileOpen(false)}
           >
             <X className="h-4 w-4" />
@@ -169,7 +169,7 @@ export default function Navbar() {
           <Link
             to="/apply-now"
             onClick={() => setMobileOpen(false)}
-            className="mb-2 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 py-3 text-sm font-bold text-white shadow-md shadow-blue-600/20 transition-all hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+            className="mb-2 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-400 py-3 text-sm font-bold text-slate-950 shadow-md shadow-blue-600/20 transition-all hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/70"></span>
@@ -180,7 +180,7 @@ export default function Navbar() {
           <Link
             to="/become-a-partner"
             onClick={() => setMobileOpen(false)}
-            className="mb-3 flex w-full items-center justify-center rounded-xl border border-blue-200 py-2.5 text-sm font-semibold text-blue-700 transition-all hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+            className="mb-3 flex w-full items-center justify-center rounded-xl border border-blue-400/40 py-2.5 text-sm font-semibold text-blue-200 transition-all hover:bg-blue-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           >
             {t('PARTNER WITH US')}
           </Link>
@@ -188,7 +188,7 @@ export default function Navbar() {
           {navLinks.map((link) =>
             link.dropdown ? (
               <div key={link.label}>
-                <p className="px-4 pb-1 pt-4 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400">
+                <p className="px-4 pb-1 pt-4 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">
                   {t(link.label)}
                 </p>
                 {link.dropdown.map((item) => (
@@ -199,8 +199,8 @@ export default function Navbar() {
                     onClick={() => setMobileOpen(false)}
                     className={`flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-600 ${
                       isActive(item.href)
-                        ? 'bg-blue-50 text-blue-700'
-                        : 'text-slate-700 hover:bg-slate-50 hover:text-blue-700'
+                        ? 'bg-blue-500/15 text-blue-200'
+                        : 'text-slate-300 hover:bg-white/5 hover:text-blue-300'
                     }`}
                   >
                     {t(item.label)}
@@ -215,8 +215,8 @@ export default function Navbar() {
                 onClick={() => setMobileOpen(false)}
                 className={`flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-600
                   ${isActive(link.href)
-                    ? 'bg-blue-50 font-semibold text-blue-700'
-                    : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950'
+                    ? 'bg-blue-500/15 font-semibold text-blue-200'
+                    : 'text-slate-300 hover:bg-white/5 hover:text-white'
                   }`}
               >
                 {t(link.label)}

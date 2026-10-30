@@ -12,7 +12,7 @@ export default function StatsBar() {
 
   return (
     <section className="text-white">
-      <div className="py-12 bg-blue-600 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-12 bg-slate-950 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map(({ value, label }) => (
             <div key={label}>

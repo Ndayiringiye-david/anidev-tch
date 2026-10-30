@@ -156,7 +156,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center">
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-700 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-900/15 transition hover:bg-blue-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-400 px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-lg shadow-blue-900/15 transition hover:bg-blue-400 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
                 >
                   {t('Send message')}
                   <Send className="h-4 w-4" aria-hidden="true" />

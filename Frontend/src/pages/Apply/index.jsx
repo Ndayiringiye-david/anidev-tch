@@ -111,7 +111,7 @@ function StepIndicator({ currentStep, t }) {
               <span
                 className={`flex h-9 w-9 items-center justify-center rounded-full border text-sm font-semibold transition-colors ${
                   complete
-                    ? 'border-blue-600 bg-blue-600 text-white'
+                    ? 'border-blue-400 bg-blue-400 text-slate-950'
                     : active
                       ? 'border-blue-600 bg-white text-blue-700 ring-4 ring-blue-100'
                       : 'border-slate-200 bg-white text-slate-400'
@@ -277,7 +277,7 @@ export default function ApplyPage() {
                           <span
                             className={`absolute right-4 top-4 flex h-5 w-5 items-center justify-center rounded-full border ${
                               form.cohort === id
-                                ? 'border-blue-600 bg-blue-600 text-white'
+                                ? 'border-blue-400 bg-blue-400 text-slate-950'
                                 : 'border-slate-300 text-transparent'
                             }`}
                           >
@@ -319,7 +319,7 @@ export default function ApplyPage() {
                           <span
                             className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
                               form.stack === id
-                                ? 'bg-blue-600 text-white'
+                                ? 'bg-blue-400 text-slate-950'
                                 : 'bg-slate-100 text-slate-600'
                             }`}
                           >
@@ -332,7 +332,7 @@ export default function ApplyPage() {
                           <span
                             className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
                               form.stack === id
-                                ? 'border-blue-600 bg-blue-600 text-white'
+                                ? 'border-blue-400 bg-blue-400 text-slate-950'
                                 : 'border-slate-300 text-transparent'
                             }`}
                           >
@@ -701,7 +701,7 @@ export default function ApplyPage() {
                   <button
                     type="submit"
                     disabled={!canContinue}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-700/20 transition hover:-translate-y-0.5 hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-400 px-6 py-3 text-sm font-semibold text-slate-950 shadow-md shadow-blue-700/20 transition hover:-translate-y-0.5 hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
                   >
                     {step === 2 ? t('Continue to complete') : t('Continue')}
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -736,7 +736,7 @@ export default function ApplyPage() {
                 </div>
                 <a
                   href={getApplicationMailto(form, t)}
-                  className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+                  className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-blue-400 px-6 py-3 text-sm font-semibold text-slate-950 shadow-md transition hover:bg-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
                 >
                   <Mail className="h-4 w-4" aria-hidden="true" />
                   {t('Send application')}

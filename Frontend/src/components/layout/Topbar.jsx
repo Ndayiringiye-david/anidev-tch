@@ -3,7 +3,7 @@ import { useLocale } from '../../i18n/LocaleContext'
 import styles from './TopbarTicker.module.css'
 
 const svgProps = {
-  className: 'w-4 h-4',
+  className: 'w-4 h-4 text-blue-400',
   viewBox: '0 0 24 24',
   fill: 'currentColor',
   xmlns: 'http://www.w3.org/2000/svg',
@@ -72,7 +72,7 @@ export default function Topbar() {
   )
 
   return (
-    <div className="w-full bg-primary-600 text-white z-50">
+    <div className="w-full bg-primary-950 text-white z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-4 h-10 text-sm">
           <div className={`${styles.ticker} flex-1`}>
@@ -100,8 +100,8 @@ export default function Topbar() {
               onChange={(event) => setLanguage(event.target.value)}
               className="bg-transparent border-none text-white text-sm focus:outline-none cursor-pointer"
             >
-              <option value="en" className="bg-white text-black">English</option>
-              <option value="fr" className="bg-white text-black">Français</option>
+              <option value="en" className="bg-slate-900 text-white">English</option>
+              <option value="fr" className="bg-slate-900 text-white">Français</option>
             </select>
           </label>
         </div>

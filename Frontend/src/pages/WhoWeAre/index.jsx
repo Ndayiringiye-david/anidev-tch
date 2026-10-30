@@ -280,7 +280,7 @@ export default function WhoWeArePage() {
                         rel="noopener noreferrer"
                         className="absolute -top-6 right-6 -translate-y-1/2 bg-white text-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary-50 transition-colors border-4 border-primary-900"
                       >
-                        <LinkedinIcon className="w-5 h-5" />
+                        <LinkedinIcon className="w-5 h-5 text-blue-400" />
                       </a>
                     </div>
                   </div>

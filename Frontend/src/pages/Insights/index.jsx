@@ -83,7 +83,7 @@ export default function InsightsPage() {
                   <button
                     key={c}
                     onClick={() => chooseCategory(c)}
-                    className={'block w-full text-left px-4 py-2 text-sm ' + (active === c ? 'bg-primary text-white' : 'text-gray-700 hover:bg-gray-100')}
+                    className={'block w-full text-left px-4 py-2 text-sm ' + (active === c ? 'bg-blue-400 text-slate-950' : 'text-gray-700 hover:bg-gray-100')}
                   >
                     {t(c)}
                   </button>
@@ -97,7 +97,7 @@ export default function InsightsPage() {
               <button
                 key={c}
                 onClick={() => chooseCategory(c)}
-                className={'px-4 py-2 rounded-full whitespace-nowrap transition-all ' + (active === c ? 'bg-primary text-white scale-105' : 'bg-gray-100 text-gray-700 hover:bg-gray-200')}
+                className={'px-4 py-2 rounded-full whitespace-nowrap transition-all ' + (active === c ? 'bg-blue-400 text-slate-950 scale-105' : 'bg-gray-100 text-gray-700 hover:bg-gray-200')}
               >
                 {t(c)}
               </button>
@@ -203,7 +203,7 @@ export default function InsightsPage() {
                   key={n}
                   onClick={() => goToPage(n)}
                   aria-current={n === page ? 'page' : undefined}
-                  className={'w-10 h-10 rounded-lg text-sm font-medium transition-all ' + (n === page ? 'bg-primary text-white' : 'border border-gray-200 text-gray-700 hover:border-primary hover:text-primary')}
+                  className={'w-10 h-10 rounded-lg text-sm font-medium transition-all ' + (n === page ? 'bg-blue-400 text-slate-950' : 'border border-gray-200 text-gray-700 hover:border-primary hover:text-primary')}
                 >
                   {n}
                 </button>

@@ -7,7 +7,7 @@
 .label {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #374151;
+  color: #cbd5e1;
 }
 
 .required {
@@ -17,13 +17,13 @@
 
 .input {
   padding: 0.6rem 0.85rem;
-  border: 1.5px solid #d1d5db;
+  border: 1.5px solid #334155;
   border-radius: 8px;
   font-size: 0.95rem;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
-  background: #fff;
-  color: #111827;
+  background: #0b1426;
+  color: #f1f5f9;
 }
 
 .input:focus {

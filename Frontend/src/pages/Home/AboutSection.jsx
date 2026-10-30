@@ -81,7 +81,7 @@ export function AboutSection() {
                 </div>
               </div>
             </div>
-            <button className="px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-800 flex items-center">
+            <button className="px-6 py-3 bg-blue-400 text-slate-950 rounded-lg font-semibold hover:bg-blue-400 flex items-center">
               {t('Discover more about our mission')} <ChevronRight className="ml-2 w-5 h-5" />
             </button>
           </div>

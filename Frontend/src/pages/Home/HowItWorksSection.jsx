@@ -73,7 +73,7 @@ export default function HowItWorksSection() {
               onClick={() => setActiveTab('talents')}
               className={`px-8 py-3 rounded-full font-semibold flex items-center transition ${
                 activeTab === 'talents'
-                  ? 'bg-blue-600 text-white shadow-md'
+                  ? 'bg-blue-400 text-slate-950 shadow-md'
                   : 'text-gray-700 hover:text-blue-600'
               }`}
             >
@@ -83,7 +83,7 @@ export default function HowItWorksSection() {
               onClick={() => setActiveTab('business')}
               className={`px-8 py-3 rounded-full font-semibold flex items-center transition ${
                 activeTab === 'business'
-                  ? 'bg-blue-600 text-white shadow-md'
+                  ? 'bg-blue-400 text-slate-950 shadow-md'
                   : 'text-gray-700 hover:text-blue-600'
               }`}
             >

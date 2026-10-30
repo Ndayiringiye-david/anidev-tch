@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  color: #334155;
+  color: #cbd5e1;
   transition: color 200ms ease, transform 200ms ease;
 }
 
@@ -46,13 +46,13 @@
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  background: #eff6ff;
-  color: #1d4ed8;
+  background: #111b2d;
+  color: #93c5fd;
   transition: background-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
 }
 
 .partner:hover .badge {
-  background: #dbeafe;
+  background: #142b4f;
   box-shadow: 0 6px 16px -8px rgb(37 99 235 / 45%);
   transform: scale(1.05);
 }

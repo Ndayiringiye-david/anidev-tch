@@ -1,7 +1,7 @@
 .page {
   overflow: hidden;
-  background: #f5f8fc;
-  color: #14213d;
+  background: #050b16;
+  color: #e2e8f0;
 }
 
 .container {
@@ -16,7 +16,7 @@
   padding: clamp(5rem, 9vw, 8rem) 0 6rem;
   background:
     radial-gradient(ellipse at 86% 16%, rgb(59 130 246 / 28%), transparent 34rem),
-    linear-gradient(118deg, #0b1730 0%, #10284d 58%, #153e75 100%);
+    linear-gradient(118deg, #050b16 0%, #080f1c 58%, #101b2d 100%);
   color: white;
 }
 
@@ -240,7 +240,7 @@
 
 .sectionTitle {
   margin: 0;
-  color: #14213d;
+  color: #f1f5f9;
   font-size: clamp(2rem, 3.5vw, 2.8rem);
   font-weight: 750;
   letter-spacing: -0.045em;
@@ -252,10 +252,10 @@
   align-items: center;
   gap: 0.55rem;
   padding: 0.65rem 0.9rem;
-  border: 1px solid #e1e8f0;
+  border: 1px solid #26364d;
   border-radius: 999px;
-  background: white;
-  color: #617087;
+  background: #0b1426;
+  color: #cbd5e1;
   font-size: 0.82rem;
   font-weight: 600;
   white-space: nowrap;
@@ -280,9 +280,9 @@
   flex-direction: column;
   overflow: hidden;
   padding: 1.7rem;
-  border: 1px solid #e1e8f0;
+  border: 1px solid #26364d;
   border-radius: 1.3rem;
-  background: white;
+  background: #0b1426;
   box-shadow: 0 14px 40px -32px rgb(15 23 42 / 35%);
   transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
 }
@@ -295,7 +295,7 @@
 
 .featured {
   border-color: #173a72;
-  background: linear-gradient(150deg, #10264b 0%, #173b71 100%);
+  background: linear-gradient(150deg, #080f1c 0%, #101b2d 100%);
   box-shadow: 0 22px 48px -30px rgb(15 38 75 / 72%);
   color: white;
 }
@@ -355,7 +355,7 @@
 
 .quote p {
   margin: 0;
-  color: #526178;
+  color: #cbd5e1;
   font-size: 0.92rem;
   line-height: 1.82;
   white-space: pre-line;
@@ -369,7 +369,7 @@
   height: 1px;
   margin-top: auto;
   padding-top: 1.3rem;
-  background: linear-gradient(#e8edf3, #e8edf3) top / 100% 1px no-repeat;
+  background: linear-gradient(#26364d, #26364d) top / 100% 1px no-repeat;
 }
 
 .featured .cardDivider {
@@ -389,9 +389,9 @@
   height: 2.85rem;
   flex: none;
   place-items: center;
-  border: 1px solid #dbeafe;
+  border: 1px solid #26364d;
   border-radius: 50%;
-  background: linear-gradient(145deg, #eff6ff, #dbeafe);
+  background: linear-gradient(145deg, #111b2d, #142b4f);
   color: #1d4ed8;
   font-size: 0.78rem;
   font-weight: 750;
@@ -420,7 +420,7 @@
 }
 
 .authorName {
-  color: #17233b;
+  color: #f1f5f9;
   font-size: 0.88rem;
   font-weight: 700;
 }
@@ -430,7 +430,7 @@
 }
 
 .authorRole {
-  color: #778398;
+  color: #94a3b8;
   font-size: 0.74rem;
 }
 
@@ -462,7 +462,7 @@
   border: 1px solid #dbeafe;
   border-radius: 1.5rem;
   background:
-    radial-gradient(ellipse at 95% 0%, rgb(191 219 254 / 46%), transparent 28rem),
+    radial-gradient(ellipse at 95% 0%, rgb(219 234 254 / 58%), transparent 28rem),
     white;
   box-shadow: 0 20px 50px -42px rgb(15 23 42 / 35%);
 }
@@ -497,11 +497,11 @@
   justify-content: center;
   gap: 0.65rem;
   padding: 0.75rem 1.15rem;
-  border: 1px solid #1d4ed8;
+  border: 1px solid #60a5fa;
   border-radius: 0.75rem;
-  background: #1d4ed8;
-  box-shadow: 0 8px 18px -10px rgb(29 78 216 / 65%);
-  color: white;
+  background: #60a5fa;
+  box-shadow: 0 8px 18px -10px rgb(96 165 250 / 45%);
+  color: #050b16;
   font-size: 0.9rem;
   font-weight: 650;
   text-decoration: none;
@@ -510,18 +510,23 @@
 
 .contactLink:hover {
   transform: translateY(-2px);
-  background: #1e40af;
+  background: #60a5fa;
 }
 
 .contactLink svg {
   width: 1rem;
   height: 1rem;
+  color: #050b16;
 }
 
 .heroLink:focus-visible,
-.scrollCue:focus-visible,
-.contactLink:focus-visible {
+.scrollCue:focus-visible {
   outline: 3px solid #93c5fd;
+  outline-offset: 4px;
+}
+
+.contactLink:focus-visible {
+  outline: 3px solid #60a5fa;
   outline-offset: 4px;
 }
 
