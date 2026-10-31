@@ -2,31 +2,39 @@ import { useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { ChevronDown, ArrowUpRight } from 'lucide-react'
 import { useLocale } from '../../i18n/LocaleContext'
+import internshipImage from '../../assets/about-left.png'
+import trainingImage from '../../assets/why_choose_us.png'
+import consultingImage from '../../assets/HerosectionImage.png'
 
-const photoModules = import.meta.glob('../../assets/*.{jpg,jpeg,webp}', { eager: true, import: 'default' })
-const photos = Object.keys(photoModules).sort().map((key) => photoModules[key])
-
-const categories = ['All', 'Talent', 'Training', 'Software', 'Consulting']
+const categories = ['All', 'Internships', 'Training', 'Consulting']
 
 const services = [
-  { title: 'Talent Placement', category: 'Talent', items: ['Vetted Developer Sourcing', 'Dedicated Remote Teams', 'Staff Augmentation'] },
-  { title: 'Training Programs', category: 'Training', items: ['Bootcamps', 'Corporate Upskilling', 'Mentorship'] },
-  { title: 'Software Development', category: 'Software', items: ['Web Applications', 'Mobile Applications', 'Custom Platforms', 'Maintenance & Support'] },
-  { title: 'Digital Transformation', category: 'Consulting', items: ['Process Automation', 'Cloud Migration', 'Data & Analytics'] },
-  { title: 'Technical Consultation', category: 'Consulting', items: [], href: '/contact' },
-  { title: 'Managed Services', category: 'Software', items: [], href: '/contact' },
-  { title: 'Remote Team Management', category: 'Talent', items: ['Onboarding', 'Performance Tracking'] },
-  { title: 'Career Development', category: 'Training', items: ['Interview Prep', 'Soft Skills', 'Portfolio Building'] },
-  { title: 'Project Consultation', category: 'Consulting', items: [], href: '/contact' },
+  {
+    title: 'Internships',
+    category: 'Internships',
+    items: ['High School Students', 'University Students'],
+    image: internshipImage,
+  },
+  {
+    title: 'Software Development Training',
+    category: 'Training',
+    items: ['Learn software development fundamentals', 'Practice through guided projects', 'Build skills for real-world work'],
+    image: trainingImage,
+  },
+  {
+    title: 'Digital Transformation Consulting',
+    category: 'Consulting',
+    items: ['Assess your business needs and processes', 'Identify opportunities to use digital tools', 'Plan practical next steps for going digital'],
+    image: consultingImage,
+  },
 ]
 
 const gradients = ['from-navy to-brand', 'from-brand to-navy-mid', 'from-navy-mid to-brand']
 
 function ServiceCard({ service, index, isOpen, onToggle, t }) {
   const hasItems = service.items.length > 0
-  const photo = service.image || (photos.length ? photos[index % photos.length] : null)
-  const backgroundStyle = photo
-    ? { backgroundImage: `url(${photo})`, backgroundSize: 'cover', backgroundPosition: 'center' }
+  const backgroundStyle = service.image
+    ? { backgroundImage: `url(${service.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }
     : undefined
 
   const titleInner = (
@@ -97,19 +105,23 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Banner */}
-      <section className="h-[311px] bg-gradient-to-r from-navy via-navy-mid to-brand" />
-
-      {/* Heading */}
-      <section className="px-4 sm:px-6 lg:px-12 pt-14 pb-6">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 capitalize">{t('Services')}</h1>
-          <div className="mt-3 h-1 w-16 rounded-full bg-brand" />
+      <section className="relative isolate overflow-hidden bg-gradient-to-br from-navy via-navy-mid to-brand text-white">
+        <div aria-hidden="true" className="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-white/10" />
+        <div aria-hidden="true" className="absolute -right-10 -top-16 h-72 w-72 rounded-full border border-white/10" />
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-12">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-blue-200">
+            {t('What we offer')}
+          </p>
+          <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+            {t('Services that help people and businesses grow')}
+          </h1>
+          <p className="mt-5 max-w-3xl text-base leading-7 text-blue-50/90 sm:text-lg">
+            {t('We help students gain experience, teach software development, and guide businesses as they move their work into the digital world.')}
+          </p>
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="px-4 sm:px-6 lg:px-12 pb-10">
+      <section className="px-4 pt-12 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
           <ul className="hidden md:flex flex-wrap gap-x-8 gap-y-2 border-b border-gray-200">
             {categories.map((c) => (

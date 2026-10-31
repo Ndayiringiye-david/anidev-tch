@@ -8,8 +8,8 @@ const contactDetails = [
   {
     icon: MapPin,
     title: 'Visit our office',
-    detail: 'Inind House, KN 3 Rd, Kigali, Rwanda',
-    href: 'https://maps.google.com/?q=Inind+House,+KN+3+Rd,+Kigali,+Rwanda',
+    detail: 'Mbugangari, Gisenyi, Rwanda',
+    href: 'https://maps.google.com/?q=Mbugangari%2C+Gisenyi%2C+Rwanda',
   },
 ]
 
@@ -174,11 +174,11 @@ export default function ContactPage() {
         <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
           <div className="flex flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">{t('Find us in Kigali')}</p>
-              <h2 className="mt-1 text-lg font-semibold text-slate-900">Inind House, KN 3 Road, Kigali, Rwanda</h2>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">{t('Find us in Gisenyi')}</p>
+              <h2 className="mt-1 text-lg font-semibold text-slate-900">Mbugangari, Gisenyi, Rwanda</h2>
             </div>
             <a
-              href="https://maps.google.com/?q=Inind+House,+KN+3+Rd,+Kigali,+Rwanda"
+              href="https://maps.google.com/?q=Mbugangari%2C+Gisenyi%2C+Rwanda"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 transition hover:text-blue-900"
@@ -188,8 +188,8 @@ export default function ContactPage() {
             </a>
           </div>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d63799.50383361362!2d30.062152086056166!3d-1.9663212100429146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x19dca7985e753a99%3A0x69db8cd5b853fb3!2sSOLVIT%20AFRICA%20Headquarters%2C%20Inind%20House%2C%20KN%203%20Road%2C%20Kigali!3m2!1d-1.9664074999999999!2d30.103351699999997!4m5!1s0x19dca7985e753a99%3A0x69db8cd5b853fb3!2sInind%20House%2C%20KN%203%20Rd%2C%20Kigali!3m2!1d-1.9664074999999999!2d30.103351699999997!5e0!3m2!1sen!2srw!4v1752594056846!5m2!1sen!2srw"
-            title="ANIDEV TECHNOLOGIES office location in Kigali"
+            src="https://maps.google.com/maps?q=Mbugangari%2C%20Gisenyi%2C%20Rwanda&output=embed"
+            title="ANIDEV TECHNOLOGIES office location in Mbugangari, Gisenyi"
             className="h-72 w-full border-0 sm:h-96"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

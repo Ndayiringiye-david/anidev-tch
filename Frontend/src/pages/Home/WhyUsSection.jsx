@@ -91,7 +91,7 @@ export default function WhyUsSection() {
               </article>
             ))}
 
-            <div className="flex flex-col justify-center rounded-2xl bg-gradient-to-br from-blue-700 to-blue-900 p-6 text-white shadow-lg shadow-blue-900/15 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-8">
+            <div className="flex flex-col justify-center rounded-2xl bg-primary p-6 text-white shadow-lg shadow-primary-900/15 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-8">
               <div>
                 <p className="text-lg font-semibold">{t("Let's make progress together.")}</p>
                 <p className="mt-1 text-sm text-blue-100">

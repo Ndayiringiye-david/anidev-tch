@@ -1,21 +1,21 @@
-import { Globe, DollarSign, Users, CircleCheckBig } from 'lucide-react'
+import { BrainCircuit, ChartNoAxesCombined, Handshake, Check } from 'lucide-react'
 import { useLocale } from '../../i18n/LocaleContext'
 
 const cards = [
   {
-    icon: Globe,
+    icon: BrainCircuit,
     title: 'We Are Current with Trending Technologies',
     desc: 'We continuously upskill in AI, cloud, React, Node.js, and more — ensuring our solutions stay innovative, competitive, and future-ready for every client.',
     bullets: ['Continuous Learning', 'Certified Expertise', 'Modern Tools', 'Scalable Innovation'],
   },
   {
-    icon: DollarSign,
+    icon: ChartNoAxesCombined,
     title: 'We Are Efficient and Cost-Effective',
     desc: 'Through smart delivery practices and Africa\'s skilled talent pool, we help businesses scale faster while significantly reducing costs and maintaining top quality.',
     bullets: ['Smart Operations', 'Optimized Resources', 'Scalable Solutions'],
   },
   {
-    icon: Users,
+    icon: Handshake,
     title: 'We Go the Extra Mile for Our Clients',
     desc: 'Scale your product without the overhead. Get top engineering talent at competitive rates while we ensure compliance and long-term satisfaction.',
     bullets: ['Ongoing Support', 'Performance Tracking', 'Cultural Alignment', 'Client Satisfaction'],
@@ -43,15 +43,15 @@ export default function ChooseUsSection() {
               key={title}
               className="bg-white border-2 border-gray-100 rounded-xl p-8 hover:border-blue-600 hover:shadow-2xl transition-all group"
             >
-              <div className="w-14 h-14 bg-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-700 transition-colors">
-                <Icon className="w-7 h-7 text-white" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-700 mb-6">
+                <Icon className="h-5 w-5" aria-hidden="true" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">{t(title)}</h3>
               <p className="text-gray-600 mb-6">{t(desc)}</p>
               <ul className="space-y-3">
                 {bullets.map((b) => (
                   <li key={b} className="flex items-start">
-                    <CircleCheckBig className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" aria-hidden="true" />
                     <span className="text-gray-700">{t(b)}</span>
                   </li>
                 ))}
