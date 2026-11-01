@@ -83,4 +83,6 @@ The API is served under `/api/v1`:
 
 - The backend connects to MongoDB before it starts listening for requests.
 - Backend environment variables are documented in [`Backend/.env.example`](Backend/.env.example).
-- The website includes company information, services, insights, and contact pages. Some routes are currently placeholders.
+- The website includes company information, services, insights, testimonials, a Why Choose Us page, contact, partnership, and application pages.
+- The interface supports English and French. Use the language selector in the top bar; your choice is saved in the browser.
+- The products routes (`/products` and `/products/devbox`) are placeholders.
