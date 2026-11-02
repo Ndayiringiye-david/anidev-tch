@@ -63,6 +63,7 @@ export default function Footer() {
                   { label: 'Who We Are', href: '/who-we-are' },
                   { label: 'Testimonials', href: '/testimonials' },
                   { label: 'Services', href: '/services' },
+                  { label: 'Programs', href: '/programs' },
                   { label: 'Insights', href: '/insights' },
                   { label: 'Contact Us', href: '/contact' },
                   { label: 'Partner With Us', href: '/become-a-partner', badge: 'NEW' },

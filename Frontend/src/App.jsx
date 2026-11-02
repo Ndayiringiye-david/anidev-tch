@@ -13,6 +13,7 @@ import PartnershipPage from './pages/Partnership'
 import ApplyPage from './pages/Apply'
 import TestimonialsPage from './pages/Testimonials'
 import WhyChooseUsPage from './pages/WhyChooseUs'
+import ProgramsPage from './pages/Programs'
 
 function Layout({ children }) {
   return (
@@ -36,6 +37,7 @@ export default function App() {
             <Route path="/why-us" element={<WhyChooseUsPage />} />
             <Route path="/testimonials" element={<TestimonialsPage />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/programs" element={<ProgramsPage />} />
             <Route path="/products" element={<PlaceholderPage title="Our Products" />} />
             <Route path="/products/devbox" element={<PlaceholderPage title="DevBox" />} />
             <Route path="/insights" element={<InsightsPage />} />

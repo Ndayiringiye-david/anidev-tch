@@ -14,6 +14,7 @@ const navLinks = [
     ],
   },
   { label: 'Services', href: '/services' },
+  { label: 'Programs', href: '/programs' },
   {
     label: 'Products',
     dropdown: [

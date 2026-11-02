@@ -462,6 +462,41 @@ export const translations = {
     'High School Students': 'Élèves du secondaire',
     'University Students': 'Étudiants universitaires',
     'Training': 'Formation',
+    'Programs': 'Programmes',
+    'Anidev learning programs': 'Programmes de formation Anidev',
+    'Build skills for your next opportunity': 'Développez vos compétences pour saisir de nouvelles opportunités',
+    'Explore practical technology learning paths. Apply to the program that is open now, or see what is coming next.':
+      'Découvrez des parcours pratiques en technologie. Candidatez au programme ouvert ou explorez ceux à venir.',
+    'Explore programs': 'Découvrir les programmes',
+    'Enrollment open': 'Inscriptions ouvertes',
+    'Available program': 'Programme disponible',
+    'Start with a hands-on learning path designed to build practical skills through software projects.':
+      'Commencez un parcours pratique conçu pour développer vos compétences grâce à des projets logiciels.',
+    'Learn to build complete web applications, from responsive user interfaces to server-side features and data storage.':
+      'Apprenez à créer des applications web complètes, des interfaces adaptatives aux fonctionnalités serveur et au stockage des données.',
+    'Applications open': 'Candidatures ouvertes',
+    'Choose the next available cohort when you apply.': 'Choisissez la prochaine cohorte disponible lors de votre candidature.',
+    'What you will explore': 'Au programme',
+    'HTML, CSS, and JavaScript': 'HTML, CSS et JavaScript',
+    'React user interfaces': 'Interfaces utilisateur avec React',
+    'Node.js and APIs': 'Node.js et API',
+    'Databases and project deployment': 'Bases de données et déploiement de projets',
+    'Apply to this program': 'Candidater à ce programme',
+    'More learning paths': 'Autres parcours de formation',
+    'Coming soon': 'Bientôt disponible',
+    'These programs are in preparation. Contact us if you would like to hear when they launch.':
+      'Ces programmes sont en préparation. Contactez-nous pour être informé de leur lancement.',
+    'Ask about upcoming programs': 'Se renseigner sur les programmes à venir',
+    'Focus on responsive interfaces, modern JavaScript, and building polished experiences for the web.':
+      'Apprenez à créer des interfaces adaptatives et modernes avec JavaScript pour le web.',
+    'Explore server-side development, APIs, databases, and the foundations of reliable applications.':
+      'Découvrez le développement côté serveur, les API, les bases de données et les fondements d’applications fiables.',
+    'Discover practical data skills and the fundamentals of building with artificial intelligence.':
+      'Découvrez les compétences pratiques liées aux données et les bases de la création avec l’intelligence artificielle.',
+    'Learn the concepts behind cloud infrastructure, deployment, and modern development operations.':
+      'Apprenez les principes de l’infrastructure cloud, du déploiement et des opérations de développement modernes.',
+    'Practice user research, interface design, and prototyping for useful digital products.':
+      'Pratiquez la recherche utilisateur, la conception d’interfaces et le prototypage de produits numériques utiles.',
     'Software': 'Logiciels',
     'Consulting': 'Conseil',
     'What we offer': 'Nos services',
