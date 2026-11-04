@@ -85,4 +85,5 @@ The API is served under `/api/v1`:
 - Backend environment variables are documented in [`Backend/.env.example`](Backend/.env.example).
 - The website includes company information, services, insights, testimonials, a Why Choose Us page, contact, partnership, and application pages.
 - The interface supports English and French. Use the language selector in the top bar; your choice is saved in the browser.
+- The Programs page lists the currently open Full-Stack Development program and upcoming learning paths.
 - The products routes (`/products` and `/products/devbox`) are placeholders.
