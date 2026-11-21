@@ -2,6 +2,23 @@
 
 AniDev TCH is a full-stack website for ANIDEV TECHNOLOGIES, connecting global employers with skilled talent across Africa. This monorepository contains a responsive React frontend and an Express REST API backed by MongoDB.
 
+## Quick Start
+
+```powershell
+# Terminal 1 - API
+cd Backend
+npm install
+npm run dev
+
+# Terminal 2 - Web app
+cd Frontend
+npm install
+npm run dev
+```
+
+The frontend is available at `http://localhost:5173` and the API at `http://localhost:5000`.
+Update `MONGO_URI` and `JWT_SECRET` in `Backend/.env` before starting the API.
+
 ## Overview
 
 The platform presents company services, programs, partnerships, testimonials, insights, and application opportunities through a multilingual interface.
