@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { ChevronDown, Menu, X, Zap } from 'lucide-react'
+import { ChevronDown, Menu, Moon, Sun, X, Zap } from 'lucide-react'
 import { useLocale } from '../../i18n/LocaleContext'
+import { useTheme } from '../../theme/ThemeContext'
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -28,6 +29,7 @@ const navLinks = [
 
 export default function Navbar() {
   const { t } = useLocale()
+  const { theme, toggleTheme } = useTheme()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null)
   const location = useLocation()
@@ -35,6 +37,20 @@ export default function Navbar() {
   const isActive = (href) => location.pathname === href
   const isDropdownActive = (items) =>
     items.some(({ href }) => location.pathname === href || location.pathname.startsWith(`${href}/`))
+  const themeLabel = theme === 'dark' ? t('Switch to light theme') : t('Switch to dark theme')
+
+  const themeToggle = (
+    <button
+      type="button"
+      aria-label={themeLabel}
+      aria-pressed={theme === 'light'}
+      title={themeLabel}
+      onClick={toggleTheme}
+      className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 text-slate-200 transition-all duration-200 hover:border-blue-400/40 hover:bg-white/10 hover:text-blue-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+    >
+      {theme === 'dark' ? <Sun className="h-5 w-5" aria-hidden="true" /> : <Moon className="h-5 w-5" aria-hidden="true" />}
+    </button>
+  )
 
   return (
     <header className="sticky top-0 z-50 isolate w-full">
@@ -112,6 +128,7 @@ export default function Navbar() {
 
           {/* Desktop CTAs */}
           <div className="hidden shrink-0 items-center gap-2 lg:flex">
+            {themeToggle}
             <Link
               to="/become-a-partner"
               className="rounded-full border border-white/15 px-4 py-2.5 text-[13px] font-semibold text-slate-200 transition-all duration-200 hover:border-blue-400/40 hover:bg-blue-500/10 hover:text-blue-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:scale-[0.98]"
@@ -131,16 +148,19 @@ export default function Navbar() {
           </div>
 
           {/* Mobile toggle */}
-          <button
-            type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 text-slate-200 transition-all duration-200 hover:border-blue-400/40 hover:bg-white/10 hover:text-blue-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 lg:hidden"
-            aria-label={mobileOpen ? t('Close menu') : t('Open menu')}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-navigation"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            {themeToggle}
+            <button
+              type="button"
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 text-slate-200 transition-all duration-200 hover:border-blue-400/40 hover:bg-white/10 hover:text-blue-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 lg:hidden"
+              aria-label={mobileOpen ? t('Close menu') : t('Open menu')}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
+              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
       </div>
 

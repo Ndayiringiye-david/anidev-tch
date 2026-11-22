@@ -295,6 +295,8 @@ export const translations = {
     'Main navigation': 'Navigation principale',
     'Mobile navigation': 'Navigation mobile',
     'AnidevTech home': 'Accueil AnidevTech',
+    'Switch to light theme': 'Passer au thème clair',
+    'Switch to dark theme': 'Passer au thème sombre',
     'From Classroom to Global Client: A Graduate Story': 'De la salle de classe à la clientèle internationale : le parcours d’un diplômé',
     'How one young professional turned practical training and mentorship into a career serving international clients from Kigali.':
       'Comment un jeune professionnel a transformé une formation pratique et un mentorat en carrière au service de clients internationaux depuis Kigali.',
