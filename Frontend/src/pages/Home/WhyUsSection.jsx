@@ -50,7 +50,7 @@ export default function WhyUsSection() {
         </div>
 
         <div className="grid items-stretch gap-6 lg:grid-cols-[0.88fr_1.12fr] lg:gap-8">
-          <div className="group relative min-h-[420px] overflow-hidden rounded-[1.75rem] bg-slate-900 shadow-xl shadow-slate-900/10 sm:min-h-[500px]">
+          <div className="talent-purpose-card group relative min-h-[420px] overflow-hidden rounded-[1.75rem] bg-slate-900 shadow-xl shadow-slate-900/10 sm:min-h-[500px]">
             <img
               src={teamPhoto}
               alt="African technology professionals collaborating in their workspace"
@@ -58,15 +58,15 @@ export default function WhyUsSection() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/10 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-7 sm:p-9">
-              <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm">
+              <span className="talent-purpose-badge inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm">
                 {t('Talent with purpose')}
               </span>
-              <h3 className="mt-4 max-w-md text-2xl font-semibold leading-snug text-white sm:text-3xl">
+              <h3 className="talent-purpose-heading mt-4 max-w-md text-2xl font-semibold leading-snug text-white sm:text-3xl">
                 {t('Local expertise.')}
                 <br />
                 {t('Global perspective.')}
               </h3>
-              <p className="mt-3 max-w-md text-sm leading-6 text-slate-200">
+              <p className="talent-purpose-copy mt-3 max-w-md text-sm leading-6 text-slate-200">
                 {t('We create meaningful opportunities while helping organizations access the skills they need to grow.')}
               </p>
             </div>

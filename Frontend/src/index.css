@@ -170,6 +170,39 @@ html[data-theme="light"] header [class~="hover:bg-white/5"]:hover {
   background-color: #f1f5f9;
 }
 
+html[data-theme="light"] .talent-purpose-card {
+  background-color: #eff6ff;
+  background-image: none;
+  box-shadow: 0 20px 45px -20px rgba(15, 23, 42, 0.18);
+}
+
+html[data-theme="light"] .talent-purpose-badge {
+  border-color: #bfdbfe;
+  background-color: #ffffff;
+  color: #1d4ed8;
+}
+
+html[data-theme="light"] .talent-purpose-heading {
+  color: #0f172a;
+}
+
+html[data-theme="light"] .talent-purpose-copy {
+  color: #475569;
+}
+
+html[data-theme="dark"] .talent-purpose-card {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .talent-purpose-heading {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .talent-purpose-copy {
+  color: #e2e8f0;
+}
+
 
 .counter {
   font-size: 16px;
