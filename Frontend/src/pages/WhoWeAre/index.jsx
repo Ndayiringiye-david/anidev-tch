@@ -170,7 +170,7 @@ export default function WhoWeArePage() {
                   </div>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight z-10 relative">
-                  {t('We create pathways for Africa’s youth to thrive in the global digital economy while helping companies scale efficiently and responsibly.')}
+                  {t('We unlock human potential by pairing Africa’s emerging talent with meaningful global opportunities—building careers with purpose and helping businesses grow through skilled, responsible partnerships.')}
                 </h3>
                 <div className="h-2 bg-gradient-to-r w-20 from-blue-400 to-primary-600 rounded-full" />
               </div>
@@ -187,7 +187,7 @@ export default function WhoWeArePage() {
                   </div>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight text-primary relative z-10">
-                  {t('To transform Africa’s potential into global progress through inclusive, future-ready outsourcing.')}
+                  {t('To build a borderless future where African talent is not just part of the global workforce, but a leading force behind the world’s boldest ideas and lasting progress.')}
                 </h3>
                 <div className="h-2 bg-gradient-to-r w-20 from-blue-400 to-primary-600 rounded-full" />
               </div>

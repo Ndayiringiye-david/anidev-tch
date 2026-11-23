@@ -343,10 +343,10 @@ export const translations = {
       'Avec plus d’un milliard d’habitants, dont 60 % ont moins de 25 ans, l’Afrique dispose d’un immense vivier de talents ambitieux et compétents. Pourtant, beaucoup restent éloignés des possibilités internationales. Anidev Technologies leur apporte des compétences recherchées et les met directement en relation avec des entreprises internationales en quête d’expertise fiable et abordable. Depuis le Rwanda, l’une des économies les plus dynamiques et connectées d’Afrique, nous faisons évoluer l’externalisation afin d’obtenir des résultats de qualité pour les entreprises et de créer des carrières porteuses de sens pour la jeunesse africaine.',
     'These numbers represent real lives transformed and careers launched across Africa.':
       'Ces chiffres témoignent de vies transformées et de carrières lancées à travers l’Afrique.',
-    'We create pathways for Africa’s youth to thrive in the global digital economy while helping companies scale efficiently and responsibly.':
-      'Nous ouvrons aux jeunes Africains la voie vers l’économie numérique mondiale, tout en aidant les entreprises à se développer efficacement et de manière responsable.',
-    'To transform Africa’s potential into global progress through inclusive, future-ready outsourcing.':
-      'Transformer le potentiel de l’Afrique en progrès mondial grâce à une externalisation inclusive et tournée vers l’avenir.',
+    'We unlock human potential by pairing Africa’s emerging talent with meaningful global opportunities—building careers with purpose and helping businesses grow through skilled, responsible partnerships.':
+      'Nous révélons le potentiel humain en associant les talents émergents d’Afrique à des opportunités mondiales porteuses de sens — construire des carrières avec ambition et accompagner la croissance des entreprises grâce à des partenariats compétents et responsables.',
+    'To build a borderless future where African talent is not just part of the global workforce, but a leading force behind the world’s boldest ideas and lasting progress.':
+      'Construire un avenir sans frontières où les talents africains ne se limitent pas à rejoindre la main-d’œuvre mondiale, mais deviennent une force motrice des idées les plus audacieuses et des progrès durables.',
     'Our approach is grounded in three key pillars that drive excellence and innovation across all our operations':
       'Notre approche repose sur trois piliers essentiels qui favorisent l’excellence et l’innovation dans toutes nos activités.',
     'Quality and Reliability': 'Qualité et fiabilité',
