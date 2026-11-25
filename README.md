@@ -17,6 +17,21 @@
 
 AniDev TCH is the full-stack web platform for **ANIDEV TECHNOLOGIES**, a Rwanda-based organization connecting international businesses with reliable African talent. The monorepository contains a polished, responsive React website and an Express REST API backed by MongoDB.
 
+## Table of Contents
+
+- [Project Preview](#project-preview)
+- [Highlights](#highlights)
+- [Technology Stack](#technology-stack)
+- [Repository Structure](#repository-structure)
+- [Getting Started](#getting-started)
+- [Environment Variables](#environment-variables)
+- [Available Scripts](#available-scripts)
+- [Frontend Pages](#frontend-pages)
+- [API Reference](#api-reference)
+- [Production Build](#production-build)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+
 ## Project Preview
 
 <table>
@@ -44,15 +59,20 @@ AniDev TCH is the full-stack web platform for **ANIDEV TECHNOLOGIES**, a Rwanda-
 
 ## Highlights
 
-- Responsive business website built with React 19 and Vite
-- English and French interface localization
-- Dedicated pages for company information, services, programs, insights, testimonials, applications, and partnerships
-- Corporate design system using Tailwind CSS and Lucide icons
+- Responsive, mobile-first website built with React 19 and Vite
+- English and French translation support
+- Dedicated sections for company information, services, programs, insights, testimonials, applications, and partnerships
+- Consistent visual system using Tailwind CSS 4 and Lucide icons
 - Light and dark theme support
-- JWT authentication API with registration and login validation
-- Password hashing with bcrypt and protected profile access
-- Secure Express configuration using Helmet, CORS, and request-size limits
-- MongoDB integration with Mongoose
+- Application workflow for collecting candidate information and preparing an email submission
+- JWT authentication API with registration, login, validation, and protected profile access
+- Password hashing with bcryptjs
+- Secure Express defaults for CORS, Helmet security headers, payload limits, and HTTP logging
+- MongoDB integration through Mongoose
+
+## Project Status
+
+The public website and core authentication API are implemented. The `/products` and `/products/devbox` routes are intentionally placeholder pages while product content is prepared. The backend currently provides health and authentication endpoints; it does not yet expose content-management or application-submission endpoints.
 
 ## Technology Stack
 
@@ -160,7 +180,7 @@ Restart Vite after changing frontend environment variables.
 | `PORT` | No | `5000` | HTTP server port |
 | `NODE_ENV` | No | `development` | Runtime environment |
 | `MONGO_URI` | Yes | None | MongoDB connection string |
-| `JWT_SECRET` | Yes | Development fallback | Secret used to sign JWTs |
+| `JWT_SECRET` | Yes | Development fallback | Secret used to sign JWTs; must be replaced in production |
 | `JWT_EXPIRES_IN` | No | `7d` | JWT lifetime |
 | `BCRYPT_SALT_ROUNDS` | No | `12` | bcrypt cost factor |
 | `CLIENT_URL` | No | `http://localhost:5173` | Allowed frontend origin for CORS |
