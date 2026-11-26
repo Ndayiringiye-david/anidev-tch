@@ -23,10 +23,10 @@ export function HeroSection() {
             <p className="text-sm md:text-base mb-4 text-white bg-label/30 inline-block px-4 py-2 rounded-full font-semibold">
               {t('Smart Talent. Global Reach.')}
             </p>
-            <h1 className="text-4xl leading-[50px] uppercase md:text-5xl md:leading-[70px] lg:text-5xl lg:leading-[60px] font-bold mb-4">
+            <h1 className="text-3xl leading-[42px] uppercase md:text-4xl md:leading-[54px] lg:text-4xl lg:leading-[52px] font-bold mb-4">
               {t('Connecting Global Employers to Skilled Talents From Africa.')}
             </h1>
-            <p className="text-lg md:text-lg mb-8 text-slate-200 leading-relaxed">
+            <p className="text-base md:text-base mb-8 text-slate-200 leading-relaxed">
               {t("We're more than a BPO company. We are your strategic bridge to Africa's vibrant, tech-ready workforce. ANIDEV TECHNOLOGIES connects you with skilled, certified professionals who deliver excellence and drive innovation across borders.")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
