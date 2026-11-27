@@ -30,12 +30,12 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  color: #cbd5e1;
+  color: #000000;
   transition: color 200ms ease, transform 200ms ease;
 }
 
 .partner:hover {
-  color: #2563eb;
+  color: #000000;
   transform: translateY(-3px);
 }
 
@@ -46,13 +46,14 @@
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  background: #111b2d;
-  color: #93c5fd;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #000000;
   transition: background-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
 }
 
 .partner:hover .badge {
-  background: #142b4f;
+  background: #eff6ff;
   box-shadow: 0 6px 16px -8px rgb(37 99 235 / 45%);
   transform: scale(1.05);
 }

@@ -110,6 +110,8 @@ export const translations = {
     'Please attach the CV file named above before sending this email.':
       'Veuillez joindre le CV indiqué ci-dessus avant d’envoyer cet e-mail.',
     'Smart Talent. Global Reach.': 'Des talents qualifiés. Une portée mondiale.',
+    'Connecting Global Employers': 'Mettre en relation les entreprises mondiales',
+    'to Skilled Talents From Africa.': 'avec des talents qualifiés d’Afrique.',
     'Connecting Global Employers to Skilled Talents From Africa.':
       'Mettre en relation les entreprises mondiales avec des talents qualifiés d’Afrique.',
     "We're more than a BPO company. We are your strategic bridge to Africa's vibrant, tech-ready workforce. ANIDEV TECHNOLOGIES connects you with skilled, certified professionals who deliver excellence and drive innovation across borders.":

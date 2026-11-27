@@ -23,8 +23,9 @@ export function HeroSection() {
             <p className="text-sm md:text-base mb-4 text-white bg-label/30 inline-block px-4 py-2 rounded-full font-semibold">
               {t('Smart Talent. Global Reach.')}
             </p>
-            <h1 className="text-3xl leading-[42px] uppercase md:text-4xl md:leading-[54px] lg:text-4xl lg:leading-[52px] font-bold mb-4">
-              {t('Connecting Global Employers to Skilled Talents From Africa.')}
+            <h1 className="max-w-3xl text-2xl leading-tight uppercase sm:text-3xl md:text-3xl md:leading-tight lg:text-3xl lg:leading-tight font-bold mb-4">
+              <span className="block">{t('Connecting Global Employers')}</span>
+              <span className="block">{t('to Skilled Talents From Africa.')}</span>
             </h1>
             <p className="text-base md:text-base mb-8 text-slate-200 leading-relaxed">
               {t("We're more than a BPO company. We are your strategic bridge to Africa's vibrant, tech-ready workforce. ANIDEV TECHNOLOGIES connects you with skilled, certified professionals who deliver excellence and drive innovation across borders.")}
